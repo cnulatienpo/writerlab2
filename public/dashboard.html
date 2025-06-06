@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writer Lab – Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+    .dashboard {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+    }
+    .card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #f4f4f4;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 2px solid #f4f4f4;
+      border-radius: 6px;
+    }
+    .card a:hover {
+      background: #f4f4f4;
+      color: #111;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Your Lab Bench</h1>
+  <div class="dashboard">
+    <div class="card">
+      <h2>📁 My Writing</h2>
+      <p>View your drafts, saved sessions, and uploaded files. Everything you’ve written, all in one place.</p>
+      <a href="/uploads">View Writing</a>
+    </div>
+
+    <div class="card">
+      <h2>🧠 AI Feedback</h2>
+      <p>Revisit AI brainstorms, suggestions, and feedback from your writing sessions.</p>
+      <a href="/feedback">Go to Feedback</a>
+    </div>
+
+    <div class="card">
+      <h2>🎮 Game Progress</h2>
+      <p>Check which elements you’ve unlocked, which rooms you’ve played, and what’s left to explore.</p>
+      <a href="/progress">View Progress</a>
+    </div>
+
+    <div class="card">
+      <h2>🎟 Tokens & Access</h2>
+      <p>View your current token balance, usage history, and purchase more if needed.</p>
+      <a href="/tokens">Token Dashboard</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Writer Lab — You write the truth. We’ve got the tools.
+  </footer>
+</body>
+</html>

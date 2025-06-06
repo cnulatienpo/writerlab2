@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Your Profile</title></head>
+<body>
+  <h1>Profile</h1>
+  <p>Welcome, <span id="username">[username]</span></p>
+
+  <h2>Update Password</h2>
+  <form action="/auth/update-password" method="POST">
+    <input name="newPassword" type="password" placeholder="New Password" required />
+    <button type="submit">Update Password</button>
+  </form>
+
+  <a href="/welcome.html">Back to Home</a>
+</body>
+</html>

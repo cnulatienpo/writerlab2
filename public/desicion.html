@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Decision</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>⚖️ Decision</h1>
+    <p class="definition">A decision is when the character chooses—actively, knowingly, and with consequence. It defines them. It moves the story. And it shows us who they are when it counts.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>It’s not about what happens to them. It’s what they choose to do. Good decisions, bad ones, desperate ones—they all carry weight. The story should change because of what they decide.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Thelma & Louise</strong> – They drive off the cliff. No hesitation, no turning back.</div>
+      <div class="example"><strong>Breaking Bad</strong> – Walter chooses not to take the money. He goes back to the game.</div>
+      <div class="example"><strong>Inside Out</strong> – Joy hands the controls to Sadness. That’s the real growth.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Scene with a decision point]</div>
+      <label>What’s the choice?</label>
+      <textarea></textarea>
+      <label>What does it cost?</label>
+      <textarea></textarea>
+      <label>What does it reveal?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Scene with passive character]</div>
+      <label>Why doesn’t this moment matter?</label>
+      <textarea></textarea>
+      <label>What choice could be forced here?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Write the scene with no decision:</label>
+      <textarea></textarea>
+      <label>Now make the character choose—really choose:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Put your character on the edge—then make them pick a side.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>They can’t save both.</option>
+        <option>One truth, one lie. Pick one to tell.</option>
+        <option>Walk away or make it worse?</option>
+        <option>They finally get what they wanted... or what they need.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="What will they choose?"></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Every choice writes a story.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🧩 Tropes: Forces of Choice</h2>
+    <div class="trope"><strong>The Ultimatum</strong> – They must choose now or lose everything.</div>
+    <div class="trope"><strong>The Moral Fork</strong> – Right vs easy. They can’t have both.</div>
+    <div class="trope"><strong>The Clock Is Ticking</strong> – Time makes the decision urgent.</div>
+    <div class="trope"><strong>The Point of No Return</strong> – Once chosen, they can’t go back.</div>
+    <div class="trope"><strong>The Lesser Evil</strong> – Both options hurt.</div>
+    <div class="trope"><strong>Choose One Life</strong> – Save one, lose another.</div>
+    <div class="trope"><strong>The Big Reveal</strong> – New truth demands a new decision.</div>
+    <div class="trope"><strong>The Temptation</strong> – What they want is right there—will they take it?</div>
+    <div class="trope"><strong>The Past Returns</strong> – A choice they made before resurfaces now.</div>
+    <div class="trope"><strong>The Hero’s Reluctance</strong> – They don’t want to decide, but they have to.</div>
+    <div class="trope"><strong>Cross the Line</strong> – Will they do something they swore they never would?</div>
+    <div class="trope"><strong>Take the Throne</strong> – Step into power… or reject it.</div>
+    <div class="trope"><strong>Abandon the Mission</strong> – Loyalty or freedom?</div>
+    <div class="trope"><strong>The Vow Breaker</strong> – They promised. Now it costs them.</div>
+    <div class="trope"><strong>The Sacrifice</strong> – Someone has to lose.</div>
+    <div class="trope"><strong>The Confession</strong> – Truth or comfort?</div>
+    <div class="trope"><strong>The Door Closes</strong> – It’s now or never.</div>
+    <div class="trope"><strong>Love or Duty</strong> – Can’t have both. Choose.</div>
+    <div class="trope"><strong>The Redemption Offer</strong> – One shot to change who they are.</div>
+    <div class="trope"><strong>Change Sides</strong> – Stay loyal… or join the enemy.</div>
+
+    <h2 style="margin-top: 2rem;">⛔ Tropes: Choice Avoidance</h2>
+    <div class="trope"><strong>The Passive Protagonist</strong> – Things just happen to them.</div>
+    <div class="trope"><strong>The Deus Ex Solution</strong> – Magic or luck makes the decision go away.</div>
+    <div class="trope"><strong>The Endless Delay</strong> – They keep stalling the choice.</div>
+    <div class="trope"><strong>The Flinch</strong> – They start to act… then back out.</div>
+    <div class="trope"><strong>The Offscreen Decision</strong> – We don’t see them choose—we’re just told.</div>
+    <div class="trope"><strong>The Non-Decision</strong> – They agree with whatever’s happening.</div>
+    <div class="trope"><strong>The It-Was-Obvious</strong> – The choice is too easy.</div>
+    <div class="trope"><strong>The Coin Toss</strong> – They don’t decide. They leave it to chance.</div>
+    <div class="trope"><strong>The Group Vote</strong> – The protagonist avoids choosing alone.</div>
+    <div class="trope"><strong>The Silent Walk-Away</strong> – They ghost the problem instead of resolving it.</div>
+    <div class="trope"><strong>The Collapse</strong> – Emotional overload stops them from acting.</div>
+    <div class="trope"><strong>The Outsider’s Call</strong> – Someone else chooses for them.</div>
+    <div class="trope"><strong>The Win-Win Copout</strong> – They get both options with no cost.</div>
+    <div class="trope"><strong>The Monologue Stall</strong> – They talk instead of act.</div>
+    <div class="trope"><strong>The Sleep-On-It</strong> – They literally avoid deciding until later.</div>
+    <div class="trope"><strong>The Distraction Detour</strong> – Something interrupts the moment.</div>
+    <div class="trope"><strong>The Ignored Call</strong> – They refuse to face the choice.</div>
+    <div class="trope"><strong>The Endless Pro/Con List</strong> – Indecision paralyzed by thought.</div>
+    <div class="trope"><strong>The Scene Skip</strong> – Story moves on without showing the decision.</div>
+    <div class="trope"><strong>The Always Agreeable</strong> – They never push back.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

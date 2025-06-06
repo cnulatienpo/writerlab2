@@ -1,0 +1,44 @@
+{
+  "title": "Desire",
+  "category": "Character",
+  "definition": "Somebody wants something. That’s the first beat of fiction. Everything else—conflict, character, theme—bends around the want.",
+  "lesson_parts": [
+    {
+      "title": "What Is Desire?",
+      "body": "Desire is the fuel in the engine. It’s the reason your character moves at all. It can be a goal, a feeling, or a secret itch. It doesn’t need to be rational or noble—just powerful enough to make them act."
+    },
+    {
+      "title": "What Does Desire Do In a Story?",
+      "body": "Desire creates momentum, stakes, and emotion. It tells us who a character is before they say anything. If nobody wants anything, nothing happens. If nothing stands in their way, it’s a diary—not a story."
+    },
+    {
+      "title": "Types of Desire (and Their Vibe)",
+      "body": "Concrete: 'Win the fight.' Emotional: 'Be understood.' Existential: 'Feel like I matter.' Impulsive: 'Set something on fire.' Forbidden: 'Hurt him.' Competing: 'Save them, but also get revenge.'"
+    }
+  ],
+  "passages": [
+    {
+      "source": "Original",
+      "scene": "Theo stood outside the admissions office for ten full minutes...",
+      "analysis": {
+        "who": "Theo",
+        "how_do_we_know": "He’s holding a packet and waiting even though he says he doesn’t care.",
+        "say_show_hide": "He hides it from himself and others, but his body shows it."
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "label": "Pressure Cooker (Hidden Desire)",
+      "description": "Brainstorm a scene where a character almost says what they want, but doesn't.",
+      "system": "You are a creative writing coach. You help players brainstorm by asking open-ended questions and suggesting story ideas. You never write for them.",
+      "user": "The player wants to write a scene about hidden desire but doesn’t know what the character wants yet. Help them brainstorm by asking 2–3 questions and offering ideas for how that desire could be shown indirectly."
+    },
+    {
+      "label": "Reveal Through Action",
+      "description": "Brainstorm a scene where a character never says what they want, but we know anyway.",
+      "system": "You are a creative writing coach. You help players explore ideas without writing for them. Ask questions, offer examples, and encourage emotional honesty.",
+      "user": "Help the player invent a character who hides their desire. Offer 2–3 ways this could be revealed through behavior, not speech. Let them pick."
+    }
+  ]
+}

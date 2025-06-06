@@ -1,0 +1,44 @@
+{
+  "title": "Scene",
+  "category": "Action & Structure",
+  "definition": "A scene is a heartbeat. It happens in a place, at a time, with people who want something.",
+  "lesson_parts": [
+    {
+      "title": "What Is a Scene?",
+      "body": "A scene is the smallest unit of narrative that contains action and emotion. It’s where something happens—and someone reacts. Scenes are the ground-level fuel of storytelling."
+    },
+    {
+      "title": "What Does a Scene Do?",
+      "body": "A scene moves the story forward. It creates pressure. It reveals character. It sets stakes, delivers consequences, or sparks change. Good scenes either tighten or shift the tension."
+    },
+    {
+      "title": "Scene Ingredients",
+      "body": "Location, Time, Characters, Desire, Conflict, Stakes, Change. At least some of these must be present for the scene to matter. A talking head monologue might still be a scene—if the stakes are emotional."
+    }
+  ],
+  "passages": [
+    {
+      "source": "Original",
+      "scene": "They sat in the car in front of the old house. Neither of them reached for the door. Rain ticked the windshield. He finally said, 'You sure you want to do this?' She shook her head—then opened the door.",
+      "analysis": {
+        "who": "They both want something—the courage to go inside.",
+        "how_do_we_know": "The stillness, the question, the hesitation—it builds tension.",
+        "say_show_hide": "They say almost nothing. But their bodies show the truth."
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "label": "Pressure Inside the Frame",
+      "description": "Brainstorm a scene that happens in one place, in real time, with rising emotional pressure.",
+      "system": "You are a writing coach helping players design scenes that trap characters in a single space. Offer location ideas and types of pressure they could explore.",
+      "user": "The player wants to write a scene in a single location. Ask what the characters want from each other. Suggest 2–3 ways tension could rise in the space without leaving it."
+    },
+    {
+      "label": "Entry/Exit Shift",
+      "description": "Brainstorm a scene where the character enters in one state—and exits changed.",
+      "system": "You are a writing coach helping players shape story beats. Focus on how a scene can start in one emotional key and end in another.",
+      "user": "The player wants to build a scene that changes their character. Ask how they enter (emotionally or physically), and what forces the change by the end. Offer a few transitions to build around."
+    }
+  ]
+}

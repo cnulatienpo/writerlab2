@@ -1,0 +1,44 @@
+{
+  "title": "Structure",
+  "category": "Narrative Shape",
+  "definition": "Structure is how the story holds together. It's the spine, the rhythm, and the rise. Without it, a story floats—or collapses.",
+  "lesson_parts": [
+    {
+      "title": "What Is Structure?",
+      "body": "Structure is the shape of the story. It organizes events, changes, and stakes over time. Scenes are the bricks—structure is the blueprint. It’s not a formula, but a rhythm of rise and fall."
+    },
+    {
+      "title": "What Does Structure Do?",
+      "body": "It builds tension. It gives stories momentum. It makes the climax land and the resolution matter. Good structure carries the reader through time, escalation, and emotional payoff."
+    },
+    {
+      "title": "Core Structural Tools",
+      "body": "• **Arc** – The emotional or thematic rise and fall (e.g., hero’s journey, tragedy, spiral)\n• **Chapter** – A unit of pacing and tone shift; often structured around a new location, beat, or POV\n• **Climax** – The moment of greatest intensity—where stakes peak and a choice or consequence lands"
+    }
+  ],
+  "passages": [
+    {
+      "source": "Original",
+      "scene": "She’d waited the whole book for her brother to call. And now, in chapter sixteen, the phone finally rang. But it wasn’t him—it was the police. The next chapter was just one page long: her driving to the station in silence.",
+      "analysis": {
+        "who": "She wants connection—but receives a shock instead.",
+        "how_do_we_know": "The placement of the call—deep in the story—signals climax. The one-page chapter after gives it space to breathe.",
+        "say_show_hide": "The structure itself shows the emotional impact."
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "label": "Build the Arc",
+      "description": "Brainstorm the emotional shape of a story, using one of your characters.",
+      "system": "You are a writing coach helping players sketch arcs. Help them identify the emotional 'start' and 'end'—then guess what beats must fall between.",
+      "user": "The player wants to find the emotional arc of their story. Ask them how the character starts emotionally, and how they end. Offer 2–3 paths that could connect those points (rise, fall, spiral, reversal)."
+    },
+    {
+      "label": "The One-Page Chapter",
+      "description": "Brainstorm a scene so intense or emotionally charged, it deserves its own chapter.",
+      "system": "You are a writing coach helping players use structure to emphasize emotion. Help them invent a turning point that would hit hardest in isolation.",
+      "user": "The player wants to isolate a key moment in their story. Ask what scene could be powerful enough to stand alone. Offer a few reasons to break it into a single page—shock, silence, aftermath, or finality."
+    }
+  ]
+}

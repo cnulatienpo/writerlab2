@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Stakes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🔥 Stakes</h1>
+    <p class="definition">Stakes are what’s on the line. If the character fails—what do they lose? If they win—what do they gain?</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Without stakes, nothing matters. It’s not enough for characters to want something—they have to stand to lose something, too. Stakes create urgency, meaning, and emotional pull.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>The Hunger Games</strong> – If Katniss fails, she dies. If she wins, she’s a symbol of rebellion.</div>
+      <div class="example"><strong>Finding Nemo</strong> – If Marlin fails, he loses his son forever.</div>
+      <div class="example"><strong>Pride and Prejudice</strong> – If Elizabeth chooses wrong, she marries for money, not love.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Scene with strong stakes]</div>
+      <label>What could be lost?</label>
+      <textarea></textarea>
+      <label>What could be gained?</label>
+      <textarea></textarea>
+      <label>Do we feel the urgency?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Scene without any clear stakes]</div>
+      <label>Why doesn’t this matter?</label>
+      <textarea></textarea>
+      <label>What’s missing from the tension?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Write a version with no risk or urgency:</label>
+      <textarea></textarea>
+      <label>Now rewrite it with stakes that hurt:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Tell us what’s on the line. Make us care what happens.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>If they fail, they lose something precious.</option>
+        <option>If they win, something even worse happens.</option>
+        <option>If they walk away, someone else pays the price.</option>
+        <option>The stakes are emotional, not physical—what hurts more?</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="What's at stake?"></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Make it matter.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🎭 Tropes: High Stakes</h2>
+    <div class="trope"><strong>The Clock Is Ticking</strong> – There's a deadline, and it’s brutal.</div>
+    <div class="trope"><strong>The Hostage Situation</strong> – Someone else’s life is on the line.</div>
+    <div class="trope"><strong>The Betrayal</strong> – Someone close might turn.</div>
+    <div class="trope"><strong>The Fall From Grace</strong> – If they fail, their reputation or identity crumbles.</div>
+    <div class="trope"><strong>The Ultimatum</strong> – A hard choice with no good options.</div>
+    <div class="trope"><strong>The One Shot</strong> – This chance won’t come again.</div>
+    <div class="trope"><strong>The Innocent in Danger</strong> – Someone vulnerable is caught in the crossfire.</div>
+    <div class="trope"><strong>The Burn It All</strong> – The risk includes everything they care about.</div>
+    <div class="trope"><strong>The Test of Loyalty</strong> – Can they stay true under pressure?</div>
+    <div class="trope"><strong>The Moral Crossroads</strong> – Right vs. easy. And they can’t have both.</div>
+    <div class="trope"><strong>The Do-or-Die</strong> – Literal survival.</div>
+    <div class="trope"><strong>The Big Reveal</strong> – If the truth comes out, everything changes.</div>
+    <div class="trope"><strong>The Close Call</strong> – Narrow escape makes the stakes feel sharper.</div>
+    <div class="trope"><strong>The Final Hour</strong> – It all comes down to this moment.</div>
+    <div class="trope"><strong>The Sacrifice Play</strong> – Someone might not make it.</div>
+    <div class="trope"><strong>The Wrong Choice Hurts</strong> – A mistake has massive consequences.</div>
+    <div class="trope"><strong>The Avalanche</strong> – One decision starts an unstoppable chain.</div>
+    <div class="trope"><strong>The No-Win Scenario</strong> – Both outcomes cost something.</div>
+    <div class="trope"><strong>The Public Failure</strong> – Everyone’s watching, and it could go badly.</div>
+    <div class="trope"><strong>The Ticking Bomb</strong> – Not just literal. A secret or lie set to explode.</div>
+
+    <h2 style="margin-top: 2rem;">⛔ Tropes: Low Stakes</h2>
+    <div class="trope"><strong>The Casual Favor</strong> – Helping someone, but nothing happens if they don’t.</div>
+    <div class="trope"><strong>The Side Quest</strong> – Fun, but doesn’t affect the core story.</div>
+    <div class="trope"><strong>The Polite Argument</strong> – They disagree, but nothing’s actually at risk.</div>
+    <div class="trope"><strong>The Paper Conflict</strong> – Stakes are stated, but we don’t feel them.</div>
+    <div class="trope"><strong>The Safe Space</strong> – Nothing can go wrong here, ever.</div>
+    <div class="trope"><strong>The Non-Choice</strong> – It looks like a decision, but the answer is obvious.</div>
+    <div class="trope"><strong>The Comedy Reset</strong> – Nothing sticks. Everything resets.</div>
+    <div class="trope"><strong>The Unfelt Loss</strong> – A character dies or leaves, and nobody cares.</div>
+    <div class="trope"><strong>The Overexplained Risk</strong> – We’re told it matters, but it doesn’t feel real.</div>
+    <div class="trope"><strong>The Convenience Fix</strong> – Problem solved too easily.</div>
+    <div class="trope"><strong>The Offscreen Danger</strong> – Stakes are elsewhere. We’re not shown them.</div>
+    <div class="trope"><strong>The Minor Inconvenience</strong> – Losing means… they’re mildly annoyed.</div>
+    <div class="trope"><strong>The Too-Late Stakes</strong> – We don’t find out what matters until the end.</div>
+    <div class="trope"><strong>The Joke Undercut</strong> – A punchline deflates the tension.</div>
+    <div class="trope"><strong>The Unbalanced Risk</strong> – One side clearly has nothing to lose.</div>
+    <div class="trope"><strong>The Shallow Threat</strong> – The danger isn’t specific or personal.</div>
+    <div class="trope"><strong>The Flimsy Excuse</strong> – The reason for acting is weak or unclear.</div>
+    <div class="trope"><strong>The Disconnected Event</strong> – It happens, but no one’s affected.</div>
+    <div class="trope"><strong>The No-Change Ending</strong> – Even if they fail, nothing changes.</div>
+    <div class="trope"><strong>The Everyone’s Fine</strong> – Nothing bad happens, ever. Why worry?</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

@@ -1,0 +1,44 @@
+{
+  "title": "Change",
+  "category": "Emotion",
+  "definition": "If nothing changes, nothing matters. Change is what transforms a moment into a story.",
+  "lesson_parts": [
+    {
+      "title": "What Is Change?",
+      "body": "Change is the difference between before and after. It can be big or small, external or internal—but something must shift. Otherwise, we’re just watching the same frame repeat."
+    },
+    {
+      "title": "What Does Change Do?",
+      "body": "Change creates meaning. It makes events matter. It shapes arcs and defines endings. Change can be a decision, a realization, a reversal, or a quiet turning point—but it must *happen*."
+    },
+    {
+      "title": "Types of Change",
+      "body": "Emotional (hope → despair), Moral (cruel → kind), Physical (injured → healed), Status (powerless → powerful), Relationship (strangers → allies), Knowledge (ignorant → aware)."
+    }
+  ],
+  "passages": [
+    {
+      "source": "Original",
+      "scene": "He came home, placed the unopened letter on the table, and made himself tea. The next day, he opened it. But tonight, he poured the tea into his father’s old cup instead of his usual mug.",
+      "analysis": {
+        "who": "He’s processing a decision or change.",
+        "how_do_we_know": "He avoids the letter, but changes his routine. The cup choice shows a shift.",
+        "say_show_hide": "He hides the change emotionally, but shows it symbolically."
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "label": "Microchange",
+      "description": "Brainstorm a moment where something small—but deeply human—changes.",
+      "system": "You are a creative writing coach. Help players invent a subtle shift in behavior or thought that signals something big emotionally.",
+      "user": "The player wants to write a quiet moment of change. Ask them what the character did before—and how they’ll do it differently now. Offer 2–3 simple options they could build on."
+    },
+    {
+      "label": "The Turning Point",
+      "description": "Brainstorm the moment something can’t go back to how it was.",
+      "system": "You are a writing coach who helps players find meaningful turning points. Guide them toward moments where a line is crossed or something breaks.",
+      "user": "The player is looking for a strong moment of change. Ask what the character thought would happen—and what actually happened instead. Offer a few ways this could force them to act differently."
+    }
+  ]
+}

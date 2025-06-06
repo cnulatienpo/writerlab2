@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Conflict</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>⚔️ Conflict</h1>
+    <p class="definition">Conflict is what makes a story feel like something's happening. It's tension, friction, resistance—someone wants something, and something's in the way.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Conflict can be loud or quiet, external or internal, explosive or subtle. It can come from another person, a rule, a system, a feeling, a belief. What matters is that something resists. And that resistance forces characters to react, change, or break.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Pride and Prejudice</strong> – Elizabeth wants to stay independent. Darcy wants her to see he’s changed. The conflict is emotional, internal, and social.</div>
+      <div class="example"><strong>The Hunger Games</strong> – Katniss wants to survive and protect her sister. The system wants her to die for entertainment.</div>
+      <div class="example"><strong>The Office</strong> – Michael wants Toby gone. Toby just wants to exist. Conflict is loud, petty, personal.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Sample Text #1 will appear here]</div>
+      <label>Who wants something?</label>
+      <textarea></textarea>
+      <label>How do we know?</label>
+      <textarea></textarea>
+      <label>What’s standing in their way?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Flat, boring scene appears here]</div>
+      <label>What’s missing?</label>
+      <textarea></textarea>
+      <label>What would add tension?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Rewrite it with less conflict:</label>
+      <textarea></textarea>
+      <label>Now rewrite it with more conflict:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Write a short scene where conflict is clear. Show the push and pull. Something has to give.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>A character is told "no" and pushes back.</option>
+        <option>Someone wants peace—someone else wants control.</option>
+        <option>They’re running out of time—and no one agrees what to do.</option>
+        <option>One person’s truth is another person’s threat.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="Write here... make it clash."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Pressure reveals truth.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🔥 Tropes: Add Conflict</h2>
+    <div class="trope"><strong>The Betrayal</strong> – Someone breaks trust.</div>
+    <div class="trope"><strong>The Secret</strong> – One person knows something, the other doesn’t.</div>
+    <div class="trope"><strong>Race Against the Clock</strong> – Time is running out.</div>
+    <div class="trope"><strong>The Ultimatum</strong> – "Do this, or lose everything."
+    </div>
+    <div class="trope"><strong>The Rival</strong> – Two people want the same thing.</div>
+    <div class="trope"><strong>Moral Dilemma</strong> – No right answer, only consequences.</div>
+    <div class="trope"><strong>Person vs. Self</strong> – They’re their own worst enemy.</div>
+    <div class="trope"><strong>One Lie Too Many</strong> – The truth finally breaks through.
+    </div>
+    <div class="trope"><strong>The Wrong Time</strong> – They finally say it—too late.</div>
+    <div class="trope"><strong>Locked Door</strong> – The path is literally or figuratively blocked.</div>
+    <div class="trope"><strong>The Interruption</strong> – The moment is ruined by something unplanned.</div>
+    <div class="trope"><strong>Love vs Duty</strong> – Their heart wants one thing, their role demands another.</div>
+    <div class="trope"><strong>The Misunderstanding</strong> – They're not on the same page.
+    </div>
+    <div class="trope"><strong>The Trap</strong> – They walk right into it.</div>
+    <div class="trope"><strong>The Unexpected Visitor</strong> – A complication arrives mid-scene.</div>
+    <div class="trope"><strong>The Power Grab</strong> – Someone makes a move to take control.
+    </div>
+    <div class="trope"><strong>The Rebellion</strong> – Someone refuses to follow the rules.</div>
+    <div class="trope"><strong>The Blame Game</strong> – Everyone's pointing fingers.
+    </div>
+    <div class="trope"><strong>Running Out of Options</strong> – Every door is closing.</div>
+    <div class="trope"><strong>The Threat</strong> – Something bad is promised if they don't comply.</div>
+
+    <h2 style="margin-top: 2rem;">🧊 Tropes: Reduce Conflict</h2>
+    <div class="trope"><strong>Silent Standoff</strong> – No one speaks. Tension simmers.</div>
+    <div class="trope"><strong>Polite Denial</strong> – Everyone pretends nothing’s wrong.</div>
+    <div class="trope"><strong>Mutual Distraction</strong> – Focus shifts away from the problem.</div>
+    <div class="trope"><strong>Shared Grief</strong> – Pain softens the edges.</div>
+    <div class="trope"><strong>Strategic Retreat</strong> – They back off—for now.</div>
+    <div class="trope"><strong>Change the Subject</strong> – One of them shifts the conversation.</div>
+    <div class="trope"><strong>Peace Offering</strong> – They offer something small to ease tension.</div>
+    <div class="trope"><strong>Fake Agreement</strong> – They nod, but they’re not on board.</div>
+    <div class="trope"><strong>The Apology</strong> – Even if it’s not sincere, it cools things down.</div>
+    <div class="trope"><strong>The Hug</strong> – A physical gesture dissolves the tension.</div>
+    <div class="trope"><strong>Letting It Slide</strong> – They choose not to fight.</div>
+    <div class="trope"><strong>Comic Relief</strong> – A joke breaks the tension.
+    </div>
+    <div class="trope"><strong>The Outsider Interrupts</strong> – A third party cuts the tension.</div>
+    <div class="trope"><strong>Agree to Disagree</strong> – They set it aside.</div>
+    <div class="trope"><strong>Time Skip</strong> – The story moves ahead before it boils.</div>
+    <div class="trope"><strong>Busy With Survival</strong> – They’re too focused on danger to argue.
+    </div>
+    <div class="trope"><strong>Bonding Moment</strong> – Something good slips through the tension.</div>
+    <div class="trope"><strong>One-Sided Exit</strong> – One of them walks away instead.</div>
+    <div class="trope"><strong>Resigned Acceptance</strong> – They give up the fight.
+    </div>
+    <div class="trope"><strong>The Quiet After</strong> – The tension passed. Nobody mentions it.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>

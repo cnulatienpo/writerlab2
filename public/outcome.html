@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Outcome</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🎯 Outcome</h1>
+    <p class="definition">The outcome is the result. The fallout. What happens after the action ends—and what it means.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Every scene builds to something. Every decision, every conflict, every turning point has a ripple. The outcome makes it real. It's what changes the world (or the character). No outcome = no impact.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Harry Potter</strong> – After the duel, Harry learns more about his connection to Voldemort.</div>
+      <div class="example"><strong>The Godfather</strong> – Michael lies to Kay—and shuts the door. We know who he is now.</div>
+      <div class="example"><strong>The Sixth Sense</strong> – The reveal reframes every earlier moment. That’s outcome on emotional and structural levels.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Scene with an outcome]</div>
+      <label>What changed?</label>
+      <textarea></textarea>
+      <label>How does the character feel now?</label>
+      <textarea></textarea>
+      <label>What do we know now that we didn’t before?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Scene ends but nothing lands]</div>
+      <label>Why does this feel empty?</label>
+      <textarea></textarea>
+      <label>What’s missing from the fallout?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Write a version where nothing sticks:</label>
+      <textarea></textarea>
+      <label>Now rewrite it so the outcome lands hard:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Show us the ripple. What changed because of what just happened?</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>Someone finds out the truth… too late.</option>
+        <option>The plan worked—but at a cost.</option>
+        <option>A character wins… but feels worse.</option>
+        <option>The world sees them differently now.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="Show what just changed."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Let it land.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🎭 Tropes: Powerful Outcomes</h2>
+    <div class="trope"><strong>The Twist That Hurts</strong> – The reveal hits emotionally.</div>
+    <div class="trope"><strong>The Door Slam</strong> – One character shuts another out (literally or metaphorically).</div>
+    <div class="trope"><strong>The Fallout</strong> – The emotional mess after a decision or conflict.</div>
+    <div class="trope"><strong>The Echo</strong> – A small moment reverberates later in a big way.</div>
+    <div class="trope"><strong>The Ruined Victory</strong> – They win, but it doesn’t feel good.</div>
+    <div class="trope"><strong>The Public Shame</strong> – The world sees their failure.</div>
+    <div class="trope"><strong>The Unexpected Ally</strong> – Someone steps up you didn’t expect.</div>
+    <div class="trope"><strong>The Goodbye</strong> – The emotional parting that signals real change.</div>
+    <div class="trope"><strong>The Inescapable</strong> – They tried to avoid it. It still happened.</div>
+    <div class="trope"><strong>The Self-Realization</strong> – The truth about themselves finally hits.</div>
+    <div class="trope"><strong>The Broken Object</strong> – A symbol gets destroyed, and it means something.</div>
+    <div class="trope"><strong>The New Normal</strong> – The world is different now.</div>
+    <div class="trope"><strong>The Relationship Shift</strong> – Dynamics change, maybe forever.</div>
+    <div class="trope"><strong>The Scars Remain</strong> – They’re changed, physically or emotionally.</div>
+    <div class="trope"><strong>The Deal With the Devil</strong> – They got what they wanted—at a price.</div>
+    <div class="trope"><strong>The Mask Drops</strong> – True identity or intention is revealed.</div>
+    <div class="trope"><strong>The Ripple Effect</strong> – One event causes unexpected consequences.</div>
+    <div class="trope"><strong>The Hope Spot</strong> – Things look better... but only for a second.</div>
+    <div class="trope"><strong>The End of Innocence</strong> – A character grows up in one scene.</div>
+    <div class="trope"><strong>The Final Blow</strong> – One last hit changes everything.</div>
+
+    <h2 style="margin-top: 2rem;">⛔ Tropes: Empty Endings</h2>
+    <div class="trope"><strong>The Reset Button</strong> – Everything goes back to normal.</div>
+    <div class="trope"><strong>The No Consequence</strong> – They act, but nothing changes.</div>
+    <div class="trope"><strong>The Shrug</strong> – Everyone just moves on.</div>
+    <div class="trope"><strong>The Over-Explained Wrap-Up</strong> – Characters talk about what happened instead of showing impact.</div>
+    <div class="trope"><strong>The Fadeout Copout</strong> – It ends with a vague dissolve and no clarity.</div>
+    <div class="trope"><strong>The Comic Reset</strong> – The gag resets everything and nothing matters.</div>
+    <div class="trope"><strong>The That’s It?</strong> – The audience is left asking what it meant.</div>
+    <div class="trope"><strong>The Ignored Loss</strong> – Someone dies or leaves, and nobody reacts.</div>
+    <div class="trope"><strong>The Pat Ending</strong> – Everything is tidy without feeling earned.</div>
+    <div class="trope"><strong>The Emotional Skip</strong> – Big feelings are dodged.</div>
+    <div class="trope"><strong>The Victory Lap</strong> – It keeps going when it should’ve ended.</div>
+    <div class="trope"><strong>The Tangent Outro</strong> – A random detour kills momentum.</div>
+    <div class="trope"><strong>The Monologue Ending</strong> – It tells instead of showing what changed.</div>
+    <div class="trope"><strong>The Fake-Out</strong> – A twist that meant nothing.</div>
+    <div class="trope"><strong>The Tonal Mismatch</strong> – The mood doesn't match the moment.</div>
+    <div class="trope"><strong>The Sequel Setup</strong> – Ending only exists to start the next story.</div>
+    <div class="trope"><strong>The Nothing Ending</strong> – No resolution. No change. Just credits.</div>
+    <div class="trope"><strong>The Glazed Reaction</strong> – The actor looks bored. So do we.</div>
+    <div class="trope"><strong>The Loose Thread</strong> – A major subplot vanishes.</div>
+    <div class="trope"><strong>The Mood Whiplash</strong> – A wild tone shift kills the impact.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

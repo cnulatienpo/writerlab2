@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Writing Room</title>
+</head>
+<body>
+  <h1>Your Writing Room</h1>
+
+  <form action="/auth/save-writing" method="POST">
+    <textarea name="content" rows="20" cols="80" placeholder="Start writing here..."></textarea><br>
+    <button type="submit">Save</button>
+  </form>
+
+  <a href="/welcome.html">Back to Home</a>
+</body>
+</html>
+<form action="/auth/save-draft" method="POST">
+  <input name="title" placeholder="Title or Description" required /><br><br>
+  <textarea name="content" rows="20" cols="80" placeholder="Start writing here..."></textarea><br>
+  <button type="submit">Save Draft</button>
+</form>
+<form action="/auth/analyze-draft" method="POST">
+  <textarea name="content" rows="20" cols="80" placeholder="Start writing here..."></textarea><br>
+  <button type="submit">Get Elemental Feedback</button>
+</form>

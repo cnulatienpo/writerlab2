@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Setup & Payoff</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body { background: #111; color: #f4f4f4; font-family: 'Space Grotesk', sans-serif; padding: 2rem; }
+    h1, h2 { color: #f4f4f4; }
+    .scene, textarea { background: #1c1c1c; border: none; border-radius: 8px; padding: 1rem; margin: 1rem 0; color: #f4f4f4; }
+    .scene { white-space: pre-wrap; }
+    textarea { width: 100%; min-height: 100px; }
+    button, select { margin-top: 1rem; padding: 0.75rem; border-radius: 8px; font-weight: bold; font-family: inherit; }
+    aside { background: #1c1c1c; padding: 1rem; border-radius: 10px; margin-top: 2rem; }
+    .story-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+<main>
+  <a href="/" style="color:#888">⬅ Return to Homepage</a>
+  <h1>🌱 Setup & Payoff</h1>
+  <p class="definition">Setup is the planting. Payoff is the bloom. The audience notices when a story circles back—and it feels good when it hits.</p>
+
+  <section>
+    <h2>📘 Lesson</h2>
+    <p>Good stories aren’t random. They’re echoes. Setup and payoff create pattern, rhythm, and satisfaction. It doesn’t have to be a twist—it just has to land.</p>
+  </section>
+
+  <section>
+    <h2>📚 Examples</h2>
+    <div class="scene"><strong>Home Alone</strong> – Every trap is set up earlier. When it pays off, it feels earned.</div>
+    <div class="scene"><strong>Parasite</strong> – That rock? That smell? They’re not random. Every beat pays off.</div>
+    <div class="scene"><strong>Die Hard</strong> – The barefoot setup. The glass payoff. Clean, brutal writing.</div>
+  </section>
+
+  <section>
+    <h2>🧠 Spot It in the Wild</h2>
+    <div id="wild-scene" class="scene"></div>
+    <div class="story-nav">
+      <span id="wild-count">1 / 3</span>
+      <button onclick="nextWild()">Next Story</button>
+    </div>
+    <label>Who wants something?</label><textarea></textarea>
+    <label>How do we know?</label><textarea></textarea>
+    <label>Do they say it, show it, or hide it?</label><textarea></textarea>
+  </section>
+
+  <section>
+    <h2>🚨 Spot the Absence</h2>
+    <div id="absence-scene" class="scene"></div>
+    <div class="story-nav">
+      <span id="absence-count">1 / 3</span>
+      <button onclick="nextAbsence()">Next Story</button>
+    </div>
+    <label>What was dropped?</label><textarea></textarea>
+    <label>Why didn’t the moment land?</label><textarea></textarea>
+  </section>
+
+  <section>
+    <h2>🛠️ Scene Fix</h2>
+    <div class="scene" id="fix-scene"></div>
+    <label>Write a version with no setup or empty payoff:</label><textarea></textarea>
+    <label>Now rewrite it with a clear callback or reveal:</label><textarea></textarea>
+  </section>
+
+  <section>
+    <h2>🤖 Now You Try</h2>
+    <label>Want a prompt?</label>
+    <select>
+      <option>A small detail in act one becomes huge in act three.</option>
+      <option>They say something offhand—then regret it later.</option>
+      <option>A repeated object changes meaning over time.</option>
+      <option>A joke becomes a weapon.</option>
+    </select>
+    <button onclick="loadPrompt()">Use Selected Prompt</button>
+    <label>Or write your own:</label>
+    <textarea placeholder="Set it up. Then pay it off."></textarea>
+  </section>
+
+  <aside>
+    <h2>🎭 Tropes: Great Setups</h2>
+    <ul><li>Chekhov’s Gun</li><li>The Prophecy</li><li>The Joke That Comes Back</li><li>Echoed Dialogue</li><li>Symbol That Shifts</li><li>Foreshadowed Turn</li><li>Transformation Object</li><li>The Seeded Lie</li><li>Return to the Beginning</li><li>Unreliable Setup</li><li>Mirror Scene</li><li>Early Threat, Later Use</li><li>Visual Callback</li><li>The Forgotten Detail</li><li>Reused Phrase</li><li>Setup Through Innocence</li><li>Warning Ignored</li><li>Parallel Action</li><li>False Safety</li><li>The Twist You Planted</li></ul>
+    <h2>⛔ Tropes: Failed Payoffs</h2>
+    <ul><li>Dropped Plot Thread</li><li>Empty Symbolism</li><li>Twist Without Setup</li><li>Chekhov’s Gun Misfire</li><li>Unacknowledged Callback</li><li>Too Subtle to Matter</li><li>Last Minute Reveal</li><li>Forgotten Motivation</li><li>Illogical Outcome</li><li>Unseen Setup</li><li>Abandoned Metaphor</li><li>Fakeout Without Weight</li><li>Payoff Without Stakes</li><li>Missing Echo</li><li>Thematic Disconnect</li><li>Symbol With No Journey</li><li>Act 1 Detail Never Returns</li><li>Setup That Didn’t Matter</li><li>Promise Broken By Writer</li><li>Reader Outsmarts the Story</li></ul>
+  </aside>
+</main>
+
+<script>
+const wildStories = [
+  `Magazine guess wear live security. Likely professional protect growth could phone. Certain finally general office about you particular. Dinner option easy business despite special. Make environment music religious part movie. Reason attention speech. Style within computer fund event adult. Summer escape every plan specific show week. Old else rock story nation guy their. Husband company exist hand build situation rest. Whole goal civil difference baby concern rest. Floor almost single.`,
+  `There foreign hour. Plan recognize smile stock relationship focus. Ability pick something identify. Condition girl decide dog. Make recently than young sit Congress center. When owner kid large. Health former hold century argue woman serious key. Appear dark station young rule. Item throughout week moment science front. Present vote score believe help recently opportunity. Camera small left conference test herself.`,
+  `Officer remember conference girl personal community natural. Share to similar leg Democrat film. Skill security team want. Play land race after art walk technology. Special executive spend evidence somebody opportunity public. Require test his life little. My heavy view. Daughter important two generation magazine.`
+];
+
+const absenceStories = [
+  `Magazine guess wear live security. Likely professional protect growth could phone. Certain finally general office about you particular. Dinner option easy business despite special. Make environment music religious part movie. Reason attention speech. Style within computer fund event adult. Summer escape every plan specific show week. Old else rock story nation guy their. Husband company exist hand build situation rest. Whole goal civil difference baby concern rest. Floor almost single.`,
+  `There foreign hour. Plan recognize smile stock relationship focus. Ability pick something identify. Condition girl decide dog. Make recently than young sit Congress center. When owner kid large. Health former hold century argue woman serious key. Appear dark station young rule. Item throughout week moment science front. Present vote score believe help recently opportunity. Camera small left conference test herself.`,
+  `Officer remember conference girl personal community natural. Share to similar leg Democrat film. Skill security team want. Play land race after art walk technology. Special executive spend evidence somebody opportunity public. Require test his life little. My heavy view. Daughter important two generation magazine.`
+];
+
+const fixStory = `Officer remember conference girl personal community natural. Share to similar leg Democrat film. Skill security team want. Play land race after art walk technology. Special executive spend evidence somebody opportunity public. Require test his life little. My heavy view. Daughter important two generation magazine.`;
+
+let wildIndex = 0;
+let absenceIndex = 0;
+
+function nextWild() {
+  wildIndex = (wildIndex + 1) % wildStories.length;
+  document.getElementById('wild-scene').textContent = wildStories[wildIndex];
+  document.getElementById('wild-count').textContent = `${wildIndex + 1} / ${wildStories.length}`;
+}
+
+function nextAbsence() {
+  absenceIndex = (absenceIndex + 1) % absenceStories.length;
+  document.getElementById('absence-scene').textContent = absenceStories[absenceIndex];
+  document.getElementById('absence-count').textContent = `${absenceIndex + 1} / ${absenceStories.length}`;
+}
+
+function loadPrompt() {
+  alert("Prompt selected! Write your setup/payoff.");
+}
+
+document.getElementById('wild-scene').textContent = wildStories[0];
+document.getElementById('absence-scene').textContent = absenceStories[0];
+document.getElementById('fix-scene').textContent = fixStory;
+</script>
+</body>
+</html>
+

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Change</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🔄 Change</h1>
+    <p class="definition">Change is what makes the story feel like it mattered. If nothing shifts—inside or out—then what was the point?</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Change can be massive or tiny. It can happen to the world, the character, the relationship, the mood. What matters is that by the end of a scene (or story), something is not the same as it was before. Change gives meaning to time.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Inside Out</strong> – Joy realizes sadness has value. It changes her understanding—and Riley’s ability to heal.</div>
+      <div class="example"><strong>Breaking Bad</strong> – Walter White changes from teacher to kingpin. But he also changes the people around him. The world bends around his choices.</div>
+      <div class="example"><strong>Fleabag</strong> – The main character slowly drops her mask. She doesn’t become perfect—but she becomes real.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[>Milo never used to look at the trees. He walked the same street every morning—shoes scuffing sidewalk, coffee in hand, earbuds in, brain already in meetings that hadn’t started yet. The sycamores lined the block like polite guards. He never noticed them. Not until Tuesday. Not until the fire. It wasn’t dramatic, just sudden—a kitchen blaze in apartment 3B. Smoke coiled into the hallway like it had been waiting. Milo got out. Everyone did. But it scorched something in him. The next morning, he took the long way to work. Just walked. No earbuds. Coffee in both hands now because they shook a little. That’s when he saw the trees. Their bark peeled like old paper. Their leaves shimmered gold even though it wasn’t fall. He stopped walking. Just stared. A woman passed him and smiled. “Aren’t they beautiful?” she said. Milo nodded. “I’ve lived here six years,” he said. “I never noticed.” She kept walking. He stood there a while. Then he reached out, touched the bark. Rough, warm from the sun. Real. It was real. That night he went home and didn’t turn on the TV. Just sat on his couch and looked out the window. Watched the light bend between branches. He called his sister. They hadn’t talked in months. “I had a fire,” he told her. She gasped. “Are you okay?” “Yeah,” he said. “I just… I don’t think I’ve been seeing anything. Not really.” There was silence. Then she said, “I know what you mean.” They talked for two hours. He fell asleep on the couch, phone still in his hand. In the morning, the trees were still there. Same as always. But he wasn’t. Not quite.]</div>
+      <StorySection number="2" title="Change – Story 2">Rosie never liked her name. It sounded soft. Sweet. Fragile. She was none of those things. At least, she didn’t think so. At 14, she wore black everything and gave herself stick-and-poke tattoos with pen ink and a sewing needle she stole from the church basement. The first one said “FANGS” on her ankle. No one asked what it meant. That was the point. Her mother, a dental hygienist with permanently arched eyebrows, said it would get infected. “Good,” Rosie said. At school, she wrote poetry about bones and cigarettes and girls who died dramatically. She had two friends: Eli, who wore eyeliner better than most adults, and Grace, who read tarot and once lit her science homework on fire. They were perfect together. They were miserable on purpose. In junior year, Rosie fell for a girl named Heather. Heather was all wrong. She had glitter pens and smiled with her whole face and said things like “I love this day.” Rosie tried to hate her. Failed. They kissed behind the auto shop building in the dark. Heather smelled like mango chapstick. Rosie wrote a poem about it and tore it up and flushed it down the school toilet. She stopped wearing eyeliner every day. Stopped laughing at people who said they liked spring. Grace noticed first. “You’re getting soft,” she said. “You’re gonna turn into one of them.” “No I’m not,” Rosie snapped, but she wasn’t sure. Heather gave her a mixtape that started with Bowie and ended with Joni Mitchell. Rosie played it on her busted thrift store cassette deck and sat on the floor and cried without knowing why. She dyed her hair pink and told everyone it was ironic. In senior year, her mom caught her sneaking in at 2am and didn’t yell. Just asked, “Do you want tea?” Rosie nodded. They sat in silence until the water boiled. Her mom said, “You seem different.” Rosie shrugged. “I don’t know what I am.” Her mom smiled. “That’s a good place to start.” After graduation, Eli moved to New York. Grace didn’t say goodbye. Heather kissed her on the porch and said, “I hope you find whatever it is you’re chasing.” Rosie said nothing. That summer, she worked at a bookstore. A kid came in and asked if dragons were real. She said, “Yes. They just wear better disguises now.” She started writing again. Not just poems. Letters. Stories. Things with endings. She cut off her hair. Bought a yellow jacket that made her look like the kind of person who smiles first. One day she passed a girl who reminded her of her old self—black hoodie, sharp eyeliner, trying so hard to look unbothered. Rosie smiled at her. The girl rolled her eyes and looked away. Rosie kept walking. She didn’t feel hurt. She felt like a secret the girl hadn’t learned yet. That night, she wrote her name on a blank page. Rosie. It looked okay now. It looked like hers.</StorySection>
+      <StorySection number="3" title="Change – Story 3">Vin had never prayed in his life. Not really. Not the kind where you close your eyes and ask for something with your whole body. His mother used to light candles and whisper to saints in the kitchen, but Vin just thought it was background noise—like the fridge, or traffic. When she died, he didn’t cry at the funeral. People said he was brave. He wasn’t. He was numb. He floated through the weeks after like someone watching someone else’s life through fogged glass. The apartment still smelled like her hair oil. The bed still had her dent. He didn’t clean it. Couldn’t. One night he opened a cabinet and found her rosary wrapped around an old bottle of Advil. He held it like it might do something. It didn’t. He put it in a drawer and closed it hard. Months passed. He went to work. He came home. He didn’t really talk. People asked if he was okay. He said he was. He wasn’t. The apartment got smaller. Time got weird. Food stopped tasting like anything. Then, one night, something cracked. No big reason. No car crash. No final straw. Just him, sitting on the kitchen floor with the light off, realizing he hadn’t spoken out loud all day. Not a single word. He said one, just to hear it: “Hello.” It sounded stupid. Like someone else’s voice. He laughed. Then he cried. Hard. Ugly. Loud. Like something ancient had torn loose inside his ribs. He didn’t know how long it lasted. Afterward, he crawled into bed and didn’t dream. The next morning, he opened the drawer. Took out the rosary. It felt cool and alive in his hand. He didn’t know the prayers. He just held it. Said her name. Said sorry. Said nothing. The nothing felt real. That became a habit. Not religion exactly—just... something. A ritual. He’d hold the rosary and sit still. No music. No phone. Just breath. Just time. One day he looked out the window and realized he could feel the sun again. The light made patterns on the counter. He hadn’t seen them before. Or maybe they’d always been there. He started cooking again. Not well. But enough. He started calling his aunt once a week. Started talking to the guy at the bodega like he mattered. He gave a dollar to a woman on the train and smiled when she said thank you. He hadn’t smiled in so long it felt like pulling a muscle. He didn’t throw the rosary away. Didn’t hang it on the wall either. He kept it in his pocket some days. Just a weight. Just a memory. One morning he lit a candle. No special reason. Just wanted to. Watched the flame for a long time. Said her name again. Said, “I miss you.” It felt like prayer. That night, he stood at the window. The city moved like an animal under glass. He placed the rosary on the sill and left it there. In the morning, it caught the light. It looked beautiful. Like a piece of sky that had remembered how to glow.</StorySection>
+      <label>What changed by the end?</label>
+      <textarea></textarea>
+      <label>Was it internal, external, or relational?</label>
+      <textarea></textarea>
+      <label>Do we feel the shift?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[<StorySection number="1" title="Spot the Absence – Change – Story 1">Marla kept a fish in a bowl on her windowsill. It didn’t have a name. She told herself it was temporary. The whole apartment was temporary. Just for six months, she’d said. That was three years ago. The couch still had the plastic on it. She still used the cardboard box as a nightstand. Every morning she woke up at 7, turned on the news, and made one piece of toast. No butter. She didn’t like butter. Or maybe she used to. It was hard to remember. Her job was data entry. She clicked boxes all day. Sent emails. Replied “Noted” a lot. Her boss once asked if she wanted to move up. She said she’d think about it. She didn’t. On weekends, she walked to the corner store and bought the same three things: instant coffee, a crossword book, and tuna. The guy behind the counter never asked her name. She never asked his. Once, she watched a man get hit by a bike right outside the store. She blinked. Kept walking. At home, she fed the fish. It swam in circles, slow and lazy. She liked to imagine it was happy. The water started getting cloudy. She made a note to clean it. Didn’t. One morning, she woke up and the fish was gone. Not dead. Gone. The bowl was still there, still full. But empty. She stared at it for a long time. Then turned on the news. Made toast. No butter. The sky outside was gray. Or maybe blue. Hard to tell. The couch still had the plastic on it. The box still held a lamp. Marla sat on the floor. Ate her toast. The water in the bowl rippled once. Then went still. She didn’t move. She didn’t speak. She didn’t change.</StorySection>
+      <StorySection number="2" title="Spot the Absence – Change – Story 2">Jamie told people he was between things. Between jobs, between cities, between big plans. He said it like a punchline, like something clever, even when no one laughed. He lived in a sublet with three roommates he didn’t know and a cat that wasn’t his. The cat liked him best. It slept on his chest every night and clawed him awake every morning at seven. He got up. Made coffee. Opened job sites. Closed them again. He applied to a few listings a week. Wrote decent cover letters. Never sent them. Too much effort. Too much chance. He told himself the world was broken anyway. On Tuesdays, he went to the park with a book he didn’t read. He liked watching the guy with the dog that wore a sweater. They never spoke. The dog barked once. Jamie waved. That was it. He used to play music—bass, mostly. Had a little band in college. Thought they might tour. Didn’t happen. He still had the bass, propped up in the corner behind a stack of laundry. He thought about picking it up. Never did. On Friday nights, his roommates went out. He stayed in. Watched old kung fu movies. Ate cereal out of the box. Pretended it was a choice. Sometimes his mom called. He let it ring. She left voicemails like she was auditioning for a role in his life. He didn’t delete them. Just let them pile up. One night, he found a crumpled envelope in his coat pocket. It was a letter he wrote to himself five years ago. Some workshop thing. The handwriting was messier than he remembered. It said, “You are not allowed to stay stuck. You promised.” Jamie laughed. He put the letter on the fridge with a pizza coupon magnet. Didn’t reread it. The cat knocked it off the next day. He didn’t pick it up. It rained for three days straight. On the fourth day, Jamie stood by the window and watched the water pool in the street. He thought, I should go for a walk. He didn’t. He microwaved leftover pasta and scrolled through people’s lives like they were stories from a better timeline. He saved a post about hiking trails. Closed the app. Went to bed. The cat curled against him like always. He whispered, “Maybe next week,” into the dark. The cat purred. Nothing changed.</StorySection>
+        <StorySection number="3" title="Spot the Absence – Change – Story 3">Nora always arrived at the café five minutes before it opened. She liked the ritual. The slow unlock of the door. The bell that jingled like it had manners. The quiet clatter of chairs being unstacked. Her table—back corner, near the bookshelf—was always free. She ordered the same thing every day: one black coffee, one blueberry scone, toasted. No butter. The staff stopped asking her name after the first year. She liked that. Liked being a fixture. Something reliable. She brought a book each morning, but rarely read. Mostly, she watched people. She had a notebook. Inside were pages of made-up biographies. The man with the red scarf worked in antique restoration. The woman with the chipped nail polish used to be an Olympic diver. The boy with the bitten cuticles stole change from his mother’s purse to buy model trains. Nora didn’t know their real stories. She didn’t want to. Real stories disappointed her. One morning, she saw a woman crying into a croissant. She didn’t write about her. She just watched. Another morning, she found a book on the café shelf with underlined passages and margin notes written in blue ink. “Life is a beautiful ache,” one said. Nora wrote it down. She didn’t know why. Outside, the city moved like it always did—buses sighing, pigeons bickering, shop owners lifting gates with groans. She walked the same route home. Passed the same dog sleeping in the laundromat window. Same cracked sidewalk near 9th. Same bakery with the sign that always said “fresh tomorrow.” She once thought about moving. She looked at an apartment with a window that faced east. She pictured morning light on her floor. She pictured a different version of herself living there. She didn’t apply. She told her neighbor she was just browsing. Her neighbor said, “Sometimes that’s enough.” Nora nodded. She didn’t believe it. But she liked how it sounded. On Thursdays, she went to the museum. Free admission. She always started on the third floor and worked her way down. The same paintings. The same echo of heels on polished tile. She once saw a man cry in front of a landscape painting. She didn’t ask why. She didn’t write about him either. She stood beside him and looked at the trees in the painting. They looked lonely. Or peaceful. It was hard to tell. One day, the barista said, “You’re early.” Nora smiled. “I’m always early.” He laughed. “No, I mean, we’re opening late today.” She blinked. Looked at the time. 6:50. “Oh,” she said. “Guess I lost track.” She stood outside ten minutes longer. Watched the door open. Walked in like nothing was different. The coffee was the same. The scone was the same. The seat was waiting. She wrote a story about a man who woke up one day and decided to learn how to swim. She didn’t know how to end it. She left the last sentence blank. She walked home. Same way. Same dog. Same bakery. At night she read the old underlined book again. She didn’t remember buying it. She didn’t remember what she was looking for. But she read the line again: “Life is a beautiful ache.” She underlined it. Closed the book. Went to bed. Set her alarm. Five minutes early, just like always.</StorySection>
+
+]</div>
+      <label>Why does it feel like nothing happened?</label>
+      <textarea></textarea>
+      <label>What could shift in this scene?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Marla kept a fish in a bowl on her windowsill. It didn’t have a name. She told herself it was temporary. The whole apartment was temporary. Just for six months, she’d said. That was three years ago. The couch still had the plastic on it. She still used the cardboard box as a nightstand. Every morning she woke up at 7, turned on the news, and made one piece of toast. No butter. She didn’t like butter. Or maybe she used to. One morning, she woke up and the fish was gone. Not dead. Gone. The bowl was full. But empty. She stared at it for a long time. Then turned on the news. Made toast. No butter. The couch still had the plastic on it.
+        
+]</div>
+      <label>Rewrite it with no change:</label>
+      <textarea></textarea>
+      <label>Now rewrite it with a clear shift:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Write a short scene where something changes. Doesn’t have to be big—but it can’t be nothing.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>Someone makes a decision they were afraid of.</option>
+        <option>Two characters shift from trust to suspicion.</option>
+        <option>The mood flips halfway through—for better or worse.</option>
+        <option>They realize something they can’t un-know.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="Write here... something’s gotta shift."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Everything shifts.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🌪️ Tropes: Cause Change</h2>
+    <div class="trope"><strong>The Revelation</strong> – A truth is exposed that changes everything.</div>
+    <div class="trope"><strong>The Death</strong> – Someone is lost. Nothing can go back.</div>
+    <div class="trope"><strong>The Confession</strong> – A character finally says it.</div>
+    <div class="trope"><strong>The Decision</strong> – They choose. The story pivots.</div>
+    <div class="trope"><strong>New Information</strong> – What they thought they knew is wrong.</div>
+    <div class="trope"><strong>Loss of Innocence</strong> – A worldview shatters.
+    </div>
+    <div class="trope"><strong>Crossing the Line</strong> – They do something they can’t undo.</div>
+    <div class="trope"><strong>Coming Clean</strong> – A secret finally surfaces.</div>
+    <div class="trope"><strong>Taking the Risk</strong> – They leap—ready or not.</div>
+    <div class="trope"><strong>Seeing the Enemy</strong> – They realize who they’re really up against.</div>
+    <div class="trope"><strong>Letting Go</strong> – They finally stop holding on.</div>
+    <div class="trope"><strong>The Gift</strong> – Something meaningful is given or received.</div>
+    <div class="trope"><strong>The Vision</strong> – They glimpse what could be.
+    </div>
+    <div class="trope"><strong>The Promise</strong> – A vow that changes the path.</div>
+    <div class="trope"><strong>The Transformation</strong> – Physical, emotional, spiritual shift.</div>
+    <div class="trope"><strong>Change of Heart</strong> – They flip their stance.
+    </div>
+    <div class="trope"><strong>Wake-Up Call</strong> – The moment it hits them.</div>
+    <div class="trope"><strong>Stepping Up</strong> – They finally take responsibility.</div>
+    <div class="trope"><strong>Walking Away</strong> – They choose to end something.
+    </div>
+    <div class="trope"><strong>The Mirror</strong> – They see themselves clearly, maybe for the first time.</div>
+
+    <h2 style="margin-top: 2rem;">🧊 Tropes: Prevent Change</h2>
+    <div class="trope"><strong>Return to Normal</strong> – Things seem different—but aren’t.</div>
+    <div class="trope"><strong>Denial</strong> – They pretend the shift never happened.</div>
+    <div class="trope"><strong>Delaying the Choice</strong> – They avoid deciding—again.</div>
+    <div class="trope"><strong>The Loop</strong> – The same scene happens again, slightly different.</div>
+    <div class="trope"><strong>False Hope</strong> – They think things are different... but no.</div>
+    <div class="trope"><strong>Stuck in the Past</strong> – They won’t move forward.
+    </div>
+    <div class="trope"><strong>The Lie Maintains</strong> – The false story holds.
+    </div>
+    <div class="trope"><strong>Backslide</strong> – They regress after a moment of growth.</div>
+    <div class="trope"><strong>Rewriting History</strong> – They revise what happened.</div>
+    <div class="trope"><strong>Nothing to See Here</strong> – They ignore all signs.
+    </div>
+    <div class="trope"><strong>The Cover-Up</strong> – Someone hides the turning point.
+    </div>
+    <div class="trope"><strong>The Excuse</strong> – They justify why they can’t change.
+    </div>
+    <div class="trope"><strong>False Ending</strong> – It feels final, but it’s not.</div>
+    <div class="trope"><strong>Refusing the Call</strong> – They say no to the journey.
+    </div>
+    <div class="trope"><strong>Unchanged by the End</strong> – They survive—but learn nothing.</div>
+    <div class="trope"><strong>The Reset</strong> – The system erases progress.
+    </div>
+    <div class="trope"><strong>Time Loop</strong> – They're literally stuck.
+    </div>
+    <div class="trope"><strong>The Mask Returns</strong> – Growth is undone by fear.
+    </div>
+    <div class="trope"><strong>Comfort Over Growth</strong> – They choose safety instead.
+    </div>
+    <div class="trope"><strong>The Pause</strong> – Everything stalls before the shift.
+    </div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Turning Point</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>⤴️ Turning Point</h1>
+    <p class="definition">The turning point is where the story takes a sharp left—or right. It’s the moment when something changes the trajectory, sending the character or plot in a new direction.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Not every story has a big twist. But every story *turns*. Something shifts: a belief, a power dynamic, a relationship, a goal. What comes after the turning point would’ve been impossible before it.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Parasite</strong> – The discovery of the hidden basement changes the genre of the film and raises the stakes.</div>
+      <div class="example"><strong>Titanic</strong> – The iceberg hits. It’s not just a romance anymore—it’s survival.</div>
+      <div class="example"><strong>The Matrix</strong> – Neo takes the red pill. Reality bends, and the story reboots.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Scene where story pivots]</div>
+      <label>What changes the course?</label>
+      <textarea></textarea>
+      <label>Could the story continue the same way after this?</label>
+      <textarea></textarea>
+      <label>Is this the hinge moment?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Flat scene with no shift]</div>
+      <label>Why does it feel like it’s going nowhere?</label>
+      <textarea></textarea>
+      <label>What would create a sharp left turn?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Rewrite it with no twist:</label>
+      <textarea></textarea>
+      <label>Now add a clear turning point:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Write a scene where something changes the story’s path.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>Someone reveals a hidden truth.</option>
+        <option>They make a choice that can’t be undone.</option>
+        <option>New information flips their understanding.</option>
+        <option>A power shift changes the dynamic.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="Write here... the path just shifted."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Where the story turns.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🔁 Tropes: Story Shifters</h2>
+    <div class="trope"><strong>The Reveal</strong> – A hidden truth comes out and flips everything.</div>
+    <div class="trope"><strong>The Betrayal</strong> – Someone turns on the protagonist.</div>
+    <div class="trope"><strong>Crossing the Line</strong> – They do the thing they swore they wouldn’t.</div>
+    <div class="trope"><strong>Unmasking</strong> – Someone’s true identity is revealed.</div>
+    <div class="trope"><strong>Change of Heart</strong> – A major belief shifts in a moment.</div>
+    <div class="trope"><strong>The Arrival</strong> – A new player enters and changes the game.</div>
+    <div class="trope"><strong>The Departure</strong> – Someone important leaves or dies.</div>
+    <div class="trope"><strong>Table Flip</strong> – The power dynamic completely reverses.</div>
+    <div class="trope"><strong>The Mission Shift</strong> – What they were doing suddenly changes.</div>
+    <div class="trope"><strong>The Snap Decision</strong> – No time to think, and it changes everything.</div>
+    <div class="trope"><strong>The Failed Plan</strong> – What they relied on collapses.</div>
+    <div class="trope"><strong>The Prophecy Twist</strong> – What they expected isn’t what it meant.</div>
+    <div class="trope"><strong>Double Agent</strong> – Someone’s been working for the other side.</div>
+    <div class="trope"><strong>The Flashback</strong> – New info from the past reframes the present.</div>
+    <div class="trope"><strong>Reversal of Goal</strong> – They want something completely different now.</div>
+    <div class="trope"><strong>The Catalyst</strong> – A small event sets off big change.</div>
+    <div class="trope"><strong>Out of Time</strong> – The clock runs out and forces a shift.</div>
+    <div class="trope"><strong>The Line Crossed</strong> – Someone goes too far, breaking the old rules.</div>
+    <div class="trope"><strong>The Mask Drops</strong> – Pretenses fall and we see what’s really happening.</div>
+    <div class="trope"><strong>The Snap</strong> – A character psychologically breaks and changes course.</div>
+
+    <h2 style="margin-top: 2rem;">⛔ Tropes: Flatline Moments</h2>
+    <div class="trope"><strong>Stuck in a Loop</strong> – The character keeps doing the same thing.</div>
+    <div class="trope"><strong>Non-Reaction</strong> – Huge event, no emotional or plot shift.</div>
+    <div class="trope"><strong>The Monologue Stall</strong> – Talking instead of doing.</div>
+    <div class="trope"><strong>The Offscreen Reveal</strong> – Important info never enters the scene.</div>
+    <div class="trope"><strong>The False Alarm</strong> – Teases change, delivers nothing.</div>
+    <div class="trope"><strong>The Distraction</strong> – Side plots keep hijacking the narrative.</div>
+    <div class="trope"><strong>The Reset</strong> – Everything goes back to normal.</div>
+    <div class="trope"><strong>The Anti-Twist</strong> – Seems like a twist but changes nothing.</div>
+    <div class="trope"><strong>Flat Dialogue</strong> – Characters talk but nothing shifts.</div>
+    <div class="trope"><strong>The Coincidence</strong> – A random event resolves conflict instead of action.</div>
+    <div class="trope"><strong>Denial of Change</strong> – Characters refuse to grow.</div>
+    <div class="trope"><strong>The Walk Away</strong> – Conflict is avoided without impact.</div>
+    <div class="trope"><strong>Speech Without Stakes</strong> – A speech doesn’t change anything.</div>
+    <div class="trope"><strong>The Safe Choice</strong> – A decision that keeps everything comfortable.</div>
+    <div class="trope"><strong>Invisible Fallout</strong> – Big event, no consequences.</div>
+    <div class="trope"><strong>Scene Padding</strong> – Extra lines with no forward movement.</div>
+    <div class="trope"><strong>Delayed Impact</strong> – Important stuff happens too late.</div>
+    <div class="trope"><strong>The Fake Exit</strong> – A character threatens to leave, but stays.</div>
+    <div class="trope"><strong>No Consequence Choice</strong> – Decision made, but nothing happens.</div>
+    <div class="trope"><strong>The Shrug</strong> – Everyone just accepts what happened.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

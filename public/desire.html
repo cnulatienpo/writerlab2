@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Desire</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🔥 Desire</h1>
+    <p class="definition">Desire is what drives the character forward—even when they don’t admit it, even when they fight it. It’s the emotional gravity that shapes choice, conflict, and change.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>Desire is the fuel of story. It’s not always about speaking up. Sometimes desire shows up in silence, in longing, in a terrible decision that says everything. It doesn’t have to be romantic. It doesn’t have to be dramatic. It just has to matter.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Ratatouille</strong> – Remy wants to cook, but rats aren’t allowed in kitchens.</div>
+      <div class="example"><strong>Moonlight</strong> – Chiron wants safety and intimacy, but hides it behind silence.</div>
+      <div class="example"><strong>The Little Mermaid</strong> – Ariel wants the human world—and gives up her voice to reach it.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Sample Text #1 will appear here]</div>
+      <label>Who wants something?</label>
+      <textarea></textarea>
+      <label>How do we know?</label>
+      <textarea></textarea>
+      <label>Do they say it, show it, or hide it?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Flat, boring scene appears here]</div>
+      <label>What’s missing?</label>
+      <textarea></textarea>
+      <label>What would make this better?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Rewrite it with less desire:</label>
+      <textarea></textarea>
+      <label>Now rewrite it with more desire:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Now you write something where desire is clear—messy, dangerous, heartfelt, or hidden. Just make it count.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>A character wants something they can’t name.</option>
+        <option>Someone wants something—but lies about it.</option>
+        <option>They want something they’re ashamed of.</option>
+        <option>They don’t know they want it until they lose it.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or just go for it:</label>
+      <textarea placeholder="Write here... make it burn."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — Your want is the engine. Feed it.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🎭 Tropes: Add Desire</h2>
+    <div class="trope"><strong>The Forbidden Want</strong> – They want something they’re not supposed to want.</div>
+    <div class="trope"><strong>The Hidden Crush</strong> – Deep affection kept secret.</div>
+    <div class="trope"><strong>Object of Obsession</strong> – They can’t stop chasing it.</div>
+    <div class="trope"><strong>The Dream That Haunts</strong> – They had it once. They lost it.</div>
+    <div class="trope"><strong>The Deal with the Devil</strong> – They want it badly enough to break a rule.</div>
+    <div class="trope"><strong>In Their Dreams</strong> – Their desire leaks into nightmares or visions.</div>
+    <div class="trope"><strong>The Spark</strong> – They didn’t want anything... until now.</div>
+    <div class="trope"><strong>Chasing Glory</strong> – They want to be remembered.</div>
+    <div class="trope"><strong>Redemption Arc</strong> – They want to undo something they regret.</div>
+    <div class="trope"><strong>The Forbidden Door</strong> – They want to open what should stay closed.</div>
+
+    <h2 style="margin-top: 2rem;">🧊 Tropes: Soften Desire</h2>
+    <div class="trope"><strong>Polite Deflection</strong> – They downplay what they want.</div>
+    <div class="trope"><strong>Resigned Acceptance</strong> – They’ve given up wanting.</div>
+    <div class="trope"><strong>Dream Deferred</strong> – They set it aside… for now.</div>
+    <div class="trope"><strong>It’s Not About Me</strong> – They pretend they’re doing it for someone else.</div>
+    <div class="trope"><strong>The Mask</strong> – They hide what they want behind a role.</div>
+    <div class="trope"><strong>The Noble Sacrifice</strong> – They give up their want for someone else’s sake.</div>
+    <div class="trope"><strong>The False Front</strong> – They act like they want something else entirely.</div>
+    <div class="trope"><strong>Letting Go</strong> – They actively stop chasing it.</div>
+    <div class="trope"><strong>The Quiet Want</strong> – They never say it. But we feel it.</div>
+    <div class="trope"><strong>Muted Fire</strong> – Their want burns low and slow, never spoken.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>

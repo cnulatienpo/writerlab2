@@ -1,0 +1,44 @@
+{
+  "title": "Conflict",
+  "category": "Tension",
+  "definition": "Somebody (or something) stands in the way. Conflict is what makes desire hard—and makes story possible.",
+  "lesson_parts": [
+    {
+      "title": "What Is Conflict?",
+      "body": "Conflict is the collision between desire and resistance. It’s what makes stories feel alive. No obstacle, no story."
+    },
+    {
+      "title": "What Does Conflict Do?",
+      "body": "It raises the stakes. It forces change. It reveals character. Whether it's internal, external, or systemic—conflict gives shape to struggle."
+    },
+    {
+      "title": "Types of Conflict",
+      "body": "vs Self (doubt, shame, fear), vs Person (rival, enemy, lover), vs Society (law, tradition, norm), vs Nature (storm, illness), vs Time (too late, too soon), vs the Unknown (mystery, death, divinity)."
+    }
+  ],
+  "passages": [
+    {
+      "source": "Original",
+      "scene": "She stood with the phone in her hand, thumb hovering. He had lied. She knew it. But she also knew he was hurting. And worse—he still made her feel safe. She didn’t press call.",
+      "analysis": {
+        "who": "She wants to confront him.",
+        "how_do_we_know": "She’s holding the phone. Torn between truth and comfort.",
+        "say_show_hide": "She hides the conflict from him, but shows it through indecision."
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "label": "Silent War",
+      "description": "Brainstorm a moment where two characters are in conflict but neither one says it outright.",
+      "system": "You are a creative writing coach. You help players brainstorm quiet tension by asking questions and giving indirect strategies.",
+      "user": "Help the player invent two characters who are emotionally at odds. Suggest a few ways they might act out the tension without directly speaking it."
+    },
+    {
+      "label": "Conflict in Motion",
+      "description": "Brainstorm a scene where a conflict builds as the characters do something physical (e.g. cook, clean, drive, pack).",
+      "system": "You are a creative writing coach. You help writers explore how physical activity can amplify emotional tension. Ask open-ended questions and offer possible actions.",
+      "user": "The player wants to write a scene with quiet conflict during a physical activity. Help them brainstorm what task the characters are doing and how the conflict shows through small behaviors."
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation Room – Writer Lab</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+    .tile {
+      background: #1c1c1c;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .tile:hover {
+      background: #222;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧱 Foundation Room</h1>
+    <p>The core elements every story needs. Start here if you want to build something that lasts.</p>
+  </header>
+
+  <div class="grid">
+    <div class="tile" onclick="alert('Open: Desire')">Desire</div>
+    <div class="tile" onclick="alert('Open: Conflict')">Conflict</div>
+    <div class="tile" onclick="alert('Open: Change')">Change</div>
+    <div class="tile" onclick="alert('Open: Scene')">Scene</div>
+  </div>
+
+  <footer>
+    &copy; 2025 Writer Lab — Foundation first. Build anything after.
+  </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation Room – View</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .element-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .element {
+      background: #1c1c1c;
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .element:hover {
+      background: #222;
+    }
+    .element h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .element p {
+      margin-top: 0.5rem;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧱 Foundation Room</h1>
+    <p>This room teaches the foundational beats and forces behind every story. Learn these, and you can build anything.</p>
+  </header>
+
+  <div class="element-list">
+    <div class="element" onclick="alert('Open: Desire')">
+      <h2>🔥 Desire</h2>
+      <p>Who wants what? Why can't they say it out loud? How does it drive the scene?</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Conflict')">
+      <h2>⚔️ Conflict</h2>
+      <p>What gets in their way—inside or outside? What's the pressure point?</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Change')">
+      <h2>🔁 Change</h2>
+      <p>What shifts? In the world, the character, the dynamic? Change is proof something mattered.</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Scene')">
+      <h2>🎬 Scene</h2>
+      <p>Where and when are we? What do we feel, smell, hear? Ground it in something real.</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Climax')">
+      <h2>🚨 Climax</h2>
+      <p>The moment of highest intensity or consequence—when everything breaks or breaks through.</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Turning Point')">
+      <h2>🔄 Turning Point</h2>
+      <p>Something irreversible happens. The story veers off its path. No going back.</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Reversal')">
+      <h2>♻️ Reversal</h2>
+      <p>The power dynamic flips. The expected becomes unexpected. Who’s in charge now?</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Decision')">
+      <h2>🧠 Decision</h2>
+      <p>A character chooses—under pressure. Their choice reveals who they are (or want to be).</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Outcome')">
+      <h2>🎯 Outcome</h2>
+      <p>What happens as a result of their decision? Did the story earn its end?</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Stakes')">
+      <h2>📉 Stakes</h2>
+      <p>What’s on the line? Why does it matter? Stakes make readers care.</p>
+    </div>
+
+    <div class="element" onclick="alert('Open: Setup/Payoff')">
+      <h2>🎁 Setup / Payoff</h2>
+      <p>What’s planted early that blooms later? How does the story reward attention?</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Writer Lab — Start strong. Stay strange.
+  </footer>
+</body>
+</html>

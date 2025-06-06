@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Workbench – Climax</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    main {
+      flex: 3;
+    }
+    aside {
+      flex: 1;
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .definition {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .example, .scene {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    select, textarea {
+      background: #1c1c1c;
+      color: #f4f4f4;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      font-weight: bold;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .trope {
+      margin-bottom: 1rem;
+    }
+    .trope strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>💥 Climax</h1>
+    <p class="definition">The climax is the moment the story cashes the checks it’s been writing. All the pressure, decisions, tension, and build-up hit their peak—and we see what it was all for.</p>
+
+    <section>
+      <h2>📘 Lesson</h2>
+      <p>The climax doesn’t have to be big, but it does have to feel earned. It’s when the desire meets resistance in its final form. Someone makes a choice, takes a stand, or loses everything. The climax tells us what the story is *really* about.</p>
+    </section>
+
+    <section>
+      <h2>📚 Examples</h2>
+      <div class="example"><strong>Black Panther</strong> – T’Challa defeats Killmonger, but offers him a chance at dignity. The fight ends with empathy.</div>
+      <div class="example"><strong>Moana</strong> – Moana faces Te Kā and restores the heart—by recognizing who Te Kā truly is.</div>
+      <div class="example"><strong>The Godfather</strong> – Michael’s baptism intercuts with brutal murders—his final turn into the man he swore he wouldn’t be.</div>
+    </section>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+    <section>
+      <h2>🔍 Spot It in the Wild</h2>
+      <div class="scene">[Scene where climax happens]</div>
+      <label>What explodes (emotionally or physically)?</label>
+      <textarea></textarea>
+      <label>What’s decided or proven here?</label>
+      <textarea></textarea>
+      <label>Does it feel like the biggest moment?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🚨 Spot the Absence</h2>
+      <div class="scene">[Scene that feels flat or unresolved]</div>
+      <label>Why doesn’t this feel like a climax?</label>
+      <textarea></textarea>
+      <label>What would raise the stakes?</label>
+      <textarea></textarea>
+      <button>Submit & Get Feedback</button>
+    </section>
+
+    <section>
+      <h2>🛠️ Scene Fix</h2>
+      <div class="scene">[Rewrite challenge scene]</div>
+      <label>Rewrite it without a real peak:</label>
+      <textarea></textarea>
+      <label>Now rewrite it with full emotional release:</label>
+      <textarea></textarea>
+      <button>Submit Both for Feedback</button>
+    </section>
+
+    <section>
+      <h2>🤖 Now You Try</h2>
+      <p>Sept0 says: Write a climax. Doesn’t have to be loud—but it has to land.</p>
+      <label>Want a prompt?</label>
+      <select>
+        <option>They confess the thing they swore they wouldn’t say.</option>
+        <option>They face their enemy—with or without violence.</option>
+        <option>The secret gets out—and someone has to react.</option>
+        <option>They risk it all—and we find out if it’s enough.</option>
+      </select>
+      <button>Use Selected Prompt</button>
+      <label>Or write your own:</label>
+      <textarea placeholder="Write here... it all comes down to this."></textarea>
+      <button>Submit for Feedback</button>
+    </section>
+
+    <footer>
+      &copy; 2025 Writer Lab — The moment it breaks open.
+    </footer>
+  </main>
+
+  <aside>
+    <h2>🔥 Tropes: Power Climax</h2>
+    <div class="trope"><strong>Final Showdown</strong> – The protagonist confronts the antagonist.</div>
+    <div class="trope"><strong>Last-Minute Save</strong> – Help arrives in the final moment.</div>
+    <div class="trope"><strong>Ultimate Sacrifice</strong> – A character gives everything up.</div>
+    <div class="trope"><strong>Reversal of Fortune</strong> – Everything flips for better or worse.</div>
+    <div class="trope"><strong>The Reveal</strong> – A secret is uncovered at the peak moment.</div>
+    <div class="trope"><strong>True Colors</strong> – A character’s core self is exposed.</div>
+    <div class="trope"><strong>The Explosion</strong> – Literal or metaphorical release of pressure.</div>
+    <div class="trope"><strong>Betrayal</strong> – Someone switches sides or breaks trust.</div>
+    <div class="trope"><strong>Emotional Outburst</strong> – Raw feeling takes over.</div>
+    <div class="trope"><strong>Hero’s Rise</strong> – They finally become who they’re meant to be.</div>
+    <div class="trope"><strong>Villain’s Fall</strong> – Their plan collapses in front of them.</div>
+    <div class="trope"><strong>The Confession</strong> – The truth finally comes out.</div>
+    <div class="trope"><strong>Point of No Return</strong> – No going back after this.</div>
+    <div class="trope"><strong>The Duel</strong> – Words or weapons, it ends in one final test.</div>
+    <div class="trope"><strong>Silent Climax</strong> – Quiet, but loaded with impact.</div>
+    <div class="trope"><strong>The Choice</strong> – One decision shapes the future.</div>
+    <div class="trope"><strong>Clock Runs Out</strong> – Deadline hits, consequences follow.</div>
+    <div class="trope"><strong>The Rescue</strong> – They save someone (or themselves).</div>
+    <div class="trope"><strong>Self-Destruction</strong> – A character unravels in full view.</div>
+    <div class="trope"><strong>The Stand</strong> – They finally push back, no matter the cost.</div>
+
+    <h2 style="margin-top: 2rem;">💤 Tropes: Anti-Climax</h2>
+    <div class="trope"><strong>Fizzle</strong> – The setup goes nowhere.</div>
+    <div class="trope"><strong>Offscreen Action</strong> – We hear about it instead of seeing it.</div>
+    <div class="trope"><strong>The Shrug</strong> – The moment passes with no weight.</div>
+    <div class="trope"><strong>Wrong Scene</strong> – The big moment happens in the background.</div>
+    <div class="trope"><strong>Talk Instead</strong> – They argue instead of act.</div>
+    <div class="trope"><strong>Cut to Black</strong> – Ends before we see the result.</div>
+    <div class="trope"><strong>Hollow Victory</strong> – They win, but it doesn’t matter.</div>
+    <div class="trope"><strong>Fake-Out</strong> – Teases a climax, then swerves away.</div>
+    <div class="trope"><strong>Too Easy</strong> – The obstacle crumbles without effort.</div>
+    <div class="trope"><strong>Stalling</strong> – It builds, then… nothing.</div>
+    <div class="trope"><strong>Cutaway</strong> – The climax skips to aftermath.</div>
+    <div class="trope"><strong>Unresolved</strong> – The core issue stays untouched.</div>
+    <div class="trope"><strong>Underreaction</strong> – Characters don’t respond like it matters.</div>
+    <div class="trope"><strong>No Fallout</strong> – Big action, no consequence.</div>
+    <div class="trope"><strong>Backpedal</strong> – They undo the choice immediately.</div>
+    <div class="trope"><strong>Too Many Endings</strong> – The moment’s buried in noise.</div>
+    <div class="trope"><strong>Sudden Stop</strong> – Cuts before closure.</div>
+    <div class="trope"><strong>Wrong Focus</strong> – The big moment highlights a side plot.</div>
+    <div class="trope"><strong>Emotional Mismatch</strong> – Tone doesn’t match the stakes.</div>
+    <div class="trope"><strong>They Give Up</strong> – The character folds instead of acting.</div>
+  </aside>
+</body>
+</html>
+<section>
+  <h2>🧠 Spot It in the Wild</h2>
+
+  <div id="story-container" class="scene">
+    <p id="story-text">Loading...</p>
+    <p id="story-count">Story 1 / 3</p>
+  </div>
+
+  <div>
+    <label>Who wants something?</label>
+    <textarea></textarea>
+
+    <label>How do we know?</label>
+    <textarea></textarea>
+
+    <label>Do they say it, show it, or hide it?</label>
+    <textarea></textarea>
+
+    <button>Submit & Get Feedback</button>
+    <button id="next-btn">Next Story</button>
+  </div>
+</section>
+
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory(); // Load the first one
+</script>
+<script>
+  const stories = [
+    "Chris walks into the dinner party and sees the father cleaning his rifle at the table.",
+    "Maria stands outside the church in her wedding dress, unsure if she should go in.",
+    "The vending machine ate his last dollar. He stares it down like it’s personal."
+  ];
+
+  let currentStory = 0;
+
+  const storyText = document.getElementById("story-text");
+  const storyCount = document.getElementById("story-count");
+  const nextBtn = document.getElementById("next-btn");
+
+  function updateStory() {
+    storyText.textContent = stories[currentStory];
+    storyCount.textContent = `Story ${currentStory + 1} / ${stories.length}`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentStory = (currentStory + 1) % stories.length;
+    updateStory();
+  });
+
+  updateStory();
+</script>
