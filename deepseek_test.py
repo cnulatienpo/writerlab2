@@ -5,7 +5,7 @@ import json
 
 # Load the API key from .env
 load_dotenv()
-api_key = os.getenv("DEEPSEEK_API_KEY")
+api_key = os.getenv("sk-926f63eec9df4db9ac732295b2571613")
 
 # Just testing one prompt for now
 system_message = "You are a creative writing coach. You help players brainstorm by asking open-ended questions and suggesting story ideas. You never write for them."
