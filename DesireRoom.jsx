@@ -266,7 +266,76 @@ export default function DesireRoom() {
         <AccordionItem value="potency-high">
           <AccordionTrigger>Potency: High (The Consuming Need)</AccordionTrigger>
           <AccordionContent>
-            <p>High potency desire overrides caution. The character is willing to risk relationships or safety because nothing matters more.</p>
+            <p><strong>What High Potency Desire Is</strong></p>
+            <p>High-potency desire is want cranked all the way up—an obsession or hunger that burns through fear and reason. The character knows what they want and will risk everything to get it. If medium is the engine, high is the explosion.</p>
+            <p>At this level, desire becomes the driving force of the story. Stakes are life, death, love, destruction, transformation. There’s no safe path, no going back.</p>
+
+            <p><strong>How It Shows Up in Characters</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Obsession:</strong> The want takes over, to their own detriment.</li>
+              <li><strong>Sacrifice:</strong> They’ll lose everything—safety, reputation, love, even their soul—to get it.</li>
+              <li><strong>Self-destruction:</strong> They sabotage themselves or others for a chance at the goal.</li>
+              <li><strong>Defiance:</strong> Rules and morals fall away if they get in the way.</li>
+              <li><strong>Single-minded action:</strong> Every choice and risk bends toward the want.</li>
+              <li><strong>Blinding intensity:</strong> They might not care who gets hurt or if they survive.</li>
+              <li><strong>No Plan B:</strong> Even in defeat, they won’t let go.</li>
+            </ul>
+
+            <p><strong>Story Effects of High-Potency Desire</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Everything Escalates:</strong> Plot accelerates and danger spikes.</li>
+              <li><strong>Climax Magnet:</strong> Drives the story toward showdowns and betrayal.</li>
+              <li><strong>Morality Gets Messy:</strong> Good people do bad things; villains reveal wounds.</li>
+              <li><strong>Collateral Damage:</strong> Whole worlds or systems can shatter.</li>
+              <li><strong>No Safety Net:</strong> Consequences are lasting and often permanent.</li>
+            </ul>
+
+            <p><strong>What It Feels Like to Write</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Everything is urgent:</strong> Scenes crackle with no filler.</li>
+              <li><strong>Dialogue is raw:</strong> Confessions, threats, pleas, ultimatums.</li>
+              <li><strong>Characters burn bridges:</strong> Allies turn to enemies; enemies to lovers.</li>
+              <li><strong>The story is unstable:</strong> Anything can happen. Anyone can fall.</li>
+            </ul>
+
+            <p><strong>Pop Culture Examples</strong></p>
+            <ul className="list-disc pl-4">
+              <li><em>Walter White (Breaking Bad):</em> Sacrifices everything for power and legacy.</li>
+              <li><em>Gollum (The Lord of the Rings):</em> Destroyed by obsession with the Ring.</li>
+              <li><em>Carrie (Carrie):</em> Repression explodes into total destruction.</li>
+              <li><em>Captain Ahab (Moby Dick):</em> Gives up crew and sanity for revenge.</li>
+              <li><em>The Bride (Kill Bill):</em> Pays any price for vengeance.</li>
+              <li><em>Gatsby (The Great Gatsby):</em> Builds his life around winning Daisy.</li>
+              <li><em>Anakin Skywalker (Star Wars):</em> Becomes Darth Vader to keep control.</li>
+              <li><em>Harley Quinn (early DC/animated):</em> Abandons everything for the Joker.</li>
+              <li><em>Macbeth (Macbeth):</em> His hunger for power destroys him and his world.</li>
+              <li><em>Tony Montana (Scarface):</em> Kills and betrays to have it all.</li>
+            </ul>
+
+            <p><strong>When to Use High Potency as a Writer</strong></p>
+            <ul className="list-disc pl-4">
+              <li>For stories about obsession, tragedy, revenge, or epic love.</li>
+              <li>To test what a character and world can survive.</li>
+              <li>When you’re ready to break something open—hearts, rules, worlds.</li>
+              <li>Ideal for climaxes, finales, or transformations with consequence.</li>
+            </ul>
+
+            <p><strong>What Pushes Desire to High?</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Loss:</strong> A dream, person, or status slips away.</li>
+              <li><strong>Betrayal:</strong> Someone they trusted blocks them.</li>
+              <li><strong>No more hiding:</strong> They finally admit what they want.</li>
+              <li><strong>Point of no return:</strong> A choice or event makes retreat impossible.</li>
+              <li><strong>Desperation or hope:</strong> Hope can burn as hot as despair.</li>
+            </ul>
+
+            <p><strong>How High Desire Can Change</strong></p>
+            <ul className="list-disc pl-4">
+              <li>If they succeed, it may feel empty, cost too much, or transform them.</li>
+              <li>If they fail, it might destroy them—or, rarely, bring peace.</li>
+              <li>Sometimes the only ending is a total break: loss, exile, death, or rebirth.</li>
+            </ul>
+            <p>High desire is dangerous. Use it when you want to see what breaks, what survives, and what’s revealed when the masks come off. Everything gets sharper. Every scene is fire.</p>
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="manipulate-potency">
