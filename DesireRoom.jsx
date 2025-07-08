@@ -60,10 +60,35 @@ export default function DesireRoom() {
         <AccordionItem value="pop-culture-examples">
           <AccordionTrigger>Pop Culture Examples</AccordionTrigger>
           <AccordionContent>
-            <ul className="list-disc pl-4">
-              <li><em>The Lord of the Rings</em> – Frodo longs to destroy the One Ring and save his home.</li>
-              <li><em>Mean Girls</em> – Cady just wants to belong, but popularity comes at a cost.</li>
-              <li><em>The Hunger Games</em> – Katniss volunteers because she wants to protect her sister.</li>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><em>The Lord of the Rings</em> – Frodo Baggins wants to destroy the ring and save Middle-earth, but he yearns to return home safely.</li>
+              <li><em>Breaking Bad</em> – Walter White hopes to provide for his family, yet secretly craves power and respect.</li>
+              <li><em>Frozen</em> – Elsa longs to be free to be herself without harming anyone.</li>
+              <li><em>The Hunger Games</em> – Katniss Everdeen fights to protect her sister and survive.</li>
+              <li><em>Iron Man / MCU</em> – Tony Stark first wants to escape captivity; later he seeks redemption and to protect the world.</li>
+              <li><em>The Office</em> – Michael Scott desperately wants love and respect from his workplace "family."</li>
+              <li><em>Star Wars</em> – Princess Leia aims to save her people and defeat the Empire while proving herself as a leader.</li>
+              <li><em>Sherlock</em> – Sherlock Holmes needs to solve puzzles and prove his intellect to avoid boredom.</li>
+              <li><em>Fargo</em> – Marge Gunderson strives to do her job well and keep her community—and home life—safe.</li>
+              <li><em>Spider-Verse</em> – Miles Morales wants to prove himself worthy and honor his family.</li>
+              <li><em>Schitt’s Creek</em> – Moira Rose seeks to regain status but ultimately to be seen and loved by her family.</li>
+              <li><em>Joker</em> – Arthur Fleck craves recognition and respect, a place in the world.</li>
+              <li><em>Harry Potter</em> – Harry wants belonging and family and to protect others.</li>
+              <li><em>Buffy the Vampire Slayer</em> – Buffy Summers desires a normal life yet must live up to her destiny.</li>
+              <li><em>The Big Lebowski</em> – Walter Sobchak wants order and to "do things right."</li>
+              <li><em>Game of Thrones</em> – Daenerys Targaryen seeks her birthright and to break the wheel of tyranny.</li>
+              <li><em>The Last of Us</em> – Joel Miller needs to protect someone again and heal an old wound.</li>
+              <li><em>Pulp Fiction</em> – Jules Winnfield searches for redemption and a new path.</li>
+              <li><em>Ace Attorney</em> – Miles Edgeworth pursues justice while questioning what it means.</li>
+              <li><em>Mean Girls</em> – Regina George hungers for power and attention.</li>
+              <li><em>The Shawshank Redemption</em> – Andy Dufresne wants freedom and dignity in a place meant to break him.</li>
+              <li><em>Rick and Morty</em> – Rick Sanchez seeks control and distraction, sometimes oblivion.</li>
+              <li><em>DC Universe</em> – Harley Quinn desires love, freedom, and chaos on her own terms.</li>
+              <li><em>The Great Gatsby</em> – Gatsby yearns for Daisy and to reclaim lost time.</li>
+              <li><em>Killing Eve</em> – Villanelle chases thrill and adoration.</li>
+              <li><em>The Simpsons</em> – Homer Simpson wants comfort and pleasure, yet occasionally greatness.</li>
+              <li><em>Amélie</em> – Amélie Poulain hopes to help others but truly wants connection and to be seen.</li>
+              <li><em>God of War</em> – Kratos seeks revenge, then redemption, and finally peace for his son.</li>
             </ul>
           </AccordionContent>
         </AccordionItem>
