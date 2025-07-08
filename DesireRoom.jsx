@@ -196,7 +196,71 @@ export default function DesireRoom() {
         <AccordionItem value="potency-medium">
           <AccordionTrigger>Potency: Medium (The Active Want)</AccordionTrigger>
           <AccordionContent>
-            <p>With medium potency, the character actively pursues the goal. They plan, argue, or bargain to move closer to it.</p>
+            <p><strong>What Medium Potency Desire Is</strong></p>
+            <p>Medium-potency desire is the tipping point where want turns into action. The character knows what they want (or is close to admitting it), and the story starts to move because of it. This is where longing becomes real choice—where the dream gets tested, risks appear, and something in the world has to give. Medium is all about momentum: not a raging obsession, but definitely more than a passive wish. It’s the moment where the ache inside finally pushes out into the open.</p>
+
+            <p><strong>How It Shows Up in Characters</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Taking Steps:</strong> The character starts making decisions, however small, that move them toward what they want. This might mean applying for a new job, sending a risky text, standing up for themselves, or secretly planning a way out.</li>
+              <li><strong>Facing Obstacles:</strong> As soon as they act, the world pushes back. Now there are real stakes—conflict with other people, internal guilt, fear of failure.</li>
+              <li><strong>Owning the Want:</strong> Maybe for the first time, they admit (to themselves or someone else) that they want what they want. There’s pride, fear, hope, or all three.</li>
+              <li><strong>Tension in Dialogue:</strong> Medium desire is often spoken out loud, or shown in subtext—there’s negotiation, confrontation, or a plea.</li>
+              <li><strong>Mixed Motivation:</strong> Characters may still hedge their bets. They want it, but are afraid to want it too much. They might test boundaries or try and fail before they go all in.</li>
+            </ul>
+
+            <p><strong>Story Effects of Medium-Potency Desire</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Creates Forward Motion:</strong> The story starts happening because of what the character wants, not just to them. Their desire is now a plot engine.</li>
+              <li><strong>Reveals Character:</strong> You learn who they are by what they’re willing to risk or try. This is where strengths and weaknesses show up.</li>
+              <li><strong>Draws Out Conflict:</strong> Medium-level want guarantees resistance—there’s something in the way, and now it matters.</li>
+              <li><strong>Raises Stakes:</strong> The audience starts caring more, because there’s something to root for or against. Tension builds.</li>
+              <li><strong>Drives Relationships:</strong> Characters start colliding—alliances, rivalries, love, betrayal all heat up when desire is out in the open but not yet overwhelming.</li>
+            </ul>
+
+            <p><strong>What It Feels Like to Write</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Scenes Heat Up:</strong> There’s more direct confrontation, action, and movement. Less floating, more friction.</li>
+              <li><strong>Dialogue Has an Edge:</strong> People ask for what they want, bargain, argue, or admit things they were hiding.</li>
+              <li><strong>Events Link Together:</strong> Because characters make choices, scenes feel connected—one want leads to another, one action creates new consequences.</li>
+              <li><strong>Emotions Are Higher:</strong> There’s hope, fear, excitement, anxiety, sometimes humor or surprise.</li>
+              <li><strong>Conflict is Real:</strong> Obstacles matter now, and failure is possible.</li>
+            </ul>
+
+            <p><strong>Pop Culture Examples</strong></p>
+            <ul className="list-disc pl-4">
+              <li><em>Katniss Everdeen (The Hunger Games):</em> When she volunteers for her sister, her want becomes action. Everything she does in the Games is a real choice, with real risk.</li>
+              <li><em>Peter Parker (Spider-Man):</em> He chooses to use his powers for good—he tries to live two lives, and the want to help (and the risks that come with it) drives the story.</li>
+              <li><em>Moana (Moana):</em> She defies her family and sails out beyond the reef. Desire is no longer a wish; it’s a choice that changes her life and her world.</li>
+              <li><em>Luke Skywalker (Star Wars: A New Hope):</em> The moment he leaves his home to join the Rebellion, he stops daydreaming and starts chasing something real.</li>
+              <li><em>Elle Woods (Legally Blonde):</em> She applies to Harvard for love, then finds new wants along the way. Each choice puts her at odds with her old world and forces her to grow.</li>
+              <li><em>Shrek (Shrek):</em> When he goes to rescue Fiona, he’s chasing his desire for solitude—but that want keeps shifting as he makes choices and forms connections.</li>
+              <li><em>Joe March (Little Women):</em> She fights for her independence and her writing. She takes bold action, faces backlash, and is forced to choose between love and ambition.</li>
+            </ul>
+
+            <p><strong>When to Use Medium Potency as a Writer</strong></p>
+            <ul className="list-disc pl-4">
+              <li>When you want your story to move—not just reflect or observe.</li>
+              <li>When you want character-driven plot: real people, making real choices, dealing with real fallout.</li>
+              <li>When your story thrives on conflict, negotiation, risk, or growth.</li>
+              <li>When you want your characters to be relatable but also inspiring—they want things, they act, but they’re still human.</li>
+            </ul>
+
+            <p><strong>What Keeps Desire at Medium?</strong></p>
+            <ul className="list-disc pl-4">
+              <li><strong>Doubt:</strong> They want it, but aren’t sure they’ll succeed, or aren’t sure they’re worthy.</li>
+              <li><strong>External Pressure:</strong> Family, friends, society—someone is in the way, but not enough to stop them.</li>
+              <li><strong>Fear of Consequences:</strong> They act, but with hesitation. Risks are real, but not fatal (yet).</li>
+              <li><strong>Testing the Water:</strong> The character might fail, fall back, or even retreat temporarily before going all-in.</li>
+              <li><strong>Divided Loyalties:</strong> They want more than one thing, or their want clashes with another person’s.</li>
+            </ul>
+
+            <p><strong>How Medium Desire Can Change</strong></p>
+            <ul className="list-disc pl-4">
+              <li>Success or failure raises the stakes—if things go well, desire can ramp up to high. If they get burned, they might dial back, or find a new want.</li>
+              <li>Conflict forces clarity: Sometimes the character has to choose between wants, or between want and safety.</li>
+              <li>Crisis or betrayal can push them into high potency (all-in), or drive them back to low (giving up, repressing).</li>
+            </ul>
+            <p>Medium desire is the engine room of most stories. It’s what gets things moving, tests your characters, and keeps the reader hooked. If you want real drama—start here.</p>
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="potency-high">
