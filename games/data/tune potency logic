@@ -1,0 +1,42 @@
+// File: js/tune.js
+
+let tuneData = [];
+let tuneIndex = 0;
+let currentTune = null;
+
+window.onload = async function () {
+  const res = await fetch('../data/tune-the-potency.json');
+  tuneData = await res.json();
+  tuneIndex = 0;
+  showTune();
+};
+
+function showTune() {
+  currentTune = tuneData[tuneIndex];
+  document.getElementById('tune-text').textContent = currentTune.text;
+  document.getElementById('tune-feedback').style.display = 'none';
+  document.getElementById('tune-choice').style.display = 'block';
+}
+
+function submitTune(choice) {
+  const correct = currentTune.potency;
+  const feedback = currentTune.feedback;
+  let text = '';
+  if (choice === correct) {
+    text = `✅ Correct! ${feedback}`;
+  } else {
+    text = `❌ Not quite. ${feedback}`;
+  }
+  document.getElementById('tune-feedback-text').textContent = text;
+  document.getElementById('tune-feedback').style.display = 'block';
+  document.getElementById('tune-choice').style.display = 'none';
+}
+
+function nextTune() {
+  tuneIndex++;
+  if (tuneIndex >= tuneData.length) {
+    tuneIndex = 0; // Reset to loop again
+    alert('That was the last one! Starting over.');
+  }
+  showTune();
+}

@@ -1,0 +1,36 @@
+// File: js/surgery.js
+
+let surgeryData = [];
+let surgeryIndex = 0;
+let currentSurgery = null;
+
+window.onload = async function () {
+  const res = await fetch('../data/element-surgery.json');
+  surgeryData = await res.json();
+  surgeryIndex = 0;
+  showSurgery();
+};
+
+function showSurgery() {
+  currentSurgery = surgeryData[surgeryIndex];
+  document.getElementById('surgery-original').textContent = currentSurgery.original;
+  document.getElementById('surgery-instruction').textContent = `Challenge: ${currentSurgery.instruction}`;
+  document.getElementById('surgery-input').value = '';
+  document.getElementById('surgery-feedback').style.display = 'none';
+}
+
+function submitSurgery() {
+  // Player types their own answer, we just show sample
+  const feedback = currentSurgery.sample_answer;
+  document.getElementById('surgery-feedback-text').textContent = feedback;
+  document.getElementById('surgery-feedback').style.display = 'block';
+}
+
+function nextSurgery() {
+  surgeryIndex++;
+  if (surgeryIndex >= surgeryData.length) {
+    surgeryIndex = 0;
+    alert('That was the last one! Starting over.');
+  }
+  showSurgery();
+}

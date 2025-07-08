@@ -1,0 +1,44 @@
+<!-- File: games/compare.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compare the Vignettes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../js/compare.js"></script>
+</head>
+<body>
+  <main>
+    <section class="game-panel">
+      <div class="game-window">
+        <header class="panel-header">
+          <h1>Compare the Vignettes</h1>
+        </header>
+
+        <div class="vignette-container">
+          <div class="vignette" id="vignette-a">
+            <h2>Vignette A</h2>
+            <div class="vignette-text" id="text-a"></div>
+          </div>
+          <div class="vignette" id="vignette-b">
+            <h2>Vignette B</h2>
+            <div class="vignette-text" id="text-b"></div>
+          </div>
+        </div>
+
+        <div class="choices" id="choice">
+          <p>Which vignette shows the element more powerfully?</p>
+          <button onclick="submitAnswer('A')">Vignette A</button>
+          <button onclick="submitAnswer('B')">Vignette B</button>
+        </div>
+
+        <div class="feedback" id="feedback" style="display:none;">
+          <h3>Feedback</h3>
+          <p id="feedback-text"></p>
+          <button onclick="nextVignette()">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

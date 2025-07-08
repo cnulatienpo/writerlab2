@@ -1,0 +1,19 @@
+[
+  {
+    "element": "Desire",
+    "vignette_a": {
+      "text": [
+        { "sentence": "She walked into the kitchen and turned on the light.", "highlight": false },
+        { "sentence": "She glanced at the empty mug and sighed.", "highlight": true }
+      ]
+    },
+    "vignette_b": {
+      "text": [
+        { "sentence": "She walked into the kitchen and opened the fridge.", "highlight": false },
+        { "sentence": "Then she left the room without touching anything.", "highlight": true }
+      ]
+    },
+    "correct_answer": "A",
+    "feedback": "Vignette A shows active longing—she wants something and it affects her emotionally."
+  }
+]

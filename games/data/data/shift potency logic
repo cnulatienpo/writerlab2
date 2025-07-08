@@ -1,0 +1,41 @@
+<!-- File: games/shift.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shift the Potency</title>
+  <link rel="stylesheet" href="../style.css">
+  <script defer src="../js/shift.js"></script>
+</head>
+<body>
+  <main>
+    <section class="game-panel">
+      <div class="game-window">
+        <header class="panel-header">
+          <h1>Shift the Potency</h1>
+        </header>
+
+        <div class="vignette-single">
+          <p id="shift-text"></p>
+        </div>
+
+        <div class="shift-instruction">
+          <p id="shift-task"></p>
+        </div>
+
+        <div class="input-box">
+          <label for="shift-input">Your revision (one small change):</label><br>
+          <textarea id="shift-input" rows="3" style="width:100%"></textarea><br>
+          <button onclick="submitShift()">Submit</button>
+        </div>
+
+        <div class="feedback" id="shift-feedback" style="display:none;">
+          <h3>Sample Answer</h3>
+          <p id="shift-feedback-text"></p>
+          <button onclick="nextShift()">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
