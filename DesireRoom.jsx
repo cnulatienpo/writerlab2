@@ -50,6 +50,11 @@ export default function DesireRoom() {
           <AccordionContent>
             <p>When you sit down to write, look for the want beneath every scene. Ask what each character hopes to gain or fears to lose.</p>
             <p>Your curiosity about those wants guides the narrative. Let characters chase something meaningful and the draft will come alive.</p>
+            <p>You Know What It’s Like to Want Something</p>
+            <p>Let’s get real for a second: you already understand desire because you’ve lived it. You’re no different than your favorite characters. You’ve been hungry, angry, obsessed, grieving, stubborn, in love, on the edge, desperate for something to change. Maybe you wrote a story for revenge, or to get closure, or just because you couldn’t not write it. That’s desire.</p>
+
+            <p>You don’t have to sit there and analyze a character like a specimen in a lab. You find their desire by recognizing your own. Common ground. If you want something—anything—then you know what it’s like to be inside someone else’s skin, wanting, needing, reaching for whatever is out of reach. You’re not “figuring out” your characters from the outside; you’re meeting them where you both live.</p>
+            <p>Everybody wants something. You do too. That’s the connection. Every story you write, at its core, is about what that character wants this time, and how that turns out for them.</p>
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="pop-culture-examples">
