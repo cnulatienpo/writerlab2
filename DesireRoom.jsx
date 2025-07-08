@@ -341,10 +341,25 @@ export default function DesireRoom() {
         <AccordionItem value="manipulate-potency">
           <AccordionTrigger>How to Manipulate Potency Levels (Writer's Toolbox)</AccordionTrigger>
           <AccordionContent>
+            <p><strong>Tools for Actively Controlling Potency Levels</strong></p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li><strong>Escalation and De-escalation:</strong> add catalysts or threats to raise desire, or give an "out" to cool it down.</li>
+              <li><strong>Change the Stakes:</strong> bigger consequences heighten the want, while smaller stakes make it fade.</li>
+              <li><strong>Play With Resistance:</strong> increase opposition to intensify the desire, or remove obstacles to soften it.</li>
+              <li><strong>Expose or Conceal the Want:</strong> make it public to boost potency, keep it secret to let it simmer.</li>
+              <li><strong>Mix Internal and External Pressures:</strong> collide inner need with outside events to turn up the heat.</li>
+              <li><strong>Let Desire Shift Over Time:</strong> show how setbacks and new hope raise or lower intensity.</li>
+              <li><strong>Use Symbolic Objects/Actions:</strong> small gestures signal mild want; bold actions reveal obsession.</li>
+              <li><strong>Physical and Emotional Signals:</strong> low potency is quiet, medium shows strain, high burns with obsession.</li>
+              <li><strong>Other Characters Can Push the Dial:</strong> allies encourage, rivals block, mentors warn—others affect the stakes.</li>
+            </ul>
+            <p><strong>Questions to Ask Yourself as You Write</strong></p>
             <ul className="list-disc pl-4">
-              <li>Raise the stakes to intensify a mild want.</li>
-              <li>Introduce consequences to cool down an obsession.</li>
-              <li>Use inner conflict to reveal hidden longing.</li>
+              <li>What does my character want right now, and how badly?</li>
+              <li>What would it take to push them to act or to hold back?</li>
+              <li>What stands in the way, and how much does that matter to them?</li>
+              <li>If they don’t get what they want, what does it cost them—today, tomorrow, forever?</li>
+              <li>If they do get it, does it satisfy them, or create a new want?</li>
             </ul>
           </AccordionContent>
         </AccordionItem>
