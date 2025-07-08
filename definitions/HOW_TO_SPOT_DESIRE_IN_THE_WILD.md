@@ -116,3 +116,87 @@ When desire is shown, not told, the story gains layers. The audience gets to “
 
 For Writers
 Let your characters betray themselves with action. Make them break their own rules, go out of their way, give up things, ruin things, cross lines, return to the same hurt over and over. Don’t just have them say “I want”—show what they’ll actually do for it. If you do this, even the most reluctant, silent, or complex character will come alive.
+3. They HIDE What They Want
+Sometimes desire doesn’t show up as a bold speech or a clear pattern of action. Sometimes it’s buried—denied, disguised, or defended against at all costs. This is the hardest to spot and the most human: wanting something so much that you’ll do anything not to admit it, even to yourself.
+
+What Does It Look Like?
+Desire hides under jokes, anger, silence, overwork, cruelty, or detachment. Characters might lie, push people away, pretend not to care, sabotage themselves, or mask longing with bravado. Sometimes they want the “wrong” thing (socially, morally, emotionally), so they suppress or destroy any sign of it. Sometimes the audience sees it first—sometimes not even the writer can name it right away.
+
+You’ll find hidden desire in:
+
+What a character doesn’t say or do
+
+What they avoid
+
+The things they mock or attack
+
+Their distractions, addictions, obsessions, and “safe” routines
+
+Emotional outbursts that don’t match the surface situation
+
+The stuff they sacrifice “for no reason,” or the lines they refuse to cross even when it hurts
+
+Why Writers Use It
+Hidden desire is the stuff of real drama and complexity. People hide what they want for a million reasons: fear, shame, trauma, self-protection, pride, habit. Hiding creates tension—inside the character, between characters, and for the audience. It also gives readers something to dig for, to sense before it’s revealed, to relate to in a gut-deep way.
+
+This is what gives stories depth and surprise: the moment when the mask cracks, the truth slips out, or the character is forced to face what they’ve been running from. Even if it’s never spoken, the shadow of that hidden want hangs over every scene.
+
+What to Watch For
+Denial: “I don’t care.” (But their reactions say otherwise.)
+
+Projection: Attacking or blaming others for the very thing they want or fear.
+
+Avoidance: Dodging people, situations, or questions that get too close to the truth.
+
+Overcompensation: Acting extra tough, cold, or careless to bury vulnerability.
+
+Displacement: Pouring energy into something “safe” (work, a hobby, helping others) to avoid what they really want.
+
+Self-Sabotage: Destroying chances at what they want before they can be disappointed.
+
+Outbursts: Anger or breakdowns when the subject is poked.
+
+Why It Matters
+Hidden desire makes characters—and real people—complicated. You get stories where what’s not said is louder than what is. You can feel the tension in every scene, the risk that something will break if the truth comes out. It’s the engine behind so many reversals, betrayals, confessions, breakdowns, and breakthroughs. The audience becomes detectives, reading between the lines.
+
+Where You’ll See It
+Pop Culture Examples:
+
+Don Draper (Mad Men)
+Pretends to be content, successful, and in control. Hides a mess of longing and regret under work, drinking, and affairs. Rarely admits what he wants, even to himself.
+
+Spock (Star Trek)
+Trained to suppress emotion, but his loyalty, frustration, and rare bursts of feeling always betray what he truly values and fears.
+
+BoJack Horseman (BoJack Horseman)
+Masks pain and longing with sarcasm, self-destruction, and detachment. Wants to be loved and forgiven, but pushes everyone away.
+
+Princess Leia (Star Wars: A New Hope)
+Acts only as a leader, never showing fear or loneliness. Her vulnerability and longing for family are only visible in small cracks.
+
+Batman/Bruce Wayne
+Hides his need for connection, family, and healing beneath the mask and a life of violence.
+
+Elsa (Frozen)
+Tries to suppress her power and desire for freedom out of fear, isolating herself instead of reaching for what she truly wants.
+
+Frodo Baggins (The Lord of the Rings, later books/films)
+Claims he’s fine, but becomes haunted by the ring—his longing for peace and normalcy is visible only in brief, aching moments.
+
+Rick Sanchez (Rick and Morty)
+Hides his loneliness and pain with arrogance, jokes, and reckless behavior.
+
+The Narrator (Fight Club)
+Doesn’t realize he’s created Tyler Durden to act out his own buried wants for chaos and self-destruction.
+
+The Bride (Kill Bill)
+Conceals her longing for her daughter, focusing only on revenge until the core desire breaks through.
+
+Sam Winchester (Supernatural)
+Insists he just wants a normal life, but constantly chooses danger, adventure, and the family “business.”
+
+How It Changes the Story
+Hidden desire is the ticking time bomb. The longer it’s buried, the more explosive the reveal. Every scene carries an undercurrent—characters orbit around their own secrets, choices spiral, and when it finally comes out (if it does), everything changes. Sometimes the story is the slow, painful journey to admitting what’s really at stake.
+
+For Writers
+Write what’s buried. Let your characters lie, distract, run, fight, and sabotage themselves. Build scenes around what isn’t said. Use silence, avoidance, contradiction. The more a character hides, the more desperate and powerful their desire becomes—and the more satisfying it is when the truth finally breaks the surface (or never does).
