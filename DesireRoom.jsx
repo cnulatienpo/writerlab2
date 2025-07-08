@@ -129,8 +129,8 @@ export default function DesireRoom() {
             <AccordionTrigger>Potency: Low (The Quiet Want)</AccordionTrigger>
             <AccordionContent>
               <p><strong>What Low Potency Desire Is</strong></p>
-              <p>Low-potency desire is the soft ache at the edge of awareness. It lingers in the background—subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis.</p>
-              <p>In this mode, desire doesn’t drive the plot so much as color the emotional landscape. It hints at possibility and adds quiet tension or melancholy to the world.</p>
+              <p>Low-potency desire is the soft ache at the edge of awareness. It’s the kind of want that lingers in the background: subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis. Most of the time, the character wouldn’t even name it as “desire”—it’s just a sense that something is missing, a wish for more, or a feeling that life could be different if only…</p>
+              <p>In low-potency mode, desire doesn’t drive the plot—it shapes the emotional landscape. It creates a sense of possibility, a layer of tension, or a quiet sadness or hope that flavors the story’s world. It’s not nothing; it’s the seed before the storm, the prelude to action, the inner life of a person not quite ready to change.</p>
 
               <p><strong>How It Shows Up in Characters</strong></p>
               <ul className="list-disc pl-4">
