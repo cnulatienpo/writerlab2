@@ -125,12 +125,75 @@ export default function DesireRoom() {
             </ul>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="potency-low">
-          <AccordionTrigger>Potency: Low (The Quiet Want)</AccordionTrigger>
-          <AccordionContent>
-            <p>Low potency desire hums beneath the surface. It might appear only in fleeting gestures or a passing thought.</p>
-          </AccordionContent>
-        </AccordionItem>
+          <AccordionItem value="potency-low">
+            <AccordionTrigger>Potency: Low (The Quiet Want)</AccordionTrigger>
+            <AccordionContent>
+              <p><strong>What Low Potency Desire Is</strong></p>
+              <p>Low-potency desire is the soft ache at the edge of awareness. It lingers in the background—subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis.</p>
+              <p>In this mode, desire doesn’t drive the plot so much as color the emotional landscape. It hints at possibility and adds quiet tension or melancholy to the world.</p>
+
+              <p><strong>How It Shows Up in Characters</strong></p>
+              <ul className="list-disc pl-4">
+                <li>Daydreaming or drifting about what might be.</li>
+                <li>Mild dissatisfaction or restlessness.</li>
+                <li>Envy or longing when they see others with what they lack.</li>
+                <li>Gentle nostalgia for a fuller life.</li>
+                <li>Routine avoidance through small escapes.</li>
+                <li>Small, private acts that feed the want without real risk.</li>
+              </ul>
+
+              <p><strong>Story Effects of Low-Potency Desire</strong></p>
+              <ul className="list-disc pl-4">
+                <li>Sets a mood of possibility or quiet tension.</li>
+                <li>Builds empathy because the want is so relatable.</li>
+                <li>Foreshadows change if pressure or opportunity arises.</li>
+                <li>Deepens character by revealing their inner life.</li>
+              </ul>
+
+              <p><strong>What It Feels Like to Write</strong></p>
+              <ul className="list-disc pl-4">
+                <li>Scenes breathe; there’s space for atmosphere.</li>
+                <li>Dialogue hints rather than states the want.</li>
+                <li>Conflict is gentle and mostly internal.</li>
+                <li>Pacing is slower as the story lingers in possibility.</li>
+              </ul>
+
+              <p><strong>Pop Culture Examples</strong></p>
+              <ul className="list-disc pl-4">
+                <li>Jim Halpert quietly yearning for Pam in <em>The Office</em>.</li>
+                <li>Amélie performing small acts of kindness in <em>Amélie</em>.</li>
+                <li>Chihiro’s homesick hesitation at the start of <em>Spirited Away</em>.</li>
+                <li>The unspoken search for connection in <em>Lost in Translation</em>.</li>
+                <li>Marge Gunderson’s quiet wish for stability in <em>Fargo</em>.</li>
+                <li>The Little Prince missing his rose.</li>
+              </ul>
+
+              <p><strong>When to Use Low Potency as a Writer</strong></p>
+              <ul className="list-disc pl-4">
+                <li>To set up a character’s journey before real risks begin.</li>
+                <li>In slice-of-life or meditative stories where atmosphere matters.</li>
+                <li>When the story is about noticing what could happen, not what must.</li>
+                <li>To let the reader feel the ache of ordinary, unspoken dreams.</li>
+              </ul>
+
+              <p><strong>What Keeps Desire Low?</strong></p>
+              <ul className="list-disc pl-4">
+                <li>Fear of the cost of wanting.</li>
+                <li>Habit of disappointment or playing it safe.</li>
+                <li>Uncertainty about what they want or if it’s possible.</li>
+                <li>Obligation to others coming first.</li>
+                <li>Complacency with “good enough” life.</li>
+              </ul>
+
+              <p><strong>How Low Desire Can Change</strong></p>
+              <ul className="list-disc pl-4">
+                <li>A spark—someone new or a crisis—can raise the potency.</li>
+                <li>Sometimes it stays low and becomes a story about acceptance or loss.</li>
+                <li>Sometimes naming the want aloud is the first brave step.</li>
+              </ul>
+              <p>Low desire is the hum under the noise. Write it with patience, honesty, and respect for the ordinary ache everyone knows. Let it breathe. It’s where almost every story begins.</p>
+            </AccordionContent>
+          </AccordionItem>
         <AccordionItem value="potency-medium">
           <AccordionTrigger>Potency: Medium (The Active Want)</AccordionTrigger>
           <AccordionContent>
