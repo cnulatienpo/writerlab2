@@ -1,0 +1,54 @@
+import os
+from pathlib import Path
+from pdfminer.high_level import extract_text
+from pdf2image import convert_from_path
+import pytesseract
+from PIL import Image
+import re
+
+# Paths
+PDF_DIR = Path('thestories')
+TEXT_DIR = Path('clean_texts')
+TEXT_DIR.mkdir(exist_ok=True)
+
+def clean_text(text):
+    # Basic cleanup: remove excessive whitespace and non-ASCII chars
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'[^\x00-\x7F]+', '', text)
+    return text.strip()
+
+def pdf_page_is_text(pdf_path):
+    # Heuristic: extract text from first page and check length
+    text = extract_text(str(pdf_path), maxpages=1)
+    return len(text.strip()) > 20
+
+def ocr_pdf(pdf_path):
+    # Convert pages to images and OCR each
+    pages = convert_from_path(str(pdf_path))
+    full_text = []
+    for page in pages:
+        text = pytesseract.image_to_string(page)
+        full_text.append(text)
+    return '\n'.join(full_text)
+
+def pdf_to_text(pdf_path):
+    if pdf_page_is_text(pdf_path):
+        text = extract_text(str(pdf_path))
+    else:
+        text = ocr_pdf(pdf_path)
+    return clean_text(text)
+
+def process_all_pdfs():
+    for pdf_file in PDF_DIR.glob('*.pdf'):
+        print(f'Processing {pdf_file.name}...')
+        try:
+            text = pdf_to_text(pdf_file)
+            txt_file = TEXT_DIR / f'{pdf_file.stem}.txt'
+            with open(txt_file, 'w', encoding='utf-8') as f:
+                f.write(text)
+            print(f'Written {txt_file.name}')
+        except Exception as e:
+            print(f'Error processing {pdf_file.name}: {e}')
+
+if __name__ == '__main__':
+    process_all_pdfs()
