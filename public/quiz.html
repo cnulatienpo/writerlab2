@@ -16,6 +16,9 @@
     padding:2rem;
   }
   h1 {margin-bottom:1.5rem;}
+  .container {display:flex; align-items:flex-start; gap:2rem; max-width:1200px;}
+  .quiz-area {flex:1;}
+  .info-text {flex:1; max-width:500px; line-height:1.4;}
   .question {margin-bottom:1.5rem; max-width:700px;}
   .answers {display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;}
   label {cursor:pointer;}
@@ -27,9 +30,36 @@
 </head>
 <body>
 <h1>Find Your Writer Type</h1>
-<div id="quiz"></div>
-<button id="submitBtn">Submit</button>
-<div id="result" class="hidden"></div>
+<div class="container">
+  <div class="quiz-area">
+    <div id="quiz"></div>
+    <button id="submitBtn">Submit</button>
+    <div id="result" class="hidden"></div>
+  </div>
+  <div class="info-text">
+    <p>“All models are right, most are useless.” —Andrew Gelman</p>
+    <p>No, I don’t think you’re a type. I’m not gonna go all Jungian archetype on you.
+But let’s be real: no one writing method works for everyone.</p>
+    <p>This game tries its best to meet you where you are. It’s one big creative writing exercise—and it only works if you play along.</p>
+    <p>I made a game to learn the literary devices I was never taught.</p>
+    <p>Here’s what happened: I read a lot as a kid. Decided I wanted to be a writer. Bought all the how-to-write books. And none of them made any damn sense to me.</p>
+    <p>They all assumed I already knew something I didn’t: the actual parts of writing.</p>
+    <p>Most had what I call the Star Wars disease. George Lucas talked about Joseph Campbell, and suddenly every writing book said “just follow the three-act structure and boom—and you will start bleeding money out of your eyeballs. #1 best seller- i promise.”</p>
+    <p>But they never explained what goes into those acts. They assumed you already knew how to use literary devices. I didn’t. So I felt stupid. Not creative enough. Not talented enough. i thought being a good writer meant i was already supposed to know all that.</p>
+    <p>So i bought every book on the market and studied them. but they have a big problem- you cant talk to them and ask questions. and what if they write it for the type of writer you’re not? then you just wasted your time.</p>
+    <p>So I built a game. It’s called Writer Lab.<br>Here’s what it does:</p>
+    <ul>
+      <li>Teaches fiction writing one literary device at a time</li>
+      <li>Each one has its own writing challenge</li>
+      <li>The prompts are structured and specific (no vague "just write!" stuff)</li>
+      <li>You get tested on the element after learning it—so you actually know if it clicked</li>
+      <li>There’s a simple built-in AI named RayRay who answers your questions if you get stuck<br>(He's slow and forgets everything between chats, but he's trying his best)</li>
+    </ul>
+    <p>The big idea?<br>I started thinking of literary devices like elements on a periodic table—and stories like experiments.
+It takes the pressure off.</p>
+    <p>Still building it. But it’s real. take the quiz and let the game explain writing to you in you're own writing style.</p>
+  </div>
+</div>
 <script>
 async function loadText(url){
   const resp=await fetch(url);
