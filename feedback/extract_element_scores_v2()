@@ -1,0 +1,50 @@
+import re
+
+def extract_element_scores_v2(scene_id: str, raw_response: str, debug: bool = False) -> dict:
+    elements = ["desire", "stakes", "conflict", "decision", "change"]
+    allowed_potencies = ["none", "low", "medium", "high", "uncertain"]
+
+    element_scores = {}
+    missing_elements = []
+    confidence_log = []
+
+    for element in elements:
+        present = False
+        potency = "none"
+        confidence = "low"
+
+        # Match formats like "Desire: high", "Conflict - medium", "Stakes – uncertain"
+        pattern = rf"{element}\s*[:\-–]?\s*(?P<score>none|low|medium|high|uncertain)"
+        match = re.search(pattern, raw_response, re.IGNORECASE)
+
+        if match:
+            potency = match.group("score").lower()
+            present = potency != "none"
+            confidence = "high" if potency in allowed_potencies else "low"
+        else:
+            missing_elements.append(element)
+            confidence = "none"
+
+        element_scores[element] = {
+            "present": present,
+            "potency": potency,
+            "confidence": confidence
+        }
+
+        confidence_log.append(f"{element}: {potency.upper()} (confidence: {confidence})")
+
+    if debug:
+        print("\n📋 Confidence Log:")
+        for line in confidence_log:
+            print(" -", line)
+        if missing_elements:
+            print("\n🚩 Missing or ambiguous elements:")
+            for m in missing_elements:
+                print(" -", m)
+
+    return {
+        "scene_id": scene_id,
+        "element_scores": element_scores,
+        "missing_elements": missing_elements,
+        "confidence_log": confidence_log
+    }
