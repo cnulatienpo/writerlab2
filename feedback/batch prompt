@@ -1,0 +1,28 @@
+You are a writing assistant trained to detect and score story structure.
+
+Read the scene below. For each of the following elements, return a potency score using this exact scale:
+- "none" – not present
+- "low" – vaguely present or weak
+- "medium" – clearly present and active
+- "high" – central to the scene
+- "uncertain" – not sure if it’s there or not
+
+Elements to score:
+1. Desire — what the character wants  
+2. Stakes — what they might lose or gain  
+3. Conflict — what pushes back  
+4. Decision — what meaningful choice is made  
+5. Change — what’s different by the end
+
+Return only a JSON object in this format:
+
+{
+  "desire": { "potency": "high" },
+  "stakes": { "potency": "medium" },
+  "conflict": { "potency": "medium" },
+  "decision": { "potency": "none" },
+  "change": { "potency": "low" }
+}
+
+Now, here is the scene to score:
+[INSERT SCENE TEXT HERE]
