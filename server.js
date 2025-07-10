@@ -5,6 +5,7 @@ const path = require('path');
 const authRoutes = require('./auth/authRoutes');
 require('dotenv').config();
 const rateLimit = require('express-rate-limit');
+const fs = require('fs');
 
 const app = express();
 
@@ -27,6 +28,28 @@ app.use(session({
 app.use(express.static('public'));
 app.use('/auth', authRoutes);
 app.use(express.static(path.join(__dirname, 'views')));
+
+// Serve writer type profiles
+app.get('/profile/:type', (req, res) => {
+  const slug = req.params.type.toLowerCase();
+  const fileName = `${slug.charAt(0).toUpperCase() + slug.slice(1)} type`;
+  const filePath = path.join(__dirname, fileName);
+  fs.readFile(filePath, 'utf-8', (err, data) => {
+    if (err) return res.status(404).send('Type not found');
+    res.send(
+      `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${fileName}</title>` +
+      `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">` +
+      `<style>body{background:#111;color:#f4f4f4;font-family:'Space Grotesk',sans-serif;` +
+      `padding:2rem;line-height:1.5;}button{margin-top:2rem;padding:0.75rem 1.5rem;` +
+      `font-size:1rem;font-weight:bold;border:none;border-radius:8px;cursor:pointer;` +
+      `background:#f4f4f4;color:#111;}#content{white-space:pre-wrap;}</style></head>` +
+      `<body><div id="content">${data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>` +
+      `<button id="start">Start Game</button>` +
+      `<script>document.getElementById('start').onclick=()=>{location.href='/game';}</script>` +
+      `</body></html>`
+    );
+  });
+});
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
