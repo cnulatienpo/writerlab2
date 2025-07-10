@@ -1,0 +1,25 @@
+{
+  "scene_id": "scene_001",
+  "element_scores": {
+    "desire": {
+      "present": true,
+      "potency": "high"
+    },
+    "stakes": {
+      "present": true,
+      "potency": "medium"
+    },
+    "conflict": {
+      "present": true,
+      "potency": "medium"
+    },
+    "decision": {
+      "present": false,
+      "potency": "none"
+    },
+    "change": {
+      "present": true,
+      "potency": "low"
+    }
+  }
+}
