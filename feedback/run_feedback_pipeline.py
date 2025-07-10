@@ -5,30 +5,34 @@ from feedback.build_heatmap import build_heatmap
 from feedback.export_heatmap_json import export_heatmap_to_json
 from feedback.ui_stub_heatmap_view import render_heatmap_stub
 
-# 📝 Step 1: Insert your chapter text here
-chapter_text = """
-Your full chapter goes here. It can be long.
-This will be split into individual scenes based on paragraph breaks or logic.
-"""
+# ---------------- User Inputs ----------------
+CHAPTER_TEXT = """Replace this text with your full chapter.\nEach scene should be separated by blank lines or ### markers."""
 
-# ⚙️ Step 2: Choose which elements to analyze
-elements_to_check = ["desire", "stakes", "conflict", "decision", "change"]
+ELEMENTS_TO_CHECK = ["desire", "stakes", "conflict"]
+# --------------------------------------------
 
-# 🚦 Step 3: Run the pipeline
-print("Splitting chapter into scenes...")
-scenes = split_chapter_into_scenes(chapter_text)
 
-print(f"Detected {len(scenes)} scenes. Sending to DeepSeek...")
-scene_results = [call_deepseek_api_json(scene, elements_to_check) for scene in scenes]
+def main():
+    print("Splitting chapter into scenes...")
+    scenes = split_chapter_into_scenes(CHAPTER_TEXT)
+    print(f"Detected {len(scenes)} scenes. Sending to DeepSeek...")
 
-print("Extracting scores...")
-scene_scores = [extract_element_scores(result) for result in scene_results]
+    scene_scores = []
+    for idx, scene in enumerate(scenes, 1):
+        print(f"\nProcessing scene {idx}/{len(scenes)}...")
+        raw = call_deepseek_api_json(scene, ELEMENTS_TO_CHECK)
+        scores = extract_element_scores(raw)
+        scene_scores.append(scores)
 
-print("Building heatmap...")
-heatmap = build_heatmap(scene_scores)
+    print("\nBuilding heatmap...")
+    heatmap = build_heatmap(scene_scores)
 
-print("Saving heatmap to JSON...")
-export_heatmap_to_json(heatmap, filename="chapter_heatmap.json")
+    print("Exporting heatmap JSON...")
+    export_heatmap_to_json(heatmap, filename="chapter_heatmap.json")
 
-print("Rendering heatmap to console...\n")
-render_heatmap_stub(heatmap)
+    print("Rendering heatmap to console...")
+    render_heatmap_stub(heatmap)
+
+
+if __name__ == "__main__":
+    main()
