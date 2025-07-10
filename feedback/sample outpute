@@ -1,0 +1,38 @@
+{
+  "scene_id": "scene_042",
+  "element_scores": {
+    "desire": {
+      "present": true,
+      "potency": "high",
+      "confidence": "high"
+    },
+    "stakes": {
+      "present": true,
+      "potency": "medium",
+      "confidence": "high"
+    },
+    "conflict": {
+      "present": true,
+      "potency": "uncertain",
+      "confidence": "high"
+    },
+    "decision": {
+      "present": false,
+      "potency": "none",
+      "confidence": "high"
+    },
+    "change": {
+      "present": false,
+      "potency": "none",
+      "confidence": "none"
+    }
+  },
+  "missing_elements": ["change"],
+  "confidence_log": [
+    "desire: HIGH (confidence: high)",
+    "stakes: MEDIUM (confidence: high)",
+    "conflict: UNCERTAIN (confidence: high)",
+    "decision: NONE (confidence: high)",
+    "change: NONE (confidence: none)"
+  ]
+}
