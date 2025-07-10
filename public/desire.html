@@ -750,6 +750,18 @@ Character will do anything for revenge → realizes the cost, lets go, finds pea
 
 Potency is dynamic. You can turn it up or down scene by scene, moment by moment, with what you throw at your character and how you show their reaction. If you ever feel stuck, just ask: “How badly do they want it right now—and what would raise or lower the heat?”
 
+<div id="writer-type-content">Type-specific tips coming soon.</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const contentEl = document.getElementById('writer-type-content');
+    const writerType = localStorage.getItem('writerType');
+    const typeContent = (window.writerTypeData || {})[writerType?.toLowerCase?.()]?.desire;
+    if (typeContent) {
+      contentEl.textContent = typeContent;
+    }
+  });
+</script>
+
 
 
 
