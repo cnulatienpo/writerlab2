@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writer Type Quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+<style>
+  body {
+    background:#111;
+    color:#f4f4f4;
+    font-family:'Space Grotesk', sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:2rem;
+  }
+  h1 {margin-bottom:1.5rem;}
+  .question {margin-bottom:1.5rem; max-width:700px;}
+  .answers {display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;}
+  label {cursor:pointer;}
+  button {margin-top:1.5rem; padding:0.75rem 1.5rem; font-size:1rem; font-weight:bold; border:none; border-radius:8px; cursor:pointer; background:#f4f4f4; color:#111;}
+  #result {margin-top:2rem; text-align:center;}
+  #result h2 {margin-bottom:0.5rem;}
+  .hidden {display:none;}
+</style>
+</head>
+<body>
+<h1>Find Your Writer Type</h1>
+<div id="quiz"></div>
+<button id="submitBtn">Submit</button>
+<div id="result" class="hidden"></div>
+<script>
+async function loadText(url){
+  const resp=await fetch(url);
+  return resp.text();
+}
+function parseQuestions(text){
+  const lines=text.split(/\r?\n/);
+  const questions=[]; let current=null;
+  lines.forEach(line=>{
+    const q=line.match(/^(\d+)\.\s*(.+)/);
+    if(q){ if(current) questions.push(current); current={question:q[2], answers:[]}; }
+    else if(line.trim()!=='' && current){ current.answers.push(line.trim()); }
+  });
+  if(current) questions.push(current);
+  return questions;
+}
+function parseKey(text){
+  const map={};
+  text.split(/\r?\n/).forEach(l=>{const m=l.match(/^(\d+)\s+(.+)/); if(m) map[m[1]]=m[2].trim();});
+  return map;
+}
+function parseProfiles(text){
+  const map={};
+  text.split(/\r?\n/).forEach(l=>{const m=l.match(/^(\d+)\s+([^:]+):\s*(.+)/); if(m) map[m[2].trim()]=m[3].trim();});
+  return map;
+}
+(async function(){
+  const [qText,keyText,profText]=await Promise.all([
+    loadText('/quiz_data/quiz_questions'),
+    loadText('/quiz_data/quiz_answer_key'),
+    loadText('/quiz_data/writer_type_profile')
+  ]);
+  const questions=parseQuestions(qText);
+  const answerKey=parseKey(keyText);
+  const profiles=parseProfiles(profText);
+  const quizDiv=document.getElementById('quiz');
+  questions.forEach((q,i)=>{
+    const qDiv=document.createElement('div'); qDiv.className='question';
+    const qTitle=document.createElement('h3'); qTitle.textContent=q.question; qDiv.appendChild(qTitle);
+    const ansDiv=document.createElement('div'); ansDiv.className='answers';
+    q.answers.forEach((a,idx)=>{
+      const id=`q${i}_a${idx}`;
+      const label=document.createElement('label');
+      const input=document.createElement('input');
+      input.type='radio'; input.name=`q${i}`; input.value=idx+1; input.id=id;
+      label.appendChild(input); label.append(' '+a);
+      ansDiv.appendChild(label);
+    });
+    qDiv.appendChild(ansDiv); quizDiv.appendChild(qDiv);
+  });
+  document.getElementById('submitBtn').onclick=()=>{
+    const selections=[...document.querySelectorAll('input[type=radio]:checked')];
+    if(selections.length!==questions.length){alert('Please answer all questions.');return;}
+    const counts={};
+    selections.forEach(s=>{counts[s.value]=(counts[s.value]||0)+1;});
+    const max=Math.max(...Object.values(counts));
+    const winners=Object.keys(counts).filter(k=>counts[k]===max);
+    const resultDiv=document.getElementById('result');
+    resultDiv.innerHTML='';
+    if(winners.length>1){
+      resultDiv.classList.remove('hidden');
+      const p=document.createElement('p');
+      p.textContent='Tie! Choose your writer type:';
+      resultDiv.appendChild(p);
+      winners.forEach(num=>{
+        const type=answerKey[num];
+        const btn=document.createElement('button');
+        btn.textContent=type; btn.onclick=()=>showResult(type);
+        resultDiv.appendChild(btn);
+      });
+    } else {
+      showResult(answerKey[winners[0]]);
+    }
+    function showResult(type){
+      localStorage.setItem('writerType',type);
+      resultDiv.innerHTML=`<h2>${type}</h2><p>${profiles[type]||''}</p>`;
+      const start=document.createElement('button');
+      start.textContent='Start Game';
+      start.onclick=()=>{window.location.href='/game';};
+      const retry=document.createElement('button');
+      retry.textContent='Retake Quiz';
+      retry.onclick=()=>window.location.reload();
+      resultDiv.appendChild(start);
+      resultDiv.appendChild(document.createTextNode(' '));
+      resultDiv.appendChild(retry);
+      resultDiv.classList.remove('hidden');
+    }
+  };
+})();
+</script>
+</body>
+</html>
