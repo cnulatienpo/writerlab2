@@ -221,6 +221,24 @@ const viewTokenUsage = async (req, res) => {
   }
 };
 
+// ------------------ DESIRE CHALLENGE FEEDBACK ------------------
+const desireFeedback = async (req, res) => {
+  const { writing, reflection } = req.body;
+
+  const prompt = `You are a helpful writing coach. A student completed a writing challenge about desire. Here is their writing:\n\n"""${writing}"""\n\nReflection:\n"""${reflection}"""\n\nGive a short paragraph of feedback on how clearly the desire is expressed and one suggestion to sharpen it.`;
+
+  try {
+    const result = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: prompt }]
+    });
+
+    res.json({ feedback: result.choices[0].message.content });
+  } catch {
+    res.status(500).json({ error: 'AI feedback failed' });
+  }
+};
+
 // ------------------ EXPORT ------------------
 module.exports = {
   signup,
@@ -236,5 +254,6 @@ module.exports = {
   analyzeDraft,
   showTokens,
   viewTokenUsage,
-  upload
+  upload,
+  desireFeedback
 };

@@ -20,7 +20,8 @@ const {
   readDraft,
   analyzeDraft,
   showTokens,
-  upload
+  upload,
+  desireFeedback
 } = require('./authController');
 
 // ------------------ MIDDLEWARE ------------------
@@ -51,6 +52,7 @@ router.post('/save-draft', requireAuth, saveDraft);
 router.get('/drafts', requireAuth, viewDrafts);
 router.get('/drafts/:filename', requireAuth, readDraft);
 router.post('/analyze-draft', requireAuth, analyzeDraft);
+router.post('/desire-feedback', requireAuth, desireFeedback);
 
 // ------------------ ROUTE: UPLOAD & ANALYZE ------------------
 const uploadDraft = async (req, res) => {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desire Room Challenge</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+  <style>
+    body {
+      background: #111;
+      color: #f4f4f4;
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    section { margin-bottom: 2rem; }
+    textarea {
+      width: 100%;
+      background: #1c1c1c;
+      color: #f4f4f4;
+      border: none;
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    button {
+      background: #f4f4f4;
+      color: #111;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #ai-feedback {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 6px;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+    .ai-label {
+      font-size: 0.8rem;
+      color: #888;
+      margin-left: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Desire – End of Room Challenge</h1>
+
+  <section>
+    <h2>Instructions</h2>
+    <p>Show Desire. Write up to 500 words where a character wants something—anything. Make the desire clear, whether said, shown or hidden.</p>
+    <p>You can have them state it outright, act on it, or conceal it. Keep it true to what you feel.</p>
+  </section>
+
+  <section>
+    <textarea id="writing" rows="10" placeholder="Write up to 500 words here..."></textarea>
+  </section>
+
+  <section>
+    <h2>Reflection & Feedback</h2>
+    <p>After you write, answer in a sentence or two:</p>
+    <ul>
+      <li>What does your character want?</li>
+      <li>How did you show (or say, or hide) it?</li>
+      <li>Did you try a quiet want, an active want, or a consuming need?</li>
+    </ul>
+    <textarea id="reflection" rows="6" placeholder="Reflect here..."></textarea>
+  </section>
+
+  <section>
+    <button id="submit-btn">Submit</button>
+  </section>
+
+  <section>
+    <h2>AI Feedback<span class="ai-label">AI generated</span></h2>
+    <div id="ai-feedback"></div>
+  </section>
+
+<script>
+  document.getElementById('submit-btn').addEventListener('click', async () => {
+    const writing = document.getElementById('writing').value;
+    const reflection = document.getElementById('reflection').value;
+
+    const res = await fetch('/auth/desire-feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ writing, reflection })
+    });
+
+    const box = document.getElementById('ai-feedback');
+    if (res.ok) {
+      const data = await res.json();
+      box.textContent = data.feedback;
+    } else {
+      box.textContent = 'Error generating feedback.';
+    }
+  });
+</script>
+</body>
+</html>
