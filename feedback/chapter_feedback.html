@@ -11,7 +11,7 @@
 <script>
   async function getFeedback() {
     const chapterText = document.getElementById("chapter").value;
-    const res = await fetch("/api/score_chapter", {
+    const res = await fetch("/api/score_chapter_scenes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chapter: chapterText, chapter_id: "chapter_001" })
