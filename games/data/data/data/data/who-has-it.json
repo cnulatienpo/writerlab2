@@ -1,8 +1,0 @@
-[
-  {
-    "text": "A: I’m just here to help.\nB: Then why’d you bring a knife?",
-    "element": "Fear",
-    "correct": "B",
-    "feedback": "B reveals fear by calling out the threat directly."
-  }
-]
