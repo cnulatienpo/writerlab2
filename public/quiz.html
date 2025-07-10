@@ -51,20 +51,13 @@ function parseKey(text){
   text.split(/\r?\n/).forEach(l=>{const m=l.match(/^(\d+)\s+(.+)/); if(m) map[m[1]]=m[2].trim();});
   return map;
 }
-function parseProfiles(text){
-  const map={};
-  text.split(/\r?\n/).forEach(l=>{const m=l.match(/^(\d+)\s+([^:]+):\s*(.+)/); if(m) map[m[2].trim()]=m[3].trim();});
-  return map;
-}
 (async function(){
-  const [qText,keyText,profText]=await Promise.all([
+  const [qText,keyText]=await Promise.all([
     loadText('/quiz_data/quiz_questions'),
-    loadText('/quiz_data/quiz_answer_key'),
-    loadText('/quiz_data/writer_type_profile')
+    loadText('/quiz_data/quiz_answer_key')
   ]);
   const questions=parseQuestions(qText);
   const answerKey=parseKey(keyText);
-  const profiles=parseProfiles(profText);
   const quizDiv=document.getElementById('quiz');
   questions.forEach((q,i)=>{
     const qDiv=document.createElement('div'); qDiv.className='question';
@@ -104,18 +97,8 @@ function parseProfiles(text){
       showResult(answerKey[winners[0]]);
     }
     function showResult(type){
-      localStorage.setItem('writerType',type);
-      resultDiv.innerHTML=`<h2>${type}</h2><p>${profiles[type]||''}</p>`;
-      const start=document.createElement('button');
-      start.textContent='Start Game';
-      start.onclick=()=>{window.location.href='/game';};
-      const retry=document.createElement('button');
-      retry.textContent='Retake Quiz';
-      retry.onclick=()=>window.location.reload();
-      resultDiv.appendChild(start);
-      resultDiv.appendChild(document.createTextNode(' '));
-      resultDiv.appendChild(retry);
-      resultDiv.classList.remove('hidden');
+      const slug=type.split(/[\s/]/)[0].toLowerCase();
+      window.location.href=`/profile/${slug}`;
     }
   };
 })();
