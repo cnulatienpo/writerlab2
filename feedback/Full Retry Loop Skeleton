@@ -1,5 +1,5 @@
 # Step 1: Extract initial scores
-initial_scores = extract_element_scores_v2("scene_123", deepseek_response, debug=True)
+initial_scores = extract_element_scores_v2("chapter_123", deepseek_response, debug=True)
 
 # Step 2: Get missing or uncertain elements
 missing = initial_scores["missing_elements"]
@@ -8,7 +8,7 @@ if missing:
     print("\n🛠 Running fallbacks for:", missing)
     
     # Step 3: Generate fallback prompts
-    fallbacks = generate_fallback_prompts(scene_text, missing)
+    fallbacks = generate_fallback_prompts(chapter_text, missing)
 
     # Step 4: Collect fallback results
     fallback_results = {}
@@ -18,7 +18,7 @@ if missing:
         prompt = fb["prompt"]
         input_text = fb["input"]
 
-        # 🧠 Send prompt + scene text to DeepSeek
+        # 🧠 Send prompt + chapter text to DeepSeek
         # (this depends on your API setup; here's a placeholder)
         response_text = call_deepseek_api(prompt, input_text)  # You build this
         score_match = re.search(r"(none|low|medium|high|uncertain)", response_text.lower())
@@ -33,9 +33,9 @@ else:
     final_scores = initial_scores
 
 
-output example: 
+output example:
 {
-  "scene_id": "scene_123",
+  "chapter_id": "chapter_123",
   "element_scores": {
     "desire": {
       "present": true,

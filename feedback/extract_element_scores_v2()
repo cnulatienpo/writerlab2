@@ -1,6 +1,6 @@
 import re
 
-def extract_element_scores_v2(scene_id: str, raw_response: str, debug: bool = False) -> dict:
+def extract_element_scores_v2(chapter_id: str, raw_response: str, debug: bool = False) -> dict:
     elements = ["desire", "stakes", "conflict", "decision", "change"]
     allowed_potencies = ["none", "low", "medium", "high", "uncertain"]
 
@@ -43,7 +43,7 @@ def extract_element_scores_v2(scene_id: str, raw_response: str, debug: bool = Fa
                 print(" -", m)
 
     return {
-        "scene_id": scene_id,
+        "chapter_id": chapter_id,
         "element_scores": element_scores,
         "missing_elements": missing_elements,
         "confidence_log": confidence_log

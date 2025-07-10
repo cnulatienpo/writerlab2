@@ -1,12 +1,12 @@
-def generate_fallback_prompts(scene_text: str, missing_elements: list) -> list:
+def generate_fallback_prompts(chapter_text: str, missing_elements: list) -> list:
     prompts = []
     
     fallback_templates = {
-        "desire": "Can you check if the character expresses a want, need, or goal in this scene?",
-        "stakes": "Can you check if the character has anything meaningful to gain or lose in this scene?",
-        "conflict": "Is there anything in the scene that opposes, resists, or complicates the character’s desire?",
+        "desire": "Can you check if the character expresses a want, need, or goal in this chapter?",
+        "stakes": "Can you check if the character has anything meaningful to gain or lose in this chapter?",
+        "conflict": "Is there anything in the chapter that opposes, resists, or complicates the character’s desire?",
         "decision": "Can you check if the character makes a meaningful choice that affects the story?",
-        "change": "Can you see if anything is different by the end of the scene — emotionally, relationally, or narratively?"
+        "change": "Can you see if anything is different by the end of the chapter — emotionally, relationally, or narratively?"
     }
 
     for element in missing_elements:
@@ -14,7 +14,7 @@ def generate_fallback_prompts(scene_text: str, missing_elements: list) -> list:
             prompt = {
                 "element": element,
                 "prompt": fallback_templates[element],
-                "input": scene_text
+                "input": chapter_text
             }
             prompts.append(prompt)
 
@@ -22,11 +22,11 @@ def generate_fallback_prompts(scene_text: str, missing_elements: list) -> list:
 
 
 example usage:
-scene_text = "She stood in the hallway, gripping the envelope. Outside, the rain had stopped, but she hadn’t moved."
+chapter_text = "She stood in the hallway, gripping the envelope. Outside, the rain had stopped, but she hadn’t moved."
 
 missing = ["decision", "change"]
 
-fallbacks = generate_fallback_prompts(scene_text, missing)
+fallbacks = generate_fallback_prompts(chapter_text, missing)
 
 for p in fallbacks:
     print(f"\n🔁 Fallback for {p['element'].upper()}:")

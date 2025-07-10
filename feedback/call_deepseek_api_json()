@@ -4,18 +4,18 @@ import textwrap
 
 openai.api_key = "your_deepseek_api_key"
 
-def call_deepseek_api_json(element: str, scene_text: str, model="deepseek-chat", max_tokens=150) -> dict:
+def call_deepseek_api_json(element: str, chapter_text: str, model="deepseek-chat", max_tokens=150) -> dict:
     # Fallback instructions for each element
     fallback_instructions = {
         "desire": "Check if the character expresses a want, need, or goal.",
         "stakes": "Check if the character has anything meaningful to gain or lose.",
         "conflict": "Check if there is anything opposing or resisting the character.",
         "decision": "Check if the character makes a meaningful choice that affects the story.",
-        "change": "Check if anything is different by the end of the scene — emotionally, relationally, or narratively."
+        "change": "Check if anything is different by the end of the chapter — emotionally, relationally, or narratively."
     }
 
     prompt = f"""
-Read the scene below and score this story element: {element.upper()}.
+Read the chapter below and score this story element: {element.upper()}.
 
 {fallback_instructions[element]}
 
@@ -27,8 +27,8 @@ Respond ONLY with valid JSON in this format:
   }}
 }}
 
-Scene:
-{scene_text}
+Chapter:
+{chapter_text}
 """
 
     try:
@@ -36,7 +36,7 @@ Scene:
             model=model,
             messages=[
                 {"role": "system", "content": "You are a writing assistant that returns structured JSON only."},
-                {"role": "user", "content": textwrap.shorten(prompt, width=6000)}
+                {"role": "user", "content": textwrap.shorten(prompt, width=20000)}
             ],
             temperature=0.2,
             max_tokens=max_tokens
