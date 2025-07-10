@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Writer Lab Elements</title>
+  <style>
+    body {
+      background: #23282e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    h1 {
+      margin-bottom: 24px;
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+    .element-table {
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: repeat(4, 120px);
+      grid-template-rows: repeat(2, 120px);
+      gap: 24px;
+    }
+    .element {
+      border-radius: 16px;
+      box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.10);
+      position: relative;
+      padding: 16px 14px 12px 14px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.18em;
+      transition: transform 0.12s, box-shadow 0.12s;
+      user-select: none;
+      border: none;
+      outline: none;
+    }
+    .element.unlocked:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.18);
+      z-index: 2;
+    }
+    .element.locked {
+      opacity: 0.38;
+      filter: grayscale(0.55) blur(0.3px);
+      cursor: not-allowed;
+    }
+    .abbr {
+      position: absolute;
+      top: 14px;
+      left: 15px;
+      font-size: 1.08em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.90;
+    }
+    .name {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      font-size: 1.08em;
+      font-weight: 400;
+      opacity: 0.97;
+    }
+    .fo { background: linear-gradient(135deg, #e8ca6a 80%, #fffbe4 100%); }
+    .ch { background: linear-gradient(135deg, #b59be8 80%, #f3e9ff 100%); }
+    .di { background: linear-gradient(135deg, #88c7b0 80%, #e4fff4 100%); }
+    .po { background: linear-gradient(135deg, #6ba7e8 80%, #e4f4ff 100%); }
+    .cd { background: linear-gradient(135deg, #968ce8 80%, #eee8ff 100%); }
+    .ss { background: linear-gradient(135deg, #edbe7b 80%, #fff4e4 100%); }
+    .se { background: linear-gradient(135deg, #e89b9b 80%, #ffe4e4 100%); }
+    .pa { background: linear-gradient(135deg, #85c9b3 80%, #e4fff8 100%); }
+  </style>
+</head>
+<body>
+  <h1>Writer Lab Elements</h1>
+  <div class="element-table">
+    <button class="element fo unlocked" onclick="goTo('foundation')">
+      <span class="abbr">Fo</span>
+      <span class="name">Foundation</span>
+    </button>
+    <button class="element ch locked">
+      <span class="abbr">Ch</span>
+      <span class="name">Character</span>
+    </button>
+    <button class="element di locked">
+      <span class="abbr">Di</span>
+      <span class="name">Dialogue</span>
+    </button>
+    <button class="element po locked">
+      <span class="abbr">PO</span>
+      <span class="name">POV</span>
+    </button>
+    <button class="element cd locked">
+      <span class="abbr">CD</span>
+      <span class="name">Character Dynamics</span>
+    </button>
+    <button class="element ss locked">
+      <span class="abbr">SS</span>
+      <span class="name">Scene Starters</span>
+    </button>
+    <button class="element se locked">
+      <span class="abbr">SE</span>
+      <span class="name">Scene Enders</span>
+    </button>
+    <button class="element pa locked">
+      <span class="abbr">Pa</span>
+      <span class="name">Pacing</span>
+    </button>
+  </div>
+  <script>
+    function goTo(element) {
+      alert('Navigate to: ' + element);
+    }
+  </script>
+</body>
+</html>
