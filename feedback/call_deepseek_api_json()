@@ -1,0 +1,58 @@
+import openai
+import json
+import textwrap
+
+openai.api_key = "your_deepseek_api_key"
+
+def call_deepseek_api_json(element: str, scene_text: str, model="deepseek-chat", max_tokens=150) -> dict:
+    # Fallback instructions for each element
+    fallback_instructions = {
+        "desire": "Check if the character expresses a want, need, or goal.",
+        "stakes": "Check if the character has anything meaningful to gain or lose.",
+        "conflict": "Check if there is anything opposing or resisting the character.",
+        "decision": "Check if the character makes a meaningful choice that affects the story.",
+        "change": "Check if anything is different by the end of the scene — emotionally, relationally, or narratively."
+    }
+
+    prompt = f"""
+Read the scene below and score this story element: {element.upper()}.
+
+{fallback_instructions[element]}
+
+Respond ONLY with valid JSON in this format:
+
+{{
+  "{element}": {{
+    "potency": "none" | "low" | "medium" | "high" | "uncertain"
+  }}
+}}
+
+Scene:
+{scene_text}
+"""
+
+    try:
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": "You are a writing assistant that returns structured JSON only."},
+                {"role": "user", "content": textwrap.shorten(prompt, width=6000)}
+            ],
+            temperature=0.2,
+            max_tokens=max_tokens
+        )
+
+        # Parse the model's response safely
+        reply = response.choices[0].message["content"].strip()
+
+        # Force fix common JSON mistakes (if needed)
+        try:
+            return json.loads(reply)
+        except json.JSONDecodeError:
+            # Try to salvage partial responses
+            fixed = reply.split("```json")[-1].split("```")[0].strip()
+            return json.loads(fixed)
+
+    except Exception as e:
+        print(f"API call failed: {e}")
+        return {element: {"potency": "uncertain"}}
