@@ -1,0 +1,41 @@
+<!-- same styles as before -->
+<h1>Chapter Feedback Visualizer</h1>
+
+<label for="chapter">Paste your chapter:</label>
+<textarea id="chapter"></textarea>
+<br/>
+<button onclick="getFeedback()">Get Feedback</button>
+
+<div id="result"></div>
+
+<script>
+  async function getFeedback() {
+    const chapterText = document.getElementById("chapter").value;
+    const res = await fetch("/api/score_chapter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chapter: chapterText, chapter_id: "chapter_001" })
+    });
+
+    const data = await res.json();
+    showResults(data.element_scores);
+  }
+
+  function showResults(scores) {
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "<h2>Feedback:</h2>";
+
+    for (let element in scores) {
+      const score = scores[element];
+      const potency = score.potency || "none";
+      const label = element.charAt(0).toUpperCase() + element.slice(1);
+      const bar = document.createElement("div");
+      bar.className = "element-bar";
+      bar.innerHTML = `
+        <div class="label">${label}</div>
+        <div class="bar" data-potency="${potency}" data-tooltip="Potency: ${potency.toUpperCase()}"></div>
+      `;
+      resultDiv.appendChild(bar);
+    }
+  }
+</script>
