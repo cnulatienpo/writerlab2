@@ -1,0 +1,5 @@
+<!-- Add this to your site's layout -->
+<div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:#222;color:#fff;padding:1em;text-align:center;z-index:9999;">
+  This site uses cookies to improve your experience. By using Writer Lab, you accept our use of cookies.
+  <a href="/privacy-policy" style="color:#00ffff;text-decoration:underline;">Learn more</a>
+</div>
