@@ -13,11 +13,11 @@ DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
 BATCH_PROMPT_TEMPLATE = textwrap.dedent("""
 You are a writing assistant trained to detect and score story structure.
 
-Read the scene below. For each of the following elements, return a potency score using this exact scale:
+Read the chapter below. For each of the following elements, return a potency score using this exact scale:
 - "none" – not present
 - "low" – vaguely present or weak
 - "medium" – clearly present and active
-- "high" – central to the scene
+- "high" – central to the chapter
 - "uncertain" – not sure if it’s there or not
 
 Elements to score:
@@ -36,8 +36,8 @@ Return only a JSON object in this format:
   "change": { "potency": "low" }
 }
 
-Now, here is the scene to score:
-{scene_text}
+Now, here is the chapter to score:
+{chapter_text}
 """)
 
 # Fallback instructions for each element
@@ -46,7 +46,7 @@ FALLBACK_INSTRUCTIONS = {
     "stakes": "Check if the character has anything meaningful to gain or lose.",
     "conflict": "Check if there is anything opposing or resisting the character.",
     "decision": "Check if the character makes a meaningful choice that affects the story.",
-    "change": "Check if anything is different by the end of the scene — emotionally, relationally, or narratively."
+    "change": "Check if anything is different by the end of the chapter — emotionally, relationally, or narratively."
 }
 
 ALLOWED_POTENCIES = ["none", "low", "medium", "high", "uncertain"]
@@ -62,7 +62,7 @@ def _call_deepseek(prompt: str, api_key: str, model: str = DEEPSEEK_MODEL, max_t
         "model": model,
         "messages": [
             {"role": "system", "content": "You are a writing assistant that returns structured JSON only."},
-            {"role": "user", "content": textwrap.shorten(prompt, width=6000)}
+            {"role": "user", "content": textwrap.shorten(prompt, width=20000)}
         ],
         "temperature": 0.2,
         "max_tokens": max_tokens
@@ -73,17 +73,17 @@ def _call_deepseek(prompt: str, api_key: str, model: str = DEEPSEEK_MODEL, max_t
     return data["choices"][0]["message"]["content"].strip()
 
 
-def call_deepseek_batch(scene_text: str, api_key: str, model: str = DEEPSEEK_MODEL) -> str:
+def call_deepseek_batch(chapter_text: str, api_key: str, model: str = DEEPSEEK_MODEL) -> str:
     """Score all elements in one API call."""
-    prompt = BATCH_PROMPT_TEMPLATE.format(scene_text=scene_text)
+    prompt = BATCH_PROMPT_TEMPLATE.format(chapter_text=chapter_text)
     return _call_deepseek(prompt, api_key, model)
 
 
-def call_deepseek_fallback(element: str, scene_text: str, api_key: str, model: str = DEEPSEEK_MODEL) -> str:
+def call_deepseek_fallback(element: str, chapter_text: str, api_key: str, model: str = DEEPSEEK_MODEL) -> str:
     """Request a single element using a fallback prompt."""
     instruction = FALLBACK_INSTRUCTIONS[element]
     prompt = textwrap.dedent(f"""
-    Read the scene below and score this story element: {element.upper()}.
+    Read the chapter below and score this story element: {element.upper()}.
 
     {instruction}
 
@@ -94,13 +94,13 @@ def call_deepseek_fallback(element: str, scene_text: str, api_key: str, model: s
       }}
     }}
 
-    Scene:
-    {scene_text}
+    Chapter:
+    {chapter_text}
     """)
     return _call_deepseek(prompt, api_key, model)
 
 
-def extract_element_scores(scene_id: str, raw_response: str, debug: bool = False) -> Dict:
+def extract_element_scores(chapter_id: str, raw_response: str, debug: bool = False) -> Dict:
     """Parse DeepSeek's text response and identify missing or uncertain elements."""
     elements = ["desire", "stakes", "conflict", "decision", "change"]
     element_scores: Dict[str, Dict[str, str]] = {}
@@ -140,7 +140,7 @@ def extract_element_scores(scene_id: str, raw_response: str, debug: bool = False
                 print(" -", m)
 
     return {
-        "scene_id": scene_id,
+        "chapter_id": chapter_id,
         "element_scores": element_scores,
         "missing_elements": missing,
         "confidence_log": confidence_log,
@@ -161,15 +161,15 @@ def merge_element_scores(original_scores: Dict, fallback_results: Dict) -> Dict:
     return original_scores
 
 
-def score_scene(scene_id: str, scene_text: str, api_key: str, model: str = DEEPSEEK_MODEL, debug: bool = False) -> Dict:
-    """High level helper that scores a scene and retries missing elements."""
-    batch_raw = call_deepseek_batch(scene_text, api_key, model)
-    scores = extract_element_scores(scene_id, batch_raw, debug)
+def score_chapter(chapter_id: str, chapter_text: str, api_key: str, model: str = DEEPSEEK_MODEL, debug: bool = False) -> Dict:
+    """High level helper that scores a chapter and retries missing elements."""
+    batch_raw = call_deepseek_batch(chapter_text, api_key, model)
+    scores = extract_element_scores(chapter_id, batch_raw, debug)
 
     if scores["missing_elements"]:
         fallback_results = {}
         for element in scores["missing_elements"]:
-            fb_raw = call_deepseek_fallback(element, scene_text, api_key, model)
+            fb_raw = call_deepseek_fallback(element, chapter_text, api_key, model)
             try:
                 fb_json = json.loads(fb_raw)
             except json.JSONDecodeError:

@@ -1,18 +1,18 @@
-You are a writing assistant trained to detect structural elements in story scenes.
+You are a writing assistant trained to detect structural elements in story chapters.
 
-Your task is to read the scene below and score five core story elements based on how strongly they appear.
+Your task is to read the chapter below and score five core story elements based on how strongly they appear.
 
 Use the following scale for all elements:
 - "none" – not present or not detectable
 - "low" – barely hinted or weakly expressed
-- "medium" – clearly present and active in the scene
+- "medium" – clearly present and active in the chapter
 - "high" – strong, central, and emotionally or narratively powerful
 - "uncertain" – unclear due to ambiguity, subtlety, or missing context
 
 Return your answer in this JSON format:
 
 {
-  "scene_id": "scene_###",
+  "chapter_id": "chapter_###",
   "element_scores": {
     "desire": { "present": true, "potency": "medium" },
     "stakes": { "present": true, "potency": "low" },
@@ -30,7 +30,7 @@ Now, here are the definitions for each element:
 - none: No goal or need is shown  
 - low: Desire is vague or passive  
 - medium: Desire is clear and motivates action  
-- high: Desire is urgent, active, and drives the scene  
+- high: Desire is urgent, active, and drives the chapter
 - uncertain: I can’t tell what they want — maybe it's hidden or missing
 
 **Stakes** – What’s at risk? What matters?  
@@ -63,4 +63,4 @@ Now, here are the definitions for each element:
 
 ---
 
-Now read the scene and score the elements.
+Now read the chapter and score the elements.

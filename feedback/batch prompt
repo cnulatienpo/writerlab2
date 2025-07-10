@@ -1,10 +1,10 @@
 You are a writing assistant trained to detect and score story structure.
 
-Read the scene below. For each of the following elements, return a potency score using this exact scale:
+Read the chapter below. For each of the following elements, return a potency score using this exact scale:
 - "none" – not present
 - "low" – vaguely present or weak
 - "medium" – clearly present and active
-- "high" – central to the scene
+- "high" – central to the chapter
 - "uncertain" – not sure if it’s there or not
 
 Elements to score:
@@ -24,5 +24,5 @@ Return only a JSON object in this format:
   "change": { "potency": "low" }
 }
 
-Now, here is the scene to score:
-[INSERT SCENE TEXT HERE]
+Now, here is the chapter to score:
+[INSERT CHAPTER TEXT HERE]
