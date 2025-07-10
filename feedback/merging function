@@ -1,0 +1,12 @@
+def merge_element_scores(original_scores: dict, fallback_results: dict) -> dict:
+    for element, new_data in fallback_results.items():
+        if element in original_scores["element_scores"]:
+            # Only overwrite if original was 'none' or 'uncertain'
+            original_potency = original_scores["element_scores"][element]["potency"]
+            if original_potency in ["none", "uncertain"]:
+                original_scores["element_scores"][element] = {
+                    "present": new_data["potency"] != "none",
+                    "potency": new_data["potency"],
+                    "confidence": "fallback"
+                }
+    return original_scores
