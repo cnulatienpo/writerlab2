@@ -1,23 +1,20 @@
 from flask import Flask, request, jsonify
-from feedback.extract_element_scores_v2 import parse_batch_element_scores
-from feedback.call_deepseek_api_json import call_deepseek_api_json_batch
+from feedback.chapter_feedback import score_chapter_scenes
 
 app = Flask(__name__)
 
-@app.route("/api/score_chapter", methods=["POST"])
-def score_chapter():
+@app.route('/api/score_chapter_scenes', methods=['POST'])
+def score_chapter_scenes_endpoint():
     data = request.json
-    chapter_text = data.get("chapter", "")
-    chapter_id = data.get("chapter_id", "chapter_001")
+    chapter_text = data.get('chapter', '')
+    chapter_id = data.get('chapter_id', 'chapter_001')
+    api_key = data.get('api_key', '')
 
     if not chapter_text.strip():
-        return jsonify({"error": "No chapter text submitted."}), 400
+        return jsonify({'error': 'No chapter text submitted.'}), 400
 
-    # Call DeepSeek batch scoring
-    raw_result = call_deepseek_api_json_batch(chapter_text)
-    final_result = parse_batch_element_scores(chapter_id, raw_result)
+    result = score_chapter_scenes(chapter_id, chapter_text, api_key)
+    return jsonify(result)
 
-    return jsonify(final_result)
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

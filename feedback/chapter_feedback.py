@@ -5,6 +5,12 @@ import textwrap
 from typing import Dict, List
 
 import requests
+try:
+    from feedback.extract_element_scores_v2 import extract_element_scores_v2
+except Exception:
+    extract_element_scores_v2 = None
+if extract_element_scores_v2 is None:
+    extract_element_scores_v2 = lambda cid, raw, debug=False: extract_element_scores(cid, raw, debug)
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
@@ -177,3 +183,53 @@ def score_chapter(chapter_id: str, chapter_text: str, api_key: str, model: str =
             fallback_results[element] = fb_json.get(element, {"potency": "uncertain"})
         scores = merge_element_scores(scores, fallback_results)
     return scores
+# New helper functions for scene-based scoring
+
+SCENE_DIVIDER_PATTERN = re.compile(r"\n\s*(?:###|---)\s*\n")
+
+POTENCY_TO_NUM = {"none": 0, "low": 1, "medium": 2, "high": 3, "uncertain": 0}
+NUM_TO_POTENCY = {0: "none", 1: "low", 2: "medium", 3: "high"}
+
+def split_into_scenes(chapter_text: str) -> List[str]:
+    """Split a chapter string into scenes using simple heuristics."""
+    if SCENE_DIVIDER_PATTERN.search(chapter_text):
+        parts = SCENE_DIVIDER_PATTERN.split(chapter_text)
+    else:
+        parts = re.split(r"\n{2,}", chapter_text)
+    scenes = [p.strip() for p in parts if p.strip()]
+    return scenes
+
+
+def _aggregate_scene_scores(scene_scores: List[Dict]) -> Dict[str, Dict[str, str]]:
+    """Average potency across scenes for each story element."""
+    elements = ["desire", "stakes", "conflict", "decision", "change"]
+    aggregated: Dict[str, Dict[str, str]] = {}
+    for element in elements:
+        numeric = [POTENCY_TO_NUM.get(s["element_scores"][element]["potency"], 0) for s in scene_scores]
+        avg = sum(numeric) / len(numeric) if numeric else 0
+        avg_potency = NUM_TO_POTENCY.get(int(round(avg)), "none")
+        aggregated[element] = {
+            "present": avg > 0,
+            "potency": avg_potency,
+        }
+    return aggregated
+
+
+def score_chapter_scenes(chapter_id: str, chapter_text: str, api_key: str, model: str = DEEPSEEK_MODEL, debug: bool = False) -> Dict:
+    """Split a chapter into scenes and score each one individually."""
+    scenes = split_into_scenes(chapter_text)
+    if len(scenes) <= 1:
+        print("⚠️ Scene split failed; scoring full chapter as one scene")
+        scenes = [chapter_text]
+    scene_results = []
+    for idx, scene in enumerate(scenes, 1):
+        print(f"Scoring scene {idx}/{len(scenes)}...")
+        raw = call_deepseek_batch(scene, api_key, model)
+        scene_score = extract_element_scores_v2(f"{chapter_id}_scene_{idx}", raw, debug)
+        scene_results.append(scene_score)
+    aggregated = _aggregate_scene_scores(scene_results)
+    return {
+        "chapter_id": chapter_id,
+        "scene_breakdowns": scene_results,
+        "element_scores": aggregated,
+    }
