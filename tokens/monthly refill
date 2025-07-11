@@ -1,0 +1,24 @@
+const cron = require('node-cron');
+
+// Refill tokens on the 1st of every month at midnight
+cron.schedule('0 0 1 * *', async () => {
+  const DEFAULT_TOKENS = 10;
+
+  try {
+    await db.collection('users').updateMany({}, {
+      $set: { tokens_remaining: DEFAULT_TOKENS }
+    });
+    console.log('✅ Monthly token refill complete.');
+  } catch (err) {
+    console.error('❌ Error during monthly token refill:', err);
+  }
+});
+
+cron.schedule('* * * * *', () => { /* ... */ });
+
+await db.collection('users').updateMany({}, {
+  $set: {
+    tokens_remaining: DEFAULT_TOKENS,
+    last_refill: new Date()
+  }
+});
