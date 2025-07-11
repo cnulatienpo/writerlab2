@@ -1,0 +1,47 @@
+// db.js – Mongo connection
+const { MongoClient } = require("mongodb");
+
+// Replace with your actual connection string
+const uri = "YOUR_MONGODB_ATLAS_CONNECTION_STRING";
+const client = new MongoClient(uri);
+const dbName = "yourDatabaseName";
+const collectionName = "users";
+
+async function getUser(userId) {
+  await client.connect();
+  const db = client.db(dbName);
+  const users = db.collection(collectionName);
+
+  let user = await users.findOne({ _id: userId });
+
+  // Create user if not found
+  if (!user) {
+    user = {
+      _id: userId,
+      tokens_remaining: 20000,
+      critiques_used: 0,
+      last_token_refill: new Date()
+    };
+    await users.insertOne(user);
+  }
+
+  return user;
+}
+
+async function updateTokens(userId, tokensUsed) {
+  const db = client.db(dbName);
+  const users = db.collection(collectionName);
+  const result = await users.findOneAndUpdate(
+    { _id: userId },
+    {
+      $inc: {
+        tokens_remaining: -tokensUsed,
+        critiques_used: 1
+      }
+    },
+    { returnDocument: "after" }
+  );
+  return result.value;
+}
+
+module.exports = { getUser, updateTokens };
