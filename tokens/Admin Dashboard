@@ -1,0 +1,15 @@
+// GET /admin/users
+app.get('/admin/users', async (req, res) => {
+  // Optional: Add password protection here or auth check
+  const users = await db.collection('users')
+    .find({})
+    .project({ email: 1, tokens_remaining: 1, critique_count: 1, _id: 0 })
+    .toArray();
+
+  res.json(users);
+});
+
+
+if (req.query.secret !== process.env.ADMIN_SECRET) {
+  return res.status(401).json({ error: 'Unauthorized' });
+}
