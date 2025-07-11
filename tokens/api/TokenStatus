@@ -1,0 +1,22 @@
+// TokenStatus.jsx
+import { useEffect, useState } from "react";
+
+export default function TokenStatus() {
+  const [tokens, setTokens] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/tokens") // replace with your actual backend route
+      .then((res) => res.json())
+      .then((data) => setTokens(data.tokens))
+      .catch(() => setTokens("error"));
+  }, []);
+
+  if (tokens === null) return <div>Loading tokens...</div>;
+  if (tokens === "error") return <div>⚠️ Token check failed</div>;
+
+  return (
+    <div className="p-2 bg-gray-100 text-sm rounded">
+      🪙 Tokens Left: <strong>{tokens}</strong>
+    </div>
+  );
+}
