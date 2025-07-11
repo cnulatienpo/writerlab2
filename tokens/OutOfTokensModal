@@ -1,0 +1,41 @@
+// OutOfTokensModal.jsx
+import { useEffect, useState } from "react";
+
+export default function OutOfTokensModal() {
+  const [tokens, setTokens] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/tokens") // replace with your token-check endpoint
+      .then((res) => res.json())
+      .then((data) => setTokens(data.tokens))
+      .catch(() => setTokens("error"));
+  }, []);
+
+  if (tokens === null || tokens > 0) return null;
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center z-50">
+      <div className="bg-white p-6 rounded-lg text-center shadow-lg">
+        <h2 className="text-lg font-bold mb-2">You're out of tokens 💀</h2>
+        <p className="mb-4">Buy more tokens to keep playing and getting critiques.</p>
+        <a
+          href="https://your-gumroad-product-url.com"
+          className="inline-block bg-black text-white px-4 py-2 rounded"
+        >
+          Buy Tokens
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// /api/tokens.js
+app.get("/api/tokens", async (req, res) => {
+  const userId = req.headers["x-user-id"]; // or however you're tracking users
+
+  const user = await db.collection("users").findOne({ userId });
+
+  if (!user) return res.status(404).json({ tokens: 0 });
+
+  res.json({ tokens: user.tokens });
+});
