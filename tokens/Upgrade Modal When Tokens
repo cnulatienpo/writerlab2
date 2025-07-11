@@ -1,0 +1,14 @@
+function UpgradeModal({ show, onClose }) {
+  if (!show) return null;
+
+  return (
+    <div className="modal">
+      <h2>You're out of tokens!</h2>
+      <p>Refill your balance to keep playing. You can grab more tokens below:</p>
+      <a href="https://your-gumroad-link" target="_blank" rel="noreferrer">
+        🔁 Buy Token Refill
+      </a>
+      <button onClick={onClose}>Close</button>
+    </div>
+  );
+}
