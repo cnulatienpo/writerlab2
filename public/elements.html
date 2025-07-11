@@ -27,7 +27,7 @@
       padding: 36px;
       display: grid;
       grid-template-columns: repeat(4, 120px);
-      grid-template-rows: repeat(2, 120px);
+      grid-template-rows: repeat(3, 120px);
       gap: 24px;
     }
     .element {
@@ -79,10 +79,29 @@
     .ss { background: linear-gradient(135deg, #edbe7b 80%, #fff4e4 100%); }
     .se { background: linear-gradient(135deg, #e89b9b 80%, #ffe4e4 100%); }
     .pa { background: linear-gradient(135deg, #85c9b3 80%, #e4fff8 100%); }
+    .da { background: linear-gradient(135deg, #6bdbbd 80%, #e4fff8 100%); }
+    #drafting-area {
+      position: fixed;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 18px 20px;
+      border-radius: 16px;
+      font-size: 1.1em;
+      box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.10);
+      cursor: pointer;
+      border: none;
+      color: #fff;
+    }
+    #drafting-area:hover {
+      transform: translateY(-50%) scale(1.04);
+      box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.18);
+    }
   </style>
 </head>
 <body>
   <h1>Writer Lab Elements</h1>
+  <button id="drafting-area" class="da" onclick="goTo('drafting')">Drafting Area</button>
   <div class="element-table">
     <button class="element fo unlocked" onclick="goTo('foundation')">
       <span class="abbr">Fo</span>
