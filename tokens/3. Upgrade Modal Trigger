@@ -1,0 +1,10 @@
+<div id="upgrade-modal" class="modal hidden">
+  <h2>You’re out of critique tokens</h2>
+  <p>You’ve used all your free critiques. Ready to keep building?</p>
+  <a href="https://your-gumroad-link.com" target="_blank" class="btn">Get More Tokens</a>
+</div>
+
+
+function showUpgradeModal() {
+  document.getElementById("upgrade-modal").classList.remove("hidden");
+}
