@@ -1,0 +1,18 @@
+async function getCritiqueResponse(critiqueId) {
+  const res = await fetch("/api/get-critique-response", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-user-id": "demo-user",
+    },
+    body: JSON.stringify({ critiqueId }),
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    alert(data.error || "Something went wrong.");
+    return null;
+  }
+
+  return data.response;
+}
