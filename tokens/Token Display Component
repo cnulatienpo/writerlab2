@@ -1,0 +1,22 @@
+// TokenDisplay.js
+import { useEffect, useState } from 'react';
+
+export default function TokenDisplay() {
+  const [tokens, setTokens] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/user/tokens') // ← your backend route here
+      .then(res => res.json())
+      .then(data => setTokens(data.tokens_remaining))
+      .catch(err => {
+        console.error('Failed to load token count:', err);
+        setTokens('error');
+      });
+  }, []);
+
+  return (
+    <div className="token-bar">
+      {tokens === null ? 'Loading tokens...' : `🪙 Tokens left: ${tokens}`}
+    </div>
+  );
+}
