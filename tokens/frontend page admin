@@ -1,0 +1,35 @@
+import { useEffect, useState } from 'react';
+
+export default function AdminDashboard() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('/admin/users?secret=YOUR_SECRET_HERE') // secure this
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>Admin Dashboard</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Tokens</th>
+            <th>Critiques</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.email}>
+              <td>{user.email}</td>
+              <td>{user.tokens_remaining ?? 0}</td>
+              <td>{user.critique_count ?? 0}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
