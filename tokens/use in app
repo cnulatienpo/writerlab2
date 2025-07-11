@@ -1,0 +1,20 @@
+const { getUser, updateTokens } = require("./db");
+
+async function handleCritique(userId, userText) {
+  const user = await getUser(userId);
+
+  const tokensIn = estimateTokens(userText);
+  const tokensOut = estimateTokens("Some placeholder critique response");
+  const total = tokensIn + tokensOut;
+
+  if (user.tokens_remaining < total) {
+    throw new Error("Out of tokens");
+  }
+
+  // If they have enough:
+  await updateTokens(userId, total);
+
+  // Call DeepSeek and return real critique
+  const response = await fetchCritiqueFromDeepSeek(userText);
+  return response;
+}
