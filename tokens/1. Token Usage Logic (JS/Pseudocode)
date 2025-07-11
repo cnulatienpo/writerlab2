@@ -1,0 +1,36 @@
+// STARTING BALANCE PER USER
+const STARTING_TOKENS = 20000;
+if (!user.tokens_remaining) {
+  user.tokens_remaining = STARTING_TOKENS;
+}
+
+// ESTIMATE TOKENS FROM TEXT
+function estimateTokens(text) {
+  const wordCount = text.trim().split(/\s+/).length;
+  return Math.ceil(wordCount * 1.3); // generous input/output multiplier
+}
+
+// RUN CRITIQUE
+async function runCritique(userInput) {
+  const estimatedInputTokens = estimateTokens(userInput);
+
+  // Optionally use a placeholder AI response for estimate (if real output not known yet)
+  const placeholderCritique = "This is a thoughtful and helpful critique of your work.";
+  const estimatedOutputTokens = estimateTokens(placeholderCritique);
+
+  const totalEstimatedTokens = estimatedInputTokens + estimatedOutputTokens;
+
+  // CHECK IF USER HAS ENOUGH TOKENS
+  if (user.tokens_remaining < totalEstimatedTokens) {
+    showUpgradeModal();
+    return;
+  }
+
+  // Deduct tokens
+  user.tokens_remaining -= totalEstimatedTokens;
+  updateTokenUI(user.tokens_remaining);
+
+  // Send to DeepSeek + display critique
+  const aiCritique = await fetchDeepSeekCritique(userInput);
+  displayCritique(aiCritique);
+}
