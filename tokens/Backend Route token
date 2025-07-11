@@ -1,0 +1,15 @@
+// POST /admin/reset-tokens
+app.post('/admin/reset-tokens', async (req, res) => {
+  const { secret } = req.body;
+  if (secret !== process.env.ADMIN_SECRET) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const DEFAULT_TOKEN_AMOUNT = 10; // or whatever you want
+
+  await db.collection('users').updateMany({}, {
+    $set: { tokens_remaining: DEFAULT_TOKEN_AMOUNT }
+  });
+
+  res.json({ success: true, message: 'All user tokens have been reset.' });
+});
