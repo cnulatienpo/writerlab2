@@ -1,0 +1,9 @@
+// GET /api/user/tokens
+app.get('/api/user/tokens', async (req, res) => {
+  const userId = req.user.id; // or however you're authenticating
+  const user = await db.collection('users').findOne({ _id: userId });
+
+  if (!user) return res.status(404).json({ error: 'User not found' });
+
+  res.json({ tokens_remaining: user.tokens_remaining || 0 });
+});
