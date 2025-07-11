@@ -1,0 +1,14 @@
+<div id="token-display" class="token-ui">
+  You have <span id="token-count">20,000</span> tokens left.
+</div>
+
+function updateTokenUI(tokens) {
+  const tokenCount = document.getElementById("token-count");
+  tokenCount.textContent = tokens.toLocaleString();
+
+  const roughEstimate = Math.floor(tokens / 1700); // average per long critique
+  if (roughEstimate <= 2) {
+    document.getElementById("token-display").innerHTML =
+      `⚠️ You have only ${tokens.toLocaleString()} tokens left. (~${roughEstimate} critique${roughEstimate !== 1 ? 's' : ''})`;
+  }
+}
