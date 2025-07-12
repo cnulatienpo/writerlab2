@@ -169,3 +169,42 @@ textarea {
   display: none;
 }
 
+#junk-drawer {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 300px;
+  background: #f5f5dc;
+  border: 1px solid #aaa;
+  padding: 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+#junk-drawer h3 {
+  margin-top: 0;
+}
+
+#add-note {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+#notes-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.sticky-note {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: move;
+  overflow: auto;
+  word-wrap: break-word;
+}
