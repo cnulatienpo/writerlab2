@@ -176,3 +176,117 @@ function editScene(index) {
   updateWordCount();
   loadSceneNotes();
 }
+
+
+  // Junk Drawer Elements
+const junkDrawer = document.getElementById('junk-drawer');
+const toggleJunkDrawer = document.getElementById('toggle-junk-drawer');
+const addNoteBtn = document.getElementById('add-note');
+const notesContainer = document.getElementById('notes-container');
+
+let junkNotes = [];
+
+// Load Junk Drawer from localStorage
+function loadJunkDrawer() {
+  const data = localStorage.getItem('junkdrawer');
+  junkNotes = data ? JSON.parse(data) : [];
+  renderJunkDrawer();
+}
+
+// Save to localStorage
+function saveJunkDrawer() {
+  localStorage.setItem('junkdrawer', JSON.stringify(junkNotes));
+}
+
+// Create Note Element
+function createNoteElement(note, index) {
+  const noteDiv = document.createElement('div');
+  noteDiv.className = 'note';
+  noteDiv.contentEditable = true;
+  noteDiv.innerText = note.text || '';
+  noteDiv.style.backgroundColor = note.color || '#ffff88';
+  noteDiv.style.left = note.x + 'px';
+  noteDiv.style.top = note.y + 'px';
+  noteDiv.setAttribute('data-index', index);
+
+  // Dragging logic
+  noteDiv.onmousedown = function (e) {
+    const shiftX = e.clientX - noteDiv.getBoundingClientRect().left;
+    const shiftY = e.clientY - noteDiv.getBoundingClientRect().top;
+
+    function moveAt(pageX, pageY) {
+      noteDiv.style.left = pageX - shiftX + 'px';
+      noteDiv.style.top = pageY - shiftY + 'px';
+      junkNotes[index].x = pageX - shiftX;
+      junkNotes[index].y = pageY - shiftY;
+      saveJunkDrawer();
+    }
+
+    function onMouseMove(e) {
+      moveAt(e.pageX, e.pageY);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+
+    noteDiv.onmouseup = function () {
+      document.removeEventListener('mousemove', onMouseMove);
+      noteDiv.onmouseup = null;
+    };
+  };
+
+  // Right click = delete
+  noteDiv.oncontextmenu = function (e) {
+    e.preventDefault();
+    junkNotes.splice(index, 1);
+    saveJunkDrawer();
+    renderJunkDrawer();
+  };
+
+  // Double click = change color
+  noteDiv.ondblclick = function () {
+    const colors = ['#ffff88', '#ffd8d8', '#d8ffd8', '#d8d8ff'];
+    const currentColor = junkNotes[index].color || colors[0];
+    const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+    junkNotes[index].color = nextColor;
+    saveJunkDrawer();
+    renderJunkDrawer();
+  };
+
+  // Save content changes
+  noteDiv.oninput = function () {
+    junkNotes[index].text = noteDiv.innerText;
+    saveJunkDrawer();
+  };
+
+  return noteDiv;
+}
+
+// Render all notes
+function renderJunkDrawer() {
+  notesContainer.innerHTML = '';
+  junkNotes.forEach((note, index) => {
+    const noteEl = createNoteElement(note, index);
+    notesContainer.appendChild(noteEl);
+  });
+}
+
+// Create new note
+addNoteBtn.addEventListener('click', () => {
+  const newNote = {
+    text: '',
+    color: '#ffff88',
+    x: 50,
+    y: 50
+  };
+  junkNotes.push(newNote);
+  saveJunkDrawer();
+  renderJunkDrawer();
+});
+
+// Toggle Drawer
+toggleJunkDrawer.addEventListener('click', () => {
+  junkDrawer.classList.toggle('hidden');
+});
+
+// Initialize
+loadJunkDrawer();
