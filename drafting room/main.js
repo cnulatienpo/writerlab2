@@ -122,3 +122,57 @@ saveSceneBtn.onclick = () => {
   if (!currentProject || currentSceneIndex === null) return;
   projects[currentProject].scenes[currentSceneIndex].text = sceneText.value;
   saveProj
+
+  // Scene Notes Inputs
+const sceneGoal = document.getElementById('scene-goal');
+const sceneEmotion = document.getElementById('scene-emotion');
+const sceneCharacters = document.getElementById('scene-characters');
+const desireSlider = document.getElementById('desire-slider');
+const conflictSlider = document.getElementById('conflict-slider');
+const revealSlider = document.getElementById('reveal-slider');
+
+// Load scene notes into drawer
+function loadSceneNotes() {
+  const scene = projects[currentProject].scenes[currentSceneIndex];
+  const notes = scene.notes || {};
+
+  sceneGoal.value = notes.goal || '';
+  sceneEmotion.value = notes.emotion || '';
+  sceneCharacters.value = notes.characters || '';
+  desireSlider.value = notes.desire || 0;
+  conflictSlider.value = notes.conflict || 0;
+  revealSlider.value = notes.reveal || 0;
+}
+
+// Save drawer changes live
+function saveSceneNotes() {
+  if (!currentProject || currentSceneIndex === null) return;
+  const scene = projects[currentProject].scenes[currentSceneIndex];
+  scene.notes = {
+    goal: sceneGoal.value,
+    emotion: sceneEmotion.value,
+    characters: sceneCharacters.value,
+    desire: parseInt(desireSlider.value),
+    conflict: parseInt(conflictSlider.value),
+    reveal: parseInt(revealSlider.value),
+  };
+  saveProjects();
+}
+
+// Events to save on input
+[sceneGoal, sceneEmotion, sceneCharacters,
+ desireSlider, conflictSlider, revealSlider].forEach(el => {
+  el.addEventListener('input', saveSceneNotes);
+});
+
+// Extend editScene to load notes
+function editScene(index) {
+  currentSceneIndex = index;
+  const scene = projects[currentProject].scenes[index];
+  sceneTitle.textContent = `✍️ ${scene.title}`;
+  sceneText.value = scene.text || '';
+  sceneEditor.classList.remove('hidden');
+  drawer.classList.add('hidden');
+  updateWordCount();
+  loadSceneNotes();
+}
