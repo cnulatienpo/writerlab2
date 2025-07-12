@@ -1,0 +1,22 @@
+#scene-sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 210px;
+  background: #232323;
+  color: #fff;
+  border-right: 2px solid #222;
+  padding: 16px 8px;
+  z-index: 90;
+  overflow-y: auto;
+}
+#scene-list { list-style: none; padding: 0; margin: 0; }
+#scene-list li {
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  transition: background 0.15s;
+}
+#scene-list li:hover, #scene-list li.active {
+  background: #37373f;
+}
