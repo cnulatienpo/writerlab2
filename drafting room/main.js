@@ -290,3 +290,63 @@ toggleJunkDrawer.addEventListener('click', () => {
 
 // Initialize
 loadJunkDrawer();
+
+
+  // --- STICKY NOTES ---
+let notes = JSON.parse(localStorage.getItem('junkdrawer')) || [];
+
+function saveNotes() {
+  localStorage.setItem('junkdrawer', JSON.stringify(notes));
+}
+
+function renderNotes() {
+  const container = document.getElementById('notes-container');
+  container.innerHTML = '';
+  notes.forEach((note, i) => {
+    const div = document.createElement('div');
+    div.className = 'sticky-note';
+    div.contentEditable = true;
+    div.style.backgroundColor = note.color;
+    div.style.left = note.x + 'px';
+    div.style.top = note.y + 'px';
+    div.innerText = note.text;
+
+    div.addEventListener('input', () => {
+      note.text = div.innerText;
+      saveNotes();
+    });
+
+    div.setAttribute('draggable', 'true');
+
+    div.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', i);
+    });
+
+    div.addEventListener('dragend', (e) => {
+      const rect = e.target.getBoundingClientRect();
+      note.x = rect.left;
+      note.y = rect.top;
+      saveNotes();
+    });
+
+    container.appendChild(div);
+  });
+}
+
+function addStickyNote() {
+  const newNote = {
+    text: '',
+    color: '#' + Math.floor(Math.random() * 16777215).toString(16),
+    x: 100,
+    y: 100
+  };
+  notes.push(newNote);
+  saveNotes();
+  renderNotes();
+}
+
+document.getElementById('add-note').addEventListener('click', addStickyNote);
+
+// Initial render
+renderNotes();
+
