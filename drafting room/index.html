@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>📘 Drafting Room</h1>
-    <button id="toggle-junk-drawer">🗃️ Junk Drawer</button>
+    <button id="toggle-junk">🗃️ Junk Drawer</button>
   </header>
 
   <main>
@@ -61,5 +61,15 @@
   </main>
 
   <script src="scripts/main.js"></script>
+  <script>
+    // Basic toggle for junk drawer
+    document.getElementById('toggle-junk').onclick = () => {
+      document.getElementById('junk-drawer').classList.toggle('hidden');
+    };
+    // Optional: slideout toggle logic (Scene Notes)
+    document.getElementById('toggle-drawer')?.addEventListener('click', () => {
+      document.getElementById('slideout-drawer').classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
