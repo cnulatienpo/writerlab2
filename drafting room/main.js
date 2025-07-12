@@ -21,7 +21,7 @@ const drawer = document.getElementById('slideout-drawer');
 const toggleDrawerBtn = document.getElementById('toggle-drawer');
 
 const junkDrawer = document.getElementById('junk-drawer');
-const toggleJunkDrawerBtn = document.getElementById('toggle-junk-drawer');
+const toggleJunkDrawerBtn = document.getElementById('toggle-junk');
 const addNoteBtn = document.getElementById('add-note');
 const notesContainer = document.getElementById('notes-container');
 
@@ -229,172 +229,69 @@ function editScene(index) {
 }
 
 
-  // Junk Drawer Elements
-let junkNotes = [];
+// --------------------------------------------------
+// Junk Drawer note system
+// --------------------------------------------------
+const JUNK_KEY = 'junkDrawerNotes';
+let junkDrawerNotes = [];
 
-// Load Junk Drawer from localStorage
-function loadJunkDrawer() {
-  const data = localStorage.getItem('junkdrawer');
-  junkNotes = data ? JSON.parse(data) : [];
-  renderJunkDrawer();
+function saveJunkDrawer(notes) {
+  localStorage.setItem(JUNK_KEY, JSON.stringify(notes));
 }
 
-// Save to localStorage
-function saveJunkDrawer() {
-  localStorage.setItem('junkdrawer', JSON.stringify(junkNotes));
-}
+function appendJunkNote(note) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'junk-note-wrapper';
 
-// Create Note Element
-function createNoteElement(note, index) {
-  const noteDiv = document.createElement('div');
-  noteDiv.className = 'note';
-  noteDiv.contentEditable = true;
-  noteDiv.innerText = note.text || '';
-  noteDiv.style.backgroundColor = note.color || '#ffff88';
-  noteDiv.style.left = note.x + 'px';
-  noteDiv.style.top = note.y + 'px';
-  noteDiv.setAttribute('data-index', index);
-
-  // Dragging logic
-  noteDiv.onmousedown = function (e) {
-    const shiftX = e.clientX - noteDiv.getBoundingClientRect().left;
-    const shiftY = e.clientY - noteDiv.getBoundingClientRect().top;
-
-    function moveAt(pageX, pageY) {
-      noteDiv.style.left = pageX - shiftX + 'px';
-      noteDiv.style.top = pageY - shiftY + 'px';
-      junkNotes[index].x = pageX - shiftX;
-      junkNotes[index].y = pageY - shiftY;
-      saveJunkDrawer();
+  const textarea = document.createElement('textarea');
+  textarea.value = note.content;
+  textarea.dataset.id = note.id;
+  textarea.addEventListener('input', (e) => {
+    const id = e.target.dataset.id;
+    const idx = junkDrawerNotes.findIndex(n => n.id === id);
+    if (idx !== -1) {
+      junkDrawerNotes[idx].content = e.target.value;
+      saveJunkDrawer(junkDrawerNotes);
     }
-
-    function onMouseMove(e) {
-      moveAt(e.pageX, e.pageY);
-    }
-
-    document.addEventListener('mousemove', onMouseMove);
-
-    noteDiv.onmouseup = function () {
-      document.removeEventListener('mousemove', onMouseMove);
-      noteDiv.onmouseup = null;
-    };
-  };
-
-  // Right click = delete
-  noteDiv.oncontextmenu = function (e) {
-    e.preventDefault();
-    junkNotes.splice(index, 1);
-    saveJunkDrawer();
-    renderJunkDrawer();
-  };
-
-  // Double click = change color
-  noteDiv.ondblclick = function () {
-    const colors = ['#ffff88', '#ffd8d8', '#d8ffd8', '#d8d8ff'];
-    const currentColor = junkNotes[index].color || colors[0];
-    const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
-    junkNotes[index].color = nextColor;
-    saveJunkDrawer();
-    renderJunkDrawer();
-  };
-
-  // Save content changes
-  noteDiv.oninput = function () {
-    junkNotes[index].text = noteDiv.innerText;
-    saveJunkDrawer();
-  };
-
-  return noteDiv;
-}
-
-// Render all notes
-function renderJunkDrawer() {
-  notesContainer.innerHTML = '';
-  junkNotes.forEach((note, index) => {
-    const noteEl = createNoteElement(note, index);
-    notesContainer.appendChild(noteEl);
   });
+
+  const delBtn = document.createElement('button');
+  delBtn.textContent = 'Delete';
+  delBtn.addEventListener('click', () => {
+    const idx = junkDrawerNotes.findIndex(n => n.id === note.id);
+    if (idx !== -1) {
+      junkDrawerNotes.splice(idx, 1);
+      saveJunkDrawer(junkDrawerNotes);
+      wrapper.remove();
+    }
+  });
+
+  wrapper.appendChild(textarea);
+  wrapper.appendChild(delBtn);
+  notesContainer.appendChild(wrapper);
 }
 
-// Create new note
+function loadJunkDrawer() {
+  const data = localStorage.getItem(JUNK_KEY);
+  junkDrawerNotes = data ? JSON.parse(data) : [];
+  notesContainer.innerHTML = '';
+  junkDrawerNotes.forEach(note => appendJunkNote(note));
+}
+
 addNoteBtn.addEventListener('click', () => {
-  const newNote = {
-    text: '',
-    color: '#ffff88',
-    x: 50,
-    y: 50
-  };
-  junkNotes.push(newNote);
-  saveJunkDrawer();
-  renderJunkDrawer();
+  const note = { id: `note-${Date.now()}`, content: '' };
+  junkDrawerNotes.push(note);
+  appendJunkNote(note);
+  saveJunkDrawer(junkDrawerNotes);
 });
 
-// Toggle Drawer
-toggleJunkDrawer.addEventListener('click', () => {
+toggleJunkDrawerBtn.addEventListener('click', () => {
   junkDrawer.classList.toggle('hidden');
 });
 
-// Initialize
-loadJunkDrawer();
+window.addEventListener('load', loadJunkDrawer);
 
 
-  // --- STICKY NOTES ---
-let notes = JSON.parse(localStorage.getItem('junkdrawer')) || [];
-
-function saveNotes() {
-  localStorage.setItem('junkdrawer', JSON.stringify(notes));
-}
-
-function renderNotes() {
-  const container = document.getElementById('notes-container');
-  container.innerHTML = '';
-  notes.forEach((note, i) => {
-    const div = document.createElement('div');
-    div.className = 'sticky-note';
-    div.contentEditable = true;
-    div.style.backgroundColor = note.color;
-    div.style.left = note.x + 'px';
-    div.style.top = note.y + 'px';
-    div.innerText = note.text;
-
-    div.addEventListener('input', () => {
-      note.text = div.innerText;
-      saveNotes();
-    });
-
-    div.setAttribute('draggable', 'true');
-
-    div.addEventListener('dragstart', (e) => {
-      e.dataTransfer.setData('text/plain', i);
-    });
-
-    div.addEventListener('dragend', (e) => {
-      const rect = e.target.getBoundingClientRect();
-      note.x = rect.left;
-      note.y = rect.top;
-      saveNotes();
-    });
-
-    container.appendChild(div);
-  });
-}
-
-function addStickyNote() {
-  const newNote = {
-    text: '',
-    color: '#' + Math.floor(Math.random() * 16777215).toString(16),
-    x: 100,
-    y: 100
-  };
-  notes.push(newNote);
-  saveNotes();
-  renderNotes();
-}
-
-document.getElementById('add-note').addEventListener('click', addStickyNote);
-
-// Initial render
-renderNotes();
 
 function saveFile(path, data) {
   localStorage.setItem(path, data);
