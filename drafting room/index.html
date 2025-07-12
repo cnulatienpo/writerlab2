@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drafting Room</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📘 Drafting Room</h1>
+    <button id="toggle-junk-drawer">🗃️ Junk Drawer</button>
+  </header>
+
+  <main>
+    <section id="project-dashboard">
+      <h2>Your Projects</h2>
+      <div id="project-list"></div>
+      <input id="new-project-name" placeholder="New project name..." />
+      <button id="create-project">Create Project</button>
+    </section>
+
+    <section id="story-check" class="hidden">
+      <h2>📝 Story Check</h2>
+      <textarea id="story-check-input" placeholder="Write down your tone, genre, length, and any placeholder questions..."></textarea>
+      <button id="save-story-check">Save Story Check</button>
+    </section>
+
+    <section id="outline" class="hidden">
+      <h2>📂 Outline</h2>
+      <div id="outline-container"></div>
+      <button id="add-scene">Add Scene</button>
+    </section>
+
+    <section id="scene-editor" class="hidden">
+      <h2 id="scene-title">✍️ Scene Editor</h2>
+      <textarea id="scene-text" placeholder="Write your scene here..."></textarea>
+      <div id="word-count">Words: 0</div>
+      <button id="save-scene">Save Scene</button>
+      <button id="close-scene">Back to Outline</button>
+      <button id="toggle-drawer">🧩 Show Notes</button>
+    </section>
+
+    <aside id="slideout-drawer" class="hidden">
+      <h3>🎯 Scene Notes</h3>
+      <label>Goal: <input type="text" id="scene-goal"/></label>
+      <label>Emotion: <input type="text" id="scene-emotion"/></label>
+      <label>Characters: <input type="text" id="scene-characters"/></label>
+      <div class="slider-group">
+        <label>Desire: <input type="range" min="0" max="5" id="desire-slider" /></label>
+        <label>Conflict: <input type="range" min="0" max="5" id="conflict-slider" /></label>
+        <label>Reveal: <input type="range" min="0" max="5" id="reveal-slider" /></label>
+      </div>
+    </aside>
+
+    <aside id="junk-drawer" class="hidden">
+      <h3>🗒 Junk Drawer</h3>
+      <button id="add-note">+ New Note</button>
+      <div id="notes-container"></div>
+    </aside>
+  </main>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
