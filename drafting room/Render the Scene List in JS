@@ -1,0 +1,26 @@
+function getAllScenes() {
+  const data = localStorage.getItem('writingProject');
+  if (!data) return [];
+  try {
+    const obj = JSON.parse(data);
+    return obj.scenes || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function renderSceneList() {
+  const scenes = getAllScenes();
+  const list = document.getElementById('scene-list');
+  list.innerHTML = '';
+  scenes.forEach(scene => {
+    const li = document.createElement('li');
+    li.textContent = scene.title || 'Untitled Scene';
+    li.onclick = () => selectSceneForRayRay(scene.id, li);
+    list.appendChild(li);
+  });
+}
+window.onload = function() {
+  renderSceneList();
+  // any other onload code you need
+};
