@@ -1,170 +1,124 @@
-// Utilities
-function $(id) {
-  return document.getElementById(id);
-}
+// DOM Elements
+const projectList = document.getElementById('project-list');
+const createProjectBtn = document.getElementById('create-project');
+const newProjectInput = document.getElementById('new-project-name');
 
-// Persistent State
-let projects = JSON.parse(localStorage.getItem('projects')) || {};
+const storyCheckSection = document.getElementById('story-check');
+const storyCheckInput = document.getElementById('story-check-input');
+const saveStoryCheckBtn = document.getElementById('save-story-check');
+
+const outlineSection = document.getElementById('outline');
+const outlineContainer = document.getElementById('outline-container');
+const addSceneBtn = document.getElementById('add-scene');
+
+const sceneEditor = document.getElementById('scene-editor');
+const sceneTitle = document.getElementById('scene-title');
+const sceneText = document.getElementById('scene-text');
+const saveSceneBtn = document.getElementById('save-scene');
+const closeSceneBtn = document.getElementById('close-scene');
+
+const drawer = document.getElementById('slideout-drawer');
+const toggleDrawerBtn = document.getElementById('toggle-drawer');
+
+const junkDrawer = document.getElementById('junk-drawer');
+const toggleJunkDrawerBtn = document.getElementById('toggle-junk-drawer');
+const addNoteBtn = document.getElementById('add-note');
+const notesContainer = document.getElementById('notes-container');
+
+const wordCount = document.getElementById('word-count');
+
+// State
 let currentProject = null;
+let projects = {};
 let currentSceneIndex = null;
 
-// DOM Elements
-const projectList = $('project-list');
-const sceneEditor = $('scene-editor');
-const outline = $('outline');
-const storyCheck = $('story-check');
-const sceneTitle = $('scene-title');
-const sceneText = $('scene-text');
-const wordCount = $('word-count');
-
-// UI Toggles
-$('toggle-junk-drawer').onclick = () => {
-  $('junk-drawer').classList.toggle('hidden');
+// Load from localStorage
+window.onload = () => {
+  const saved = localStorage.getItem('drafting-projects');
+  if (saved) projects = JSON.parse(saved);
+  renderProjects();
 };
 
-$('toggle-drawer').onclick = () => {
-  $('slideout-drawer').classList.toggle('hidden');
-};
+// Save to localStorage
+function saveProjects() {
+  localStorage.setItem('drafting-projects', JSON.stringify(projects));
+}
 
-$('create-project').onclick = () => {
-  const name = $('new-project-name').value.trim();
+// Render all projects
+function renderProjects() {
+  projectList.innerHTML = '';
+  Object.keys(projects).forEach(name => {
+    const div = document.createElement('div');
+    div.textContent = name;
+    div.classList.add('project-entry');
+    div.onclick = () => loadProject(name);
+    projectList.appendChild(div);
+  });
+}
+
+// Create project
+createProjectBtn.onclick = () => {
+  const name = newProjectInput.value.trim();
   if (!name || projects[name]) return;
   projects[name] = {
     storyCheck: '',
     scenes: []
   };
-  $('new-project-name').value = '';
+  newProjectInput.value = '';
   saveProjects();
-  renderProjectList();
+  renderProjects();
 };
 
-function saveProjects() {
-  localStorage.setItem('projects', JSON.stringify(projects));
-}
-
-function renderProjectList() {
-  projectList.innerHTML = '';
-  Object.keys(projects).forEach(name => {
-    const btn = document.createElement('button');
-    btn.textContent = name;
-    btn.onclick = () => loadProject(name);
-    projectList.appendChild(btn);
-  });
-}
-
+// Load project
 function loadProject(name) {
   currentProject = name;
-  currentSceneIndex = null;
-  $('story-check-input').value = projects[name].storyCheck || '';
-  $('outline-container').innerHTML = '';
-  renderOutline();
-  storyCheck.classList.remove('hidden');
-  outline.classList.remove('hidden');
+  storyCheckInput.value = projects[name].storyCheck || '';
+  outlineContainer.innerHTML = '';
+  projects[name].scenes.forEach((scene, index) => {
+    const btn = document.createElement('button');
+    btn.textContent = scene.title || `Scene ${index + 1}`;
+    btn.onclick = () => editScene(index);
+    outlineContainer.appendChild(btn);
+  });
+  storyCheckSection.classList.remove('hidden');
+  outlineSection.classList.remove('hidden');
   sceneEditor.classList.add('hidden');
+  drawer.classList.add('hidden');
 }
 
-$('save-story-check').onclick = () => {
+// Save Story Check
+saveStoryCheckBtn.onclick = () => {
   if (!currentProject) return;
-  projects[currentProject].storyCheck = $('story-check-input').value;
+  projects[currentProject].storyCheck = storyCheckInput.value;
   saveProjects();
 };
 
-$('add-scene').onclick = () => {
+// Add Scene
+addSceneBtn.onclick = () => {
   if (!currentProject) return;
   const newScene = {
     title: `Scene ${projects[currentProject].scenes.length + 1}`,
     text: '',
-    goal: '',
-    emotion: '',
-    characters: '',
-    sliders: {
-      desire: 0,
-      conflict: 0,
-      reveal: 0
-    }
+    notes: {}
   };
   projects[currentProject].scenes.push(newScene);
   saveProjects();
-  renderOutline();
+  loadProject(currentProject);
 };
 
-function renderOutline() {
-  const container = $('outline-container');
-  container.innerHTML = '';
-  projects[currentProject].scenes.forEach((scene, index) => {
-    const btn = document.createElement('button');
-    btn.textContent = scene.title;
-    btn.onclick = () => openScene(index);
-    container.appendChild(btn);
-  });
-}
-
-function openScene(index) {
+// Edit Scene
+function editScene(index) {
   currentSceneIndex = index;
   const scene = projects[currentProject].scenes[index];
-  sceneEditor.classList.remove('hidden');
   sceneTitle.textContent = `✍️ ${scene.title}`;
   sceneText.value = scene.text || '';
-  wordCount.textContent = `Words: ${scene.text.split(/\s+/).filter(w => w).length}`;
-
-  $('scene-goal').value = scene.goal || '';
-  $('scene-emotion').value = scene.emotion || '';
-  $('scene-characters').value = scene.characters || '';
-  $('desire-slider').value = scene.sliders.desire;
-  $('conflict-slider').value = scene.sliders.conflict;
-  $('reveal-slider').value = scene.sliders.reveal;
+  sceneEditor.classList.remove('hidden');
+  drawer.classList.add('hidden');
+  updateWordCount();
 }
 
-sceneText.addEventListener('input', () => {
-  const count = sceneText.value.split(/\s+/).filter(w => w).length;
-  wordCount.textContent = `Words: ${count}`;
-});
-
-$('save-scene').onclick = () => {
-  if (currentSceneIndex === null) return;
-  const scene = projects[currentProject].scenes[currentSceneIndex];
-  scene.text = sceneText.value;
-  scene.goal = $('scene-goal').value;
-  scene.emotion = $('scene-emotion').value;
-  scene.characters = $('scene-characters').value;
-  scene.sliders.desire = parseInt($('desire-slider').value);
-  scene.sliders.conflict = parseInt($('conflict-slider').value);
-  scene.sliders.reveal = parseInt($('reveal-slider').value);
-  saveProjects();
-};
-
-$('close-scene').onclick = () => {
-  sceneEditor.classList.add('hidden');
-};
-
-// Junk Drawer Notes
-$('add-note').onclick = () => {
-  const note = document.createElement('textarea');
-  note.placeholder = 'Scratch something down...';
-  note.classList.add('junk-note');
-  note.addEventListener('input', saveJunkDrawer);
-  $('notes-container').appendChild(note);
-  saveJunkDrawer();
-};
-
-function saveJunkDrawer() {
-  const notes = Array.from(document.querySelectorAll('.junk-note')).map(n => n.value);
-  localStorage.setItem('junkDrawerNotes', JSON.stringify(notes));
-}
-
-function loadJunkDrawer() {
-  const notes = JSON.parse(localStorage.getItem('junkDrawerNotes')) || [];
-  const container = $('notes-container');
-  container.innerHTML = '';
-  notes.forEach(text => {
-    const note = document.createElement('textarea');
-    note.classList.add('junk-note');
-    note.value = text;
-    note.addEventListener('input', saveJunkDrawer);
-    container.appendChild(note);
-  });
-}
-
-// Init
-renderProjectList();
-loadJunkDrawer();
+// Save Scene
+saveSceneBtn.onclick = () => {
+  if (!currentProject || currentSceneIndex === null) return;
+  projects[currentProject].scenes[currentSceneIndex].text = sceneText.value;
+  saveProj
