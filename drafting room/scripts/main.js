@@ -16,6 +16,19 @@ const sceneText = document.getElementById('scene-text');
 const saveSceneBtn = document.getElementById('save-scene');
 const closeSceneBtn = document.getElementById('close-scene');
 const wordCount = document.getElementById('word-count');
+const sceneGoal = document.getElementById('scene-goal');
+const sceneEmotion = document.getElementById('scene-emotion');
+const sceneCharacters = document.getElementById('scene-characters');
+const desireSlider = document.getElementById('desire-slider');
+const conflictSlider = document.getElementById('conflict-slider');
+const revealSlider = document.getElementById('reveal-slider');
+
+function showSection(id) {
+  sceneEditor.classList.add('hidden');
+  outlineSection.classList.add('hidden');
+  storyCheckSection.classList.add('hidden');
+  document.getElementById(id).classList.remove('hidden');
+}
 
 // Utility helpers
 function saveProjectData(name, data) {
@@ -35,7 +48,7 @@ function listAllProjects() {
 
 // App state
 let currentProject = null;
-let currentSceneIndex = null;
+let currentSceneId = null;
 
 // ------------------------ UI Rendering ------------------------ //
 function refreshProjectList() {
@@ -51,10 +64,10 @@ function refreshProjectList() {
 function renderOutline() {
   if (!currentProject) return;
   outlineContainer.innerHTML = '';
-  currentProject.scenes.forEach((scene, idx) => {
+  currentProject.scenes.forEach(scene => {
     const btn = document.createElement('button');
-    btn.textContent = scene.title || `Scene ${idx + 1}`;
-    btn.addEventListener('click', () => openScene(idx));
+    btn.textContent = scene.title || 'Scene';
+    btn.addEventListener('click', () => openScene(scene.id));
     outlineContainer.appendChild(btn);
   });
 }
@@ -92,7 +105,7 @@ function switchProject(name) {
   storyCheckSection.classList.remove('hidden');
   outlineSection.classList.remove('hidden');
   sceneEditor.classList.add('hidden');
-  currentSceneIndex = null;
+  currentSceneId = null;
 }
 
 function saveStoryCheck() {
@@ -103,34 +116,58 @@ function saveStoryCheck() {
 
 function addScene() {
   if (!currentProject) return;
-  const scene = { title: `Scene ${currentProject.scenes.length + 1}`, text: '' };
+  const id = `scene-${Date.now()}`;
+  const scene = { id, title: `Scene ${currentProject.scenes.length + 1}` };
   currentProject.scenes.push(scene);
   saveProjectData(currentProject.name, currentProject);
   renderOutline();
 }
 
-function openScene(index) {
-  currentSceneIndex = index;
-  const scene = currentProject.scenes[index];
-  sceneTitle.textContent = `✍️ ${scene.title}`;
-  sceneText.value = scene.text || '';
-  sceneEditor.classList.remove('hidden');
-  outlineSection.classList.add('hidden');
-  updateWordCount();
+function openScene(sceneId) {
+  currentSceneId = sceneId;
+  fetch(`projects/${currentProject.name}/scenes/${sceneId}.json`)
+    .then(res => res.json())
+    .then(data => {
+      sceneTitle.textContent = `✍️ Editing ${data.title}`;
+      sceneText.value = data.content || '';
+      sceneGoal.value = data.goal || '';
+      sceneEmotion.value = data.emotion || '';
+      sceneCharacters.value = data.characters || '';
+      desireSlider.value = data.desire || 0;
+      conflictSlider.value = data.conflict || 0;
+      revealSlider.value = data.reveal || 0;
+      updateWordCount();
+      showSection('scene-editor');
+    });
 }
 
 function saveScene() {
-  if (currentProject && currentSceneIndex !== null) {
-    currentProject.scenes[currentSceneIndex].text = sceneText.value;
-    saveProjectData(currentProject.name, currentProject);
-    updateWordCount();
-  }
+  if (!currentProject || !currentSceneId) return;
+
+  const data = {
+    title: sceneTitle.textContent.replace('✍️ Editing ', ''),
+    content: sceneText.value,
+    goal: sceneGoal.value,
+    emotion: sceneEmotion.value,
+    characters: sceneCharacters.value,
+    desire: parseInt(desireSlider.value),
+    conflict: parseInt(conflictSlider.value),
+    reveal: parseInt(revealSlider.value)
+  };
+
+  fetch(`projects/${currentProject.name}/scenes/${currentSceneId}.json`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    alert('Scene saved!');
+  });
 }
 
 function closeScene() {
   sceneEditor.classList.add('hidden');
   outlineSection.classList.remove('hidden');
-  currentSceneIndex = null;
+  currentSceneId = null;
 }
 
 // ------------------------ Event Listeners ------------------------ //
