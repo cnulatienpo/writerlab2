@@ -118,3 +118,54 @@ textarea {
   resize: both;
 }
 
+/* Junk Drawer styles */
+#junk-drawer {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 300px;
+  max-height: 90vh;
+  background: #fefefe;
+  border: 2px solid #ccc;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#junk-drawer h3 {
+  margin-top: 0;
+}
+
+#add-note {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Sticky Notes */
+.note {
+  position: absolute;
+  width: 150px;
+  min-height: 100px;
+  padding: 10px;
+  margin: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  cursor: move;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  user-select: none;
+}
+
+.note:focus {
+  outline: none;
+  cursor: text;
+}
+
+.hidden {
+  display: none;
+}
+
