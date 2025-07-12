@@ -1,0 +1,4 @@
+<div id="scene-sidebar">
+  <h3 style="margin-top:0; color:#ffe877;">Scenes</h3>
+  <ul id="scene-list"></ul>
+</div>
