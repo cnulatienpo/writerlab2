@@ -318,6 +318,7 @@ const {
 } = window;
 
 let currentSceneId = null;
+let autosaveTimer;
 
 function slugify(str) {
   return str
@@ -421,6 +422,29 @@ function handleSaveNotes() {
   saveNotesStorage(currentProject, text);
 }
 
+function saveCurrentScene() {
+  if (!currentProject || currentSceneId === null) return;
+  const sceneData = {
+    title: sceneTitle.textContent.replace('✍️ ', ''),
+    content: sceneText.value,
+    goal: sceneGoal.value,
+    emotion: sceneEmotion.value,
+    characters: sceneCharacters.value,
+    desire: parseInt(desireSlider.value),
+    conflict: parseInt(conflictSlider.value),
+    reveal: parseInt(revealSlider.value)
+  };
+  saveSceneStorage(currentProject, currentSceneId, sceneData);
+}
+
+function autosaveScene() {
+  clearTimeout(autosaveTimer);
+  autosaveTimer = setTimeout(() => {
+    saveCurrentScene();
+    updateWordCount();
+  }, 500);
+}
+
 function handleSaveScene() {
   if (!currentProject || currentSceneId === null) return;
   const sceneData = {
@@ -441,7 +465,7 @@ saveStoryCheckBtn.onclick = handleSaveNotes;
 saveSceneBtn.onclick = handleSaveScene;
 addSceneBtn.onclick = handleAddScene;
 closeSceneBtn.onclick = handleBackToOutline;
-sceneText.addEventListener('input', updateWordCount);
+sceneText.addEventListener('input', autosaveScene);
 
 window.onload = refreshProjectList;
 
