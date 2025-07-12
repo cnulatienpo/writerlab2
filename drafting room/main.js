@@ -27,6 +27,12 @@ const notesContainer = document.getElementById('notes-container');
 
 const wordCount = document.getElementById('word-count');
 
+function updateWordCount() {
+  const text = sceneText.value.trim();
+  const count = text ? text.split(/\s+/).length : 0;
+  wordCount.textContent = `Words: ${count}`;
+}
+
 // State
 let currentProject = null;
 let projects = {};
@@ -416,6 +422,46 @@ const {
 
 let currentSceneId = null;
 
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function refreshOutline() {
+  if (!currentProject) return;
+  outlineContainer.innerHTML = '';
+  const scenes = listScenes(currentProject).sort();
+  scenes.forEach(sceneKey => {
+    const match = sceneKey.match(/^scene(.+)\.json$/);
+    if (!match) return;
+    const id = match[1];
+    const data = loadScene(currentProject, id) || {};
+    const card = document.createElement('div');
+    card.classList.add('scene-card');
+    card.textContent = data.title || `Scene ${id}`;
+    card.onclick = () => openScene(id);
+    outlineContainer.appendChild(card);
+  });
+}
+
+function handleAddScene() {
+  if (!currentProject) return;
+  const title = prompt('Scene title?');
+  if (!title) return;
+  const id = `${slugify(title)}-${Date.now()}`;
+  saveSceneStorage(currentProject, id, { title });
+  refreshOutline();
+}
+
+function handleBackToOutline() {
+  currentSceneId = null;
+  sceneEditor.classList.add('hidden');
+  outlineSection.classList.remove('hidden');
+  drawer.classList.add('hidden');
+}
+
 function refreshProjectList() {
   projectList.innerHTML = '';
   const projects = listProjects();
@@ -434,18 +480,7 @@ function selectProject(name) {
   storyCheckInput.value = notes || '';
 
   outlineContainer.innerHTML = '';
-  const outline = loadOutline(name) || [];
-  const scenes = listScenes(name).sort();
-  scenes.forEach(sceneKey => {
-    const match = sceneKey.match(/scene(\d+)\.json/);
-    const id = match ? parseInt(match[1], 10) : null;
-    if (id == null) return;
-    const btn = document.createElement('button');
-    const title = (outline[id] && outline[id].title) ? outline[id].title : `Scene ${id}`;
-    btn.textContent = title;
-    btn.onclick = () => openScene(id);
-    outlineContainer.appendChild(btn);
-  });
+  refreshOutline();
 
   storyCheckSection.classList.remove('hidden');
   outlineSection.classList.remove('hidden');
@@ -464,6 +499,7 @@ function openScene(id) {
   desireSlider.value = data.desire || 0;
   conflictSlider.value = data.conflict || 0;
   revealSlider.value = data.reveal || 0;
+  updateWordCount();
 
   sceneEditor.classList.remove('hidden');
   outlineSection.classList.add('hidden');
@@ -506,6 +542,9 @@ function handleSaveScene() {
 createProjectBtn.onclick = handleCreateProject;
 saveStoryCheckBtn.onclick = handleSaveNotes;
 saveSceneBtn.onclick = handleSaveScene;
+addSceneBtn.onclick = handleAddScene;
+closeSceneBtn.onclick = handleBackToOutline;
+sceneText.addEventListener('input', updateWordCount);
 
 window.onload = refreshProjectList;
 
