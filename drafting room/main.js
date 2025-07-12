@@ -224,11 +224,6 @@ function editScene(index) {
 
 
   // Junk Drawer Elements
-const junkDrawer = document.getElementById('junk-drawer');
-const toggleJunkDrawer = document.getElementById('toggle-junk-drawer');
-const addNoteBtn = document.getElementById('add-note');
-const notesContainer = document.getElementById('notes-container');
-
 let junkNotes = [];
 
 // Load Junk Drawer from localStorage
@@ -403,3 +398,117 @@ function loadFile(path, callback) {
   const data = localStorage.getItem(path);
   callback(data);
 }
+
+// ------------------------------------------------------------
+// Storage-backed functionality using functions from storage.js
+// ------------------------------------------------------------
+
+const {
+  createProject: createProjectStorage,
+  listProjects,
+  saveNotes: saveNotesStorage,
+  loadNotes,
+  saveScene: saveSceneStorage,
+  loadScene,
+  loadOutline,
+  listScenes
+} = window;
+
+let currentSceneId = null;
+
+function refreshProjectList() {
+  projectList.innerHTML = '';
+  const projects = listProjects();
+  Object.keys(projects).forEach(name => {
+    const div = document.createElement('div');
+    div.textContent = name;
+    div.classList.add('project-entry');
+    div.onclick = () => selectProject(name);
+    projectList.appendChild(div);
+  });
+}
+
+function selectProject(name) {
+  currentProject = name;
+  const notes = loadNotes(name);
+  storyCheckInput.value = notes || '';
+
+  outlineContainer.innerHTML = '';
+  const outline = loadOutline(name) || [];
+  const scenes = listScenes(name).sort();
+  scenes.forEach(sceneKey => {
+    const match = sceneKey.match(/scene(\d+)\.json/);
+    const id = match ? parseInt(match[1], 10) : null;
+    if (id == null) return;
+    const btn = document.createElement('button');
+    const title = (outline[id] && outline[id].title) ? outline[id].title : `Scene ${id}`;
+    btn.textContent = title;
+    btn.onclick = () => openScene(id);
+    outlineContainer.appendChild(btn);
+  });
+
+  storyCheckSection.classList.remove('hidden');
+  outlineSection.classList.remove('hidden');
+  sceneEditor.classList.add('hidden');
+  drawer.classList.add('hidden');
+}
+
+function openScene(id) {
+  currentSceneId = id;
+  const data = loadScene(currentProject, id) || {};
+  sceneTitle.textContent = `✍️ ${data.title || 'Scene ' + id}`;
+  sceneText.value = data.content || '';
+  sceneGoal.value = data.goal || '';
+  sceneEmotion.value = data.emotion || '';
+  sceneCharacters.value = data.characters || '';
+  desireSlider.value = data.desire || 0;
+  conflictSlider.value = data.conflict || 0;
+  revealSlider.value = data.reveal || 0;
+
+  sceneEditor.classList.remove('hidden');
+  outlineSection.classList.add('hidden');
+  drawer.classList.add('hidden');
+}
+
+function handleCreateProject() {
+  const name = newProjectInput.value.trim();
+  if (!name) return;
+  try {
+    createProjectStorage(name);
+    newProjectInput.value = '';
+    refreshProjectList();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function handleSaveNotes() {
+  if (!currentProject) return;
+  const text = storyCheckInput.value;
+  saveNotesStorage(currentProject, text);
+}
+
+function handleSaveScene() {
+  if (!currentProject || currentSceneId === null) return;
+  const sceneData = {
+    title: sceneTitle.textContent.replace('✍️ ', ''),
+    content: sceneText.value,
+    goal: sceneGoal.value,
+    emotion: sceneEmotion.value,
+    characters: sceneCharacters.value,
+    desire: parseInt(desireSlider.value),
+    conflict: parseInt(conflictSlider.value),
+    reveal: parseInt(revealSlider.value)
+  };
+  saveSceneStorage(currentProject, currentSceneId, sceneData);
+}
+
+createProjectBtn.onclick = handleCreateProject;
+saveStoryCheckBtn.onclick = handleSaveNotes;
+saveSceneBtn.onclick = handleSaveScene;
+
+window.onload = refreshProjectList;
+
+// expose for other scripts if needed
+window.selectProject = selectProject;
+window.openScene = openScene;
