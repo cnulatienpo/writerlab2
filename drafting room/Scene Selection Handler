@@ -1,0 +1,17 @@
+function getSceneById(id) {
+  const scenes = getAllScenes();
+  return scenes.find(scene => scene.id === id);
+}
+
+function selectSceneForRayRay(sceneId, listItem) {
+  // Highlight the selected scene
+  document.querySelectorAll('#scene-list li').forEach(li => li.classList.remove('active'));
+  if (listItem) listItem.classList.add('active');
+
+  const scene = getSceneById(sceneId);
+  if (!scene) return;
+  // Open Ray Ray chat if needed
+  document.getElementById('rayray-container').classList.add('open');
+  // Autofill Ray Ray's input with feedback request
+  document.getElementById('rayray-input').value = `Give me feedback on "${scene.title}"`;
+}
