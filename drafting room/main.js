@@ -118,10 +118,33 @@ function editScene(index) {
 }
 
 // Save Scene
-saveSceneBtn.onclick = () => {
-  if (!currentProject || currentSceneIndex === null) return;
-  projects[currentProject].scenes[currentSceneIndex].text = sceneText.value;
-  saveProj
+function saveScene() {
+  if (!activeProject || activeSceneIndex === null) return;
+
+  const sceneTitle = document.getElementById("scene-title").textContent;
+  const content = document.getElementById("scene-text").value;
+  const goal = document.getElementById("scene-goal").value;
+  const emotion = document.getElementById("scene-emotion").value;
+  const characters = document.getElementById("scene-characters").value;
+  const desire = document.getElementById("desire-slider").value;
+  const conflict = document.getElementById("conflict-slider").value;
+  const reveal = document.getElementById("reveal-slider").value;
+
+  const sceneData = {
+    title: sceneTitle,
+    content,
+    goal,
+    emotion,
+    characters,
+    desire,
+    conflict,
+    reveal
+  };
+
+  const sceneFile = `projects/${activeProject}/scene-${activeSceneIndex}.json`;
+  saveFile(sceneFile, JSON.stringify(sceneData));
+}
+
 
   // Scene Notes Inputs
 const sceneGoal = document.getElementById('scene-goal');
@@ -142,6 +165,28 @@ function loadSceneNotes() {
   desireSlider.value = notes.desire || 0;
   conflictSlider.value = notes.conflict || 0;
   revealSlider.value = notes.reveal || 0;
+
+  function openScene(index) {
+  activeSceneIndex = index;
+  const sceneFile = `projects/${activeProject}/scene-${index}.json`;
+
+  loadFile(sceneFile, (data) => {
+    const scene = JSON.parse(data || "{}");
+
+    document.getElementById("scene-title").textContent = scene.title || `Scene ${index + 1}`;
+    document.getElementById("scene-text").value = scene.content || "";
+    document.getElementById("scene-goal").value = scene.goal || "";
+    document.getElementById("scene-emotion").value = scene.emotion || "";
+    document.getElementById("scene-characters").value = scene.characters || "";
+    document.getElementById("desire-slider").value = scene.desire || 0;
+    document.getElementById("conflict-slider").value = scene.conflict || 0;
+    document.getElementById("reveal-slider").value = scene.reveal || 0;
+
+    document.getElementById("scene-editor").classList.remove("hidden");
+    document.getElementById("outline").classList.add("hidden");
+  });
+}
+
 }
 
 // Save drawer changes live
