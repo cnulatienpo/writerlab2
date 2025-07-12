@@ -395,3 +395,11 @@ document.getElementById('add-note').addEventListener('click', addStickyNote);
 // Initial render
 renderNotes();
 
+function saveFile(path, data) {
+  localStorage.setItem(path, data);
+}
+
+function loadFile(path, callback) {
+  const data = localStorage.getItem(path);
+  callback(data);
+}
