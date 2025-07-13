@@ -50,6 +50,7 @@
         <button id="save-scene">Save My Work</button>
         <button id="close-scene">Back to Outline</button>
         <button id="toggle-drawer">🧩 Show Notes</button>
+        <button id="analyze-scene">🤖 Ask Ray Ray to Analyze</button>
       </section>
 
       <!-- Visualizer Section -->
@@ -108,7 +109,7 @@
       </div>
       <div id="rayray-content">
         <div id="rayray-messages" style="flex:1 1 auto; min-height:60px; max-height:140px; overflow-y:auto;"></div>
-        <input id="rayray-input" type="text" placeholder="Ask Ray Ray anything..." onkeydown="if(event.key==='Enter'){sendRayRay();}">
+        <input id="rayray-input" type="text" placeholder="Ask Ray Ray to analyze your writing (select text for detailed analysis)..." onkeydown="if(event.key==='Enter'){sendRayRay();}">
         <button id="rayray-send" onclick="sendRayRay()">Send</button>
       </div>
     </div>
