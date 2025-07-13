@@ -1,0 +1,61 @@
+async function analyzeSceneWithRayRay(scene) {
+  // 1. Run all local data analysis
+  const analysis = runAllDataAnalysis(scene.content);
+
+  // 2. Build prompt for the LLM
+  const prompt = `
+You are a creative writing analysis assistant.
+Below is a scene and a set of story analysis stats.
+
+--- Scene Text ---
+${scene.content}
+
+--- Textual Telemetry ---
+${JSON.stringify(analysis.telemetry, null, 2)}
+
+--- Motif Map ---
+${JSON.stringify(analysis.motifMap, null, 2)}
+
+--- Emotion Heatmap ---
+${JSON.stringify(analysis.emotionHeatmap, null, 2)}
+
+--- Character Map ---
+${JSON.stringify(analysis.characterMap, null, 2)}
+
+Please provide feedback for the writer:
+1. Summarize the scene’s desire, stakes, conflict, decision, and change.
+2. Comment on style, emotion, pacing, and motif use.
+3. Flag any issues or opportunities you see.
+  `;
+
+  // 3. Call the LLM API (replace with your function)
+  const feedback = await sendToLLM(prompt);
+
+  // 4. Save feedback with scene
+  scene.analysis = analysis;           // Local data
+  scene.llmFeedback = feedback;        // LLM result
+  saveScene(scene);
+
+  // 5. (Optional: run more models, visuals, whatever comes next)
+
+  // 6. Show feedback in your UI
+  displayFeedback(feedback, analysis);
+}
+
+async function sendToLLM(prompt) {
+  // Example with fetch, customize as needed for your provider
+  const response = await fetch('YOUR_LLM_API_ENDPOINT', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_TOKEN',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: 'deepseek-llm-model-name',
+      prompt: prompt,
+      max_tokens: 800
+    })
+  });
+  const data = await response.json();
+  return data.choices[0].text || data.result || "No feedback returned.";
+}
