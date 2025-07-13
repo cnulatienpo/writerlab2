@@ -1,0 +1,107 @@
+// === Textual Telemetry Module (Expanded) ===
+
+const STOPWORDS = [
+  "the", "and", "a", "to", "of", "in", "that", "is", "for", "on", "it", "as", "with",
+  "was", "but", "be", "at", "by", "an", "are", "this", "from", "or", "which", "you",
+  "one", "had", "not", "were", "her", "all", "she", "his", "they", "have", "has",
+  "we", "my", "so", "me", "their", "if", "no", "he"
+];
+
+// Average sentence length
+function getAverageSentenceLength(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  if (sentences.length === 0) return 0;
+  const totalWords = sentences.reduce((sum, sentence) => {
+    const words = sentence.trim().split(/\s+/).filter(w => w.length > 0);
+    return sum + words.length;
+  }, 0);
+  return +(totalWords / sentences.length).toFixed(2);
+}
+
+// Word count
+function getWordCount(text) {
+  return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+}
+
+// Sentence count
+function getSentenceCount(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  return sentences.length;
+}
+
+// Dialogue percentage (lines with quotes)
+function getDialoguePercentage(text) {
+  const lines = text.split('\n').filter(line => line.trim().length > 0);
+  if (lines.length === 0) return 0;
+  const dialogueLines = lines.filter(line => line.trim().startsWith('"') || line.trim().endsWith('"'));
+  return +(100 * dialogueLines.length / lines.length).toFixed(1);
+}
+
+// Most common word (excluding stopwords)
+function getMostCommonWord(text) {
+  const words = text
+    .toLowerCase()
+    .replace(/[^a-z'\s-]/g, "")
+    .split(/\s+/)
+    .filter(w => w.length > 2 && !STOPWORDS.includes(w));
+  if (words.length === 0) return null;
+  const freq = {};
+  for (let w of words) freq[w] = (freq[w] || 0) + 1;
+  let max = 0, most = null;
+  for (let w in freq) if (freq[w] > max) { max = freq[w]; most = w; }
+  return most;
+}
+
+// Adverb count (words ending with -ly)
+function getAdverbCount(text) {
+  return (text.match(/\b\w+ly\b/gi) || []).length;
+}
+
+// Simple Flesch-Kincaid Reading Level
+function getReadingLevel(text) {
+  const sentences = getSentenceCount(text) || 1;
+  const words = getWordCount(text) || 1;
+  const syllables = (text.match(/[aeiouy]{1,2}/gi) || []).length || 1;
+  const fleschKincaid =
+    206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words);
+  return Math.round(fleschKincaid);
+}
+
+// Passive voice detection (very rough!)
+function getPassiveVoicePercentage(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  if (sentences.length === 0) return 0;
+  let passive = 0;
+  const passiveRegex = /\b(was|were|is|are|been|being|be)\b\s+\w+ed\b/i;
+  for (let s of sentences) if (passiveRegex.test(s)) passive++;
+  return +(100 * passive / sentences.length).toFixed(1);
+}
+
+// Main telemetry function
+function runTextualTelemetry(text) {
+  return {
+    avgSentenceLength: getAverageSentenceLength(text),
+    wordCount: getWordCount(text),
+    sentenceCount: getSentenceCount(text),
+    dialoguePercent: getDialoguePercentage(text),
+    mostCommonWord: getMostCommonWord(text),
+    adverbCount: getAdverbCount(text),
+    readingLevel: getReadingLevel(text),
+    passiveVoicePercent: getPassiveVoicePercentage(text)
+  };
+}
+
+// === Example Usage ===
+
+const exampleText = `
+"He looked up," she said softly. The sky was darkening. He was scared, but he laughed anyway.
+Rain lashed the street. "It's just water," he muttered, nervously.
+He was being watched.
+`;
+
+const stats = runTextualTelemetry(exampleText);
+console.log('Textual Telemetry:', stats);
+
+// Usage in your pipeline:
+// const stats = runTextualTelemetry(scene.content);
+// ...display or save as needed.
