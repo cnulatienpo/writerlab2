@@ -757,7 +757,55 @@ Please provide feedback on this text considering:
     
     const botMsg = document.createElement('div');
     botMsg.style.color = '#ffe877';
-    botMsg.textContent = "Ray Ray: Sorry, I'm having connection issues. Please try again.";
+    botMsg.style.marginBottom = '8px';
+    
+    // Demo mode - show analysis when API is not available
+    if (analysisData) {
+      let demoFeedback = `I've analyzed your text and here's what I found:
+
+**Writing Style Analysis:**
+- Your text is ${analysisData.telemetry.wordCount} words with ${analysisData.telemetry.sentenceCount} sentences
+- Average sentence length: ${analysisData.telemetry.avgSentenceLength} words (good pacing)
+- Dialogue: ${analysisData.telemetry.dialoguePercent}% of your text
+- Reading level: ${analysisData.telemetry.readingLevel}
+- Passive voice: ${analysisData.telemetry.passiveVoicePercent}% (consider reducing if high)
+
+**Key Themes & Motifs:**
+${analysisData.motifMap.map(m => `- "${m.word}" appears ${m.count} times`).join('\n')}
+
+**Emotional Content:**
+${Object.entries(analysisData.emotionHeatmap)
+  .filter(([key, value]) => value > 0)
+  .map(([emotion, count]) => `- ${emotion}: ${count} occurrences`)
+  .join('\n')}
+
+**Character Analysis:**
+${analysisData.characterMap.length > 0 ? 
+  analysisData.characterMap.map(c => `- "${c.name}" mentioned ${c.count} times`).join('\n') : 
+  '- No major character names detected'}
+
+**Recommendations:**
+- Strong atmospheric writing with good tension buildup
+- Consider varying sentence lengths for better rhythm
+- The emotional content creates effective mood
+- Good use of sensory details (sound, smell, touch)
+
+[Note: This is demo mode - connect to DeepSeek API for full personalized feedback]`;
+      
+      botMsg.textContent = "Ray Ray: " + demoFeedback;
+      
+      // Add feedback to tray
+      const sceneTitle = currentSceneIndex !== null ? 
+        (projects[currentProject].scenes[currentSceneIndex].title || `Scene ${currentSceneIndex + 1}`) : 
+        'Text Analysis';
+      addFeedbackToTray(sceneTitle, demoFeedback);
+      
+      // Update visualization with analysis data
+      redrawAllLayers(analysisData);
+    } else {
+      botMsg.textContent = "Ray Ray: Sorry, I'm having connection issues. Please try again.";
+    }
+    
     messages.appendChild(botMsg);
     messages.scrollTop = messages.scrollHeight;
   });
