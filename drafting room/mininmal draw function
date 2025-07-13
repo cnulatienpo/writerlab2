@@ -1,0 +1,65 @@
+function drawMotifLayer() {
+  const c = document.getElementById('motif-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#b2d7ff';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#17496b';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Motif Map", 20, 50);
+}
+
+function drawEmotionLayer() {
+  const c = document.getElementById('emotion-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#ffe0b2';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#885518';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Emotion Heatmap", 20, 50);
+}
+
+function drawCharacterLayer() {
+  const c = document.getElementById('character-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#e2b2ff';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#532766';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Character Timeline", 20, 50);
+}
+
+function drawPacingLayer() {
+  const c = document.getElementById('pacing-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#b2ffe2';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#176b56';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Pacing Graph", 20, 50);
+}
+
+function drawStructureLayer() {
+  const c = document.getElementById('structure-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#fffab2';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#99861d';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Structure Flow", 20, 50);
+}
+
+function drawThemeLayer() {
+  const c = document.getElementById('theme-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#ffc2b2';
+  ctx.fillRect(0,0, c.width, c.height);
+  ctx.fillStyle = '#a0341a';
+  ctx.font = "28px sans-serif";
+  ctx.fillText("Theme Network", 20, 50);
+}
