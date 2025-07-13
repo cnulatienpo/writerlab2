@@ -1,0 +1,31 @@
+function drawEmotionLayer(data) {
+  const c = document.getElementById('emotion-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+
+  if (!data || !data.emotionHeatmap || Object.keys(data.emotionHeatmap).length === 0) {
+    ctx.fillStyle = '#ffe0b2';
+    ctx.fillRect(0,0,c.width,c.height);
+    ctx.fillStyle = '#885518';
+    ctx.font = "28px sans-serif";
+    ctx.fillText("Emotion Heatmap", 20, 50);
+    return;
+  }
+  let emotions = Object.keys(data.emotionHeatmap);
+  let values = emotions.map(e => data.emotionHeatmap[e]);
+  let max = Math.max(...values, 1);
+
+  let barWidth = c.width / emotions.length - 20;
+  emotions.forEach((e, i) => {
+    let x = 20 + i * (barWidth + 20);
+    let h = (values[i] / max) * (c.height - 80);
+    let y = c.height - h - 40;
+    ctx.fillStyle = "#ffb347";
+    ctx.fillRect(x, y, barWidth, h);
+    ctx.fillStyle = "#885518";
+    ctx.font = "16px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(e, x + barWidth / 2, c.height - 15);
+    ctx.fillText(values[i], x + barWidth / 2, y - 8);
+  });
+}
