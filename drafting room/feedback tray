@@ -1,0 +1,110 @@
+function renderRayRayFeedback(feedback) {
+  const tray = document.getElementById('feedback-tray');
+  if (!tray) return;
+
+  // --- Format Textual Telemetry as sentences ---
+  let telemetryText = '';
+  if (feedback.textualTelemetry) {
+    const t = feedback.textualTelemetry;
+    telemetryText = [
+      `Average sentence length: ${t.avgSentenceLength} words.`,
+      `Dialogue percentage: ${t.dialoguePercent}%.`,
+      `Word count: ${t.wordCount}.`,
+      `Most common word: "${t.mostCommonWord}".`,
+      `Adverbs per 100 words: ${t.adverbCount}.`,
+      `Passive voice usage: ${t.passiveVoicePercent}%.`,
+      `Reading level: ${t.readingLevel}.`
+    ].join(' ');
+  }
+
+  // --- Motif Map ---
+  let motifText = '';
+  if (feedback.motifMap && feedback.motifMap.length > 0) {
+    motifText = 'Motifs: ' +
+      feedback.motifMap.map(m => `"${m.word}" (${m.count} times)`).join(', ') + '.';
+  }
+
+  // --- Emotion Heatmap ---
+  let emotionText = '';
+  if (feedback.emotionHeatmap) {
+    // Show only dominant emotions (with counts > 0)
+    const emotions = Object.entries(feedback.emotionHeatmap)
+      .filter(([_, count]) => count > 0)
+      .map(([emotion, count]) => `${emotion} (${count})`);
+    if (emotions.length > 0) {
+      emotionText = `Dominant emotions: ${emotions.join(', ')}.`;
+    }
+  }
+
+  // --- Character Map ---
+  let charText = '';
+  if (feedback.characterMap && feedback.characterMap.length > 0) {
+    charText = 'Characters: ' +
+      feedback.characterMap.map(c => `${c.name} (${c.count})`).join(', ') + '.';
+  }
+
+  // --- Narrative Analysis ---
+  let narrativeText = '';
+  if (feedback.narrativeAnalysis) {
+    const n = feedback.narrativeAnalysis;
+    narrativeText = [
+      `Desire: ${n.desire}`,
+      `Stakes: ${n.stakes}`,
+      `Conflict: ${n.conflict}`,
+      `Decision: ${n.decision}`,
+      `Change: ${n.change}`
+    ].join(' ');
+  }
+
+  // --- Style & Pacing ---
+  let styleText = '';
+  if (feedback.stylePacing) styleText = feedback.stylePacing;
+
+  // --- Motif & Structure Notes ---
+  let motifNotesText = '';
+  if (feedback.motifNotes) motifNotesText = feedback.motifNotes;
+
+  // --- Compose all sections together ---
+  tray.innerText = [
+    telemetryText,
+    motifText,
+    emotionText,
+    charText,
+    narrativeText,
+    styleText,
+    motifNotesText
+  ].filter(Boolean).join('\n\n');
+}
+
+// Example usage after getting Ray Ray's feedback:
+renderRayRayFeedback({
+  textualTelemetry: {
+    avgSentenceLength: 17.3,
+    dialoguePercent: 52,
+    wordCount: 1650,
+    mostCommonWord: "Alice",
+    adverbCount: 5,
+    passiveVoicePercent: 2,
+    readingLevel: 90
+  },
+  motifMap: [
+    { word: "change", count: 8 },
+    { word: "size", count: 6 },
+    { word: "serpent", count: 4 }
+  ],
+  emotionHeatmap: { confusion: 5, curiosity: 4, frustration: 3, anxiety: 2 },
+  characterMap: [
+    { name: "Alice", count: 14 },
+    { name: "Caterpillar", count: 6 }
+  ],
+  narrativeAnalysis: {
+    desire: "Alice wants to understand herself and regain stability in her identity.",
+    stakes: "Without clarity or control, Alice risks confusion, isolation, and possibly being stuck in a changed form.",
+    conflict: "External: The other creatures challenge Alice’s logic and sense of self. Internal: Alice struggles with her own shifting identity.",
+    decision: "Alice chooses to keep asking questions, experiments with the mushroom, and persists despite confusion.",
+    change: "Alice grows more assertive, learning to push back, manage her frustration, and act to solve her own problems."
+  },
+  stylePacing: "The chapter relies heavily on dialogue, with a quick, circular pace. The narrative voice is playful, sometimes ironic. Physical transformation scenes accelerate the pace, while dialogue creates pauses for reflection.",
+  motifNotes: "“Who are you?” is a recurring refrain, emphasizing identity. The poem and mushroom both reinforce themes of change and confusion."
+});
+
