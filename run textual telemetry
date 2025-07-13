@@ -1,0 +1,43 @@
+// === Textual Telemetry Module ===
+
+// Calculate average sentence length for a given text
+function getAverageSentenceLength(text) {
+  // Split text into sentences (simple regex: ., !, or ?)
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  if (sentences.length === 0) return 0;
+
+  // Count words in each sentence
+  const totalWords = sentences.reduce((sum, sentence) => {
+    const words = sentence.trim().split(/\s+/).filter(w => w.length > 0);
+    return sum + words.length;
+  }, 0);
+
+  return +(totalWords / sentences.length).toFixed(2);
+}
+
+// Add more metrics here (example: word count)
+function getWordCount(text) {
+  return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+}
+
+// Main telemetry function
+function runTextualTelemetry(text) {
+  return {
+    avgSentenceLength: getAverageSentenceLength(text),
+    wordCount: getWordCount(text)
+    // Add more stats here as you expand!
+  };
+}
+
+// === Example Usage ===
+
+const exampleText = `
+He looked up. The sky was darkening. He was scared, but he laughed anyway.
+`;
+
+const stats = runTextualTelemetry(exampleText);
+console.log('Textual Telemetry:', stats);
+
+// If you're using this in your UI pipeline:
+// const stats = runTextualTelemetry(scene.content);
+// ...then display or save the stats as needed.
