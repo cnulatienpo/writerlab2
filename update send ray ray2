@@ -1,0 +1,48 @@
+const SCENE_CHAR_LIMIT = 10000; // adjust as needed
+
+function sendRayRay() {
+  const input = document.getElementById('rayray-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  // Show user's message
+  const messages = document.getElementById('rayray-messages');
+  const userMsg = document.createElement('div');
+  userMsg.style.color = '#85e1ff';
+  userMsg.textContent = "You: " + msg;
+  messages.appendChild(userMsg);
+
+  // Flexible match for any scene title in the message
+  const scenes = getAllScenes();
+  let foundScene = null;
+  for (let scene of scenes) {
+    if (
+      msg.toLowerCase().includes(scene.title.toLowerCase())
+    ) {
+      foundScene = scene;
+      break;
+    }
+  }
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.style.color = '#ffe877';
+    botMsg.style.marginBottom = '8px';
+    if (foundScene) {
+      if (foundScene.content.length > SCENE_CHAR_LIMIT) {
+        botMsg.textContent = `Ray Ray: That's a lot! I can only read about ${Math.round(SCENE_CHAR_LIMIT/6)} words at a time. Please split "${foundScene.title}" into smaller chunks and try again.`;
+        messages.appendChild(botMsg);
+      } else {
+        botMsg.textContent = `Ray Ray: Here's my feedback on "${foundScene.title}": [${foundScene.content.substring(0, 60)}...]`;
+        messages.appendChild(botMsg);
+
+        addFeedbackToTray(foundScene.title, `[Fake Feedback] Looks good. (Replace with real analysis.)`);
+      }
+    } else {
+      botMsg.textContent = "Ray Ray: I couldn't find the section you asked for. Make sure to use the scene/chapter name as it appears in your project.";
+      messages.appendChild(botMsg);
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }, 700);
+  input.value = "";
+}
