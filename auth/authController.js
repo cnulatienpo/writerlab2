@@ -6,7 +6,7 @@ const multer = require('multer');
 const { default: OpenAI } = require('openai');
 const User = require('../models/userModel');
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 const upload = multer({ dest: 'uploads/' });
 
 // ------------------ AUTH ------------------
