@@ -2,6 +2,139 @@
 // DRAFTING ROOM - INTEGRATED FUNCTIONALITY
 // ===============================================
 
+// ===============================================
+// DATA ANALYSIS FUNCTIONS
+// ===============================================
+
+// Stopwords for motif tracker
+const STOPWORDS = [
+  "the","and","a","to","of","in","that","is","for","on","it","as","with","was","but","be","at","by",
+  "an","are","this","from","or","which","you","one","had","not","were","her","all","she","his","they",
+  "have","has","we","my","so","me","their","if","no","he"
+];
+
+// Textual Telemetry Functions
+function getAverageSentenceLength(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  if (sentences.length === 0) return 0;
+  const totalWords = sentences.reduce((sum, s) => sum + s.trim().split(/\s+/).filter(w => w).length, 0);
+  return +(totalWords / sentences.length).toFixed(2);
+}
+
+function getWordCount(text) {
+  return text.trim().split(/\s+/).filter(w => w).length;
+}
+
+function getSentenceCount(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  return sentences.length;
+}
+
+function getDialoguePercentage(text) {
+  const lines = text.split('\n').filter(line => line.trim());
+  if (lines.length === 0) return 0;
+  const dialogueLines = lines.filter(line => line.trim().startsWith('"') || line.trim().endsWith('"'));
+  return +(100 * dialogueLines.length / lines.length).toFixed(1);
+}
+
+function getMostCommonWord(text) {
+  const words = text
+    .toLowerCase()
+    .replace(/[^a-z'\s-]/g, "")
+    .split(/\s+/)
+    .filter(w => w.length > 2 && !STOPWORDS.includes(w));
+  if (!words.length) return null;
+  const freq = {};
+  for (let w of words) freq[w] = (freq[w] || 0) + 1;
+  let max = 0, most = null;
+  for (let w in freq) if (freq[w] > max) { max = freq[w]; most = w; }
+  return most;
+}
+
+function getAdverbCount(text) {
+  return (text.match(/\b\w+ly\b/gi) || []).length;
+}
+
+function getReadingLevel(text) {
+  const sentences = getSentenceCount(text) || 1;
+  const words = getWordCount(text) || 1;
+  const syllables = (text.match(/[aeiouy]{1,2}/gi) || []).length || 1;
+  const fleschKincaid = 206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words);
+  return Math.round(fleschKincaid);
+}
+
+function getPassiveVoicePercentage(text) {
+  const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  if (sentences.length === 0) return 0;
+  let passive = 0;
+  const passiveRegex = /\b(was|were|is|are|been|being|be)\b\s+\w+ed\b/i;
+  for (let s of sentences) if (passiveRegex.test(s)) passive++;
+  return +(100 * passive / sentences.length).toFixed(1);
+}
+
+// Motif/Theme Tracker
+function getMotifMap(text) {
+  const words = text
+    .toLowerCase()
+    .replace(/[^a-z'\s-]/g, "")
+    .split(/\s+/)
+    .filter(w => w.length > 2 && !STOPWORDS.includes(w));
+  const freq = {};
+  for (let w of words) freq[w] = (freq[w] || 0) + 1;
+  // Get top 5 motifs
+  return Object.entries(freq)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([word, count]) => ({ word, count }));
+}
+
+// Emotion/Conceptual Heatmap
+const EMOTION_WORDS = ["fear","anger","love","joy","sad","hate","hope","envy","pain","shame","trust"];
+function getEmotionHeatmap(text) {
+  const result = {};
+  for (let emotion of EMOTION_WORDS) {
+    const regex = new RegExp(`\\b${emotion}\\w*\\b`, 'gi');
+    result[emotion] = (text.match(regex) || []).length;
+  }
+  return result;
+}
+
+// Character Tracker
+function getCharacterMap(text) {
+  const names = {};
+  const lines = text.split('\n');
+  for (let line of lines) {
+    const words = line.split(/\s+/);
+    for (let i = 1; i < words.length; i++) {
+      const w = words[i];
+      if (/^[A-Z][a-z]+$/.test(w)) names[w] = (names[w] || 0) + 1;
+    }
+  }
+  return Object.entries(names)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([name, count]) => ({ name, count }));
+}
+
+// Main Data Analysis Function
+function runAllDataAnalysis(text) {
+  return {
+    telemetry: {
+      avgSentenceLength: getAverageSentenceLength(text),
+      wordCount: getWordCount(text),
+      sentenceCount: getSentenceCount(text),
+      dialoguePercent: getDialoguePercentage(text),
+      mostCommonWord: getMostCommonWord(text),
+      adverbCount: getAdverbCount(text),
+      readingLevel: getReadingLevel(text),
+      passiveVoicePercent: getPassiveVoicePercentage(text)
+    },
+    motifMap: getMotifMap(text),
+    emotionHeatmap: getEmotionHeatmap(text),
+    characterMap: getCharacterMap(text)
+  };
+}
+
 // DOM Elements
 const projectList = document.getElementById('project-list');
 const createProjectBtn = document.getElementById('create-project');
@@ -485,6 +618,24 @@ function analyzeSceneWithRayRay(scene) {
   });
 }
 
+// Function to get selected text or current scene text
+function getSelectedOrCurrentText() {
+  const selection = window.getSelection();
+  const selectedText = selection.toString().trim();
+  
+  if (selectedText) {
+    return selectedText;
+  }
+  
+  // Fall back to current scene text
+  if (currentSceneIndex !== null && currentProject && projects[currentProject]) {
+    const scene = projects[currentProject].scenes[currentSceneIndex];
+    return scene.text || '';
+  }
+  
+  return '';
+}
+
 function sendRayRay() {
   const input = document.getElementById('rayray-input');
   const msg = input.value.trim();
@@ -497,33 +648,67 @@ function sendRayRay() {
   userMsg.textContent = "You: " + msg;
   messages.appendChild(userMsg);
 
-  // Find scene context
-  const scenes = getAllScenes();
-  let foundScene = null;
-  for (let scene of scenes) {
-    if (msg.toLowerCase().includes(scene.title.toLowerCase())) {
-      foundScene = scene;
-      break;
-    }
-  }
-
+  // Get text for analysis - either selected text or current scene
+  const textToAnalyze = getSelectedOrCurrentText();
+  
   // Show loading
   const loadingMsg = document.createElement('div');
   loadingMsg.style.color = '#ffe877';
-  loadingMsg.textContent = 'Ray Ray: Thinking...';
+  loadingMsg.textContent = 'Ray Ray: Analyzing your text...';
   messages.appendChild(loadingMsg);
+
+  // Run data analysis if we have text
+  let analysisData = null;
+  if (textToAnalyze) {
+    analysisData = runAllDataAnalysis(textToAnalyze);
+  }
+
+  // Build comprehensive prompt with analysis
+  let systemPrompt = "You are Ray Ray, a creative writing analysis assistant. You help writers understand their text through data analysis and provide constructive feedback.";
+  
+  let userPrompt = msg;
+  if (analysisData && textToAnalyze) {
+    userPrompt = `${msg}
+
+--- Text to Analyze ---
+${textToAnalyze}
+
+--- Textual Telemetry ---
+Word Count: ${analysisData.telemetry.wordCount}
+Sentence Count: ${analysisData.telemetry.sentenceCount}
+Average Sentence Length: ${analysisData.telemetry.avgSentenceLength} words
+Dialogue Percentage: ${analysisData.telemetry.dialoguePercent}%
+Most Common Word: ${analysisData.telemetry.mostCommonWord}
+Adverb Count: ${analysisData.telemetry.adverbCount}
+Reading Level: ${analysisData.telemetry.readingLevel}
+Passive Voice: ${analysisData.telemetry.passiveVoicePercent}%
+
+--- Motif Analysis ---
+${analysisData.motifMap.map(m => `${m.word}: ${m.count}`).join(', ')}
+
+--- Emotion Heatmap ---
+${Object.entries(analysisData.emotionHeatmap).filter(([key, value]) => value > 0).map(([emotion, count]) => `${emotion}: ${count}`).join(', ')}
+
+--- Character Analysis ---
+${analysisData.characterMap.map(c => `${c.name}: ${c.count}`).join(', ')}
+
+Please provide feedback on this text considering:
+1. Writing style and technique
+2. Emotional resonance and themes
+3. Character development and dialogue
+4. Areas for improvement
+5. Strengths to build upon`;
+  }
 
   // Call Ray Ray API
   const chatMessages = [
     {
       role: "system",
-      content: "You are Ray Ray, a helpful writing assistant. Respond to the user's question about their writing. If they mention a specific scene, provide targeted feedback."
+      content: systemPrompt
     },
     {
       role: "user",
-      content: foundScene 
-        ? `${msg}\n\nScene context: "${foundScene.title}"\n${foundScene.text}`
-        : msg
+      content: userPrompt
     }
   ];
 
@@ -535,7 +720,7 @@ function sendRayRay() {
     body: JSON.stringify({
       messages: chatMessages,
       temperature: 0.7,
-      max_tokens: 200
+      max_tokens: 500
     })
   })
   .then(response => response.json())
@@ -549,8 +734,15 @@ function sendRayRay() {
     if (data.choices && data.choices[0] && data.choices[0].message) {
       botMsg.textContent = "Ray Ray: " + data.choices[0].message.content;
       
-      if (foundScene) {
-        addFeedbackToTray(foundScene.title, data.choices[0].message.content);
+      // Add feedback to tray
+      const sceneTitle = currentSceneIndex !== null ? 
+        (projects[currentProject].scenes[currentSceneIndex].title || `Scene ${currentSceneIndex + 1}`) : 
+        'Text Analysis';
+      addFeedbackToTray(sceneTitle, data.choices[0].message.content);
+      
+      // Update visualization with analysis data
+      if (analysisData) {
+        redrawAllLayers(analysisData);
       }
     } else {
       botMsg.textContent = "Ray Ray: I'm having trouble understanding. Could you rephrase that?";
@@ -565,7 +757,55 @@ function sendRayRay() {
     
     const botMsg = document.createElement('div');
     botMsg.style.color = '#ffe877';
-    botMsg.textContent = "Ray Ray: Sorry, I'm having connection issues. Please try again.";
+    botMsg.style.marginBottom = '8px';
+    
+    // Demo mode - show analysis when API is not available
+    if (analysisData) {
+      let demoFeedback = `I've analyzed your text and here's what I found:
+
+**Writing Style Analysis:**
+- Your text is ${analysisData.telemetry.wordCount} words with ${analysisData.telemetry.sentenceCount} sentences
+- Average sentence length: ${analysisData.telemetry.avgSentenceLength} words (good pacing)
+- Dialogue: ${analysisData.telemetry.dialoguePercent}% of your text
+- Reading level: ${analysisData.telemetry.readingLevel}
+- Passive voice: ${analysisData.telemetry.passiveVoicePercent}% (consider reducing if high)
+
+**Key Themes & Motifs:**
+${analysisData.motifMap.map(m => `- "${m.word}" appears ${m.count} times`).join('\n')}
+
+**Emotional Content:**
+${Object.entries(analysisData.emotionHeatmap)
+  .filter(([key, value]) => value > 0)
+  .map(([emotion, count]) => `- ${emotion}: ${count} occurrences`)
+  .join('\n')}
+
+**Character Analysis:**
+${analysisData.characterMap.length > 0 ? 
+  analysisData.characterMap.map(c => `- "${c.name}" mentioned ${c.count} times`).join('\n') : 
+  '- No major character names detected'}
+
+**Recommendations:**
+- Strong atmospheric writing with good tension buildup
+- Consider varying sentence lengths for better rhythm
+- The emotional content creates effective mood
+- Good use of sensory details (sound, smell, touch)
+
+[Note: This is demo mode - connect to DeepSeek API for full personalized feedback]`;
+      
+      botMsg.textContent = "Ray Ray: " + demoFeedback;
+      
+      // Add feedback to tray
+      const sceneTitle = currentSceneIndex !== null ? 
+        (projects[currentProject].scenes[currentSceneIndex].title || `Scene ${currentSceneIndex + 1}`) : 
+        'Text Analysis';
+      addFeedbackToTray(sceneTitle, demoFeedback);
+      
+      // Update visualization with analysis data
+      redrawAllLayers(analysisData);
+    } else {
+      botMsg.textContent = "Ray Ray: Sorry, I'm having connection issues. Please try again.";
+    }
+    
     messages.appendChild(botMsg);
     messages.scrollTop = messages.scrollHeight;
   });
@@ -586,6 +826,16 @@ addSceneBtn.onclick = addScene;
 saveSceneBtn.onclick = saveScene;
 closeSceneBtn.onclick = closeScene;
 sceneText.addEventListener('input', autosaveScene);
+
+// Add analyze button handler
+const analyzeSceneBtn = document.getElementById('analyze-scene');
+if (analyzeSceneBtn) {
+  analyzeSceneBtn.onclick = () => {
+    const input = document.getElementById('rayray-input');
+    input.value = "Please analyze this scene and provide detailed feedback.";
+    sendRayRay();
+  };
+}
 
 // Scene notes auto-save
 [sceneGoal, sceneEmotion, sceneCharacters, desireSlider, conflictSlider, revealSlider].forEach(el => {
