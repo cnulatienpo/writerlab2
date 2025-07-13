@@ -1,0 +1,16 @@
+<div id="visualizer" style="position: relative; width: 700px; height: 400px; border: 1px solid #333; background: #fafafa;">
+  <canvas id="motif-layer" class="visual-layer" width="700" height="400"></canvas>
+  <canvas id="emotion-layer" class="visual-layer" width="700" height="400"></canvas>
+  <canvas id="character-layer" class="visual-layer" width="700" height="400"></canvas>
+  <canvas id="pacing-layer" class="visual-layer" width="700" height="400"></canvas>
+  <canvas id="structure-layer" class="visual-layer" width="700" height="400"></canvas>
+  <canvas id="theme-layer" class="visual-layer" width="700" height="400"></canvas>
+</div>
+<div id="layer-controls" style="margin-top: 10px;">
+  <label><input type="checkbox" checked onchange="toggleLayer('motif-layer')"> Motif Map</label>
+  <label><input type="checkbox" checked onchange="toggleLayer('emotion-layer')"> Emotion Heatmap</label>
+  <label><input type="checkbox" checked onchange="toggleLayer('character-layer')"> Character Timeline</label>
+  <label><input type="checkbox" checked onchange="toggleLayer('pacing-layer')"> Pacing Graph</label>
+  <label><input type="checkbox" checked onchange="toggleLayer('structure-layer')"> Structure Flow</label>
+  <label><input type="checkbox" checked onchange="toggleLayer('theme-layer')"> Theme Network</label>
+</div>
