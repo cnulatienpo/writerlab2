@@ -392,11 +392,11 @@ For Writers
 Write what’s buried. Let your characters lie, distract, run, fight, and sabotage themselves. Build scenes around what isn’t said. Use silence, avoidance, contradiction. The more a character hides, the more desperate and powerful their desire becomes—and the more satisfying it is when the truth finally breaks the surface (or never does).
 
 
-Potency Levels: Low — The Quiet Want
-What Low Potency Desire Is
-Low-potency desire is the soft ache at the edge of awareness. It’s the kind of want that lingers in the background: subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis. Most of the time, the character wouldn’t even name it as “desire”—it’s just a sense that something is missing, a wish for more, or a feeling that life could be different if only…
+Strength Levels: Low — The Quiet Want
+What Low Strength Desire Is
+Low-strength desire is the soft ache at the edge of awareness. It’s the kind of want that lingers in the background: subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis. Most of the time, the character wouldn’t even name it as “desire”—it’s just a sense that something is missing, a wish for more, or a feeling that life could be different if only…
 
-In low-potency mode, desire doesn’t drive the plot—it shapes the emotional landscape. It creates a sense of possibility, a layer of tension, or a quiet sadness or hope that flavors the story’s world. It’s not nothing; it’s the seed before the storm, the prelude to action, the inner life of a person not quite ready to change.
+In low-strength mode, desire doesn’t drive the plot—it shapes the emotional landscape. It creates a sense of possibility, a layer of tension, or a quiet sadness or hope that flavors the story’s world. It’s not nothing; it’s the seed before the storm, the prelude to action, the inner life of a person not quite ready to change.
 
 How It Shows Up in Characters
 Daydreaming or drifting: The character spends time imagining different possibilities—what if they quit their job, told the truth, went somewhere else? These thoughts are private and rarely acted on.
@@ -411,7 +411,7 @@ Routine avoidance: Finding small ways to escape—getting lost in a book, scroll
 
 Small, private acts: Maybe they save clippings, keep a secret sketchbook, reread old letters—little rituals that feed the want without ever risking anything real.
 
-Story Effects of Low-Potency Desire
+Story Effects of Low-Strength Desire
 Sets a Mood: This level of desire can make a story feel atmospheric, introspective, or quietly tense. The reader senses something unresolved, even if the character seems “fine.”
 
 Builds Empathy: Because it’s relatable. Everybody knows what it’s like to want something but not chase it—either out of fear, habit, or a sense that it’s out of reach.
@@ -448,7 +448,7 @@ She’s content, but there’s a subtle wish for quiet, stability, and connectio
 The Little Prince (The Little Prince):
 Wandering, asking questions, missing his rose. His want is simple, pure, almost invisible unless you’re paying attention.
 
-When to Use Low Potency as a Writer
+When to Use Low Strength as a Writer
 When you want to set up a character’s journey before the real risks start.
 
 When you’re writing slice-of-life, coming-of-age, or meditative stories where atmosphere matters as much as plot.
@@ -480,9 +480,9 @@ Write it with patience, honesty, and respect for the ordinary ache everyone know
 Let it breathe.
 It’s where almost every story begins.
 
-Potency Levels: Medium — The Active Want
-What Medium Potency Desire Is
-Medium-potency desire is the tipping point where want turns into action. The character knows what they want (or is close to admitting it), and the story starts to move because of it. This is where longing becomes real choice—where the dream gets tested, risks appear, and something in the world has to give. Medium is all about momentum: not a raging obsession, but definitely more than a passive wish.
+Strength Levels: Medium — The Active Want
+What Medium Strength Desire Is
+Medium-strength desire is the tipping point where want turns into action. The character knows what they want (or is close to admitting it), and the story starts to move because of it. This is where longing becomes real choice—where the dream gets tested, risks appear, and something in the world has to give. Medium is all about momentum: not a raging obsession, but definitely more than a passive wish.
 It’s the moment where the ache inside finally pushes out into the open.
 
 How It Shows Up in Characters
@@ -496,7 +496,7 @@ Tension in Dialogue: Medium desire is often spoken out loud, or shown in subtext
 
 Mixed Motivation: Characters may still hedge their bets. They want it, but are afraid to want it too much. They might test boundaries or try and fail before they go all in.
 
-Story Effects of Medium-Potency Desire
+Story Effects of Medium-Strength Desire
 Creates Forward Motion: The story starts happening because of what the character wants, not just to them. Their desire is now a plot engine.
 
 Reveals Character: You learn who they are by what they’re willing to risk or try. This is where strengths and weaknesses show up.
@@ -540,7 +540,7 @@ When he goes to rescue Fiona, he’s chasing his desire for solitude—but that 
 Joe March (Little Women):
 She fights for her independence and her writing. She takes bold action, faces backlash, and is forced to choose between love and ambition.
 
-When to Use Medium Potency as a Writer
+When to Use Medium Strength as a Writer
 When you want your story to move—not just reflect or observe.
 
 When you want character-driven plot: real people, making real choices, dealing with real fallout.
@@ -565,13 +565,13 @@ Success or failure raises the stakes—if things go well, desire can ramp up to 
 
 Conflict forces clarity: Sometimes the character has to choose between wants, or between want and safety.
 
-Crisis or betrayal can push them into high potency (all-in), or drive them back to low (giving up, repressing).
+Crisis or betrayal can push them into high strength (all-in), or drive them back to low (giving up, repressing).
 
 
 
-Potency Levels: High — The Consuming Need
-What High Potency Desire Is
-High-potency desire is want cranked all the way up—an obsession, a hunger, a need so intense it can’t be ignored or managed. The character knows what they want and will risk everything to get it. It burns through fear, shame, or reason. High desire changes the rules: it drives plot, warps relationships, and forces the world to respond. If medium is the engine, high is the explosion.
+Strength Levels: High — The Consuming Need
+What High Strength Desire Is
+High-strength desire is want cranked all the way up—an obsession, a hunger, a need so intense it can’t be ignored or managed. The character knows what they want and will risk everything to get it. It burns through fear, shame, or reason. High desire changes the rules: it drives plot, warps relationships, and forces the world to respond. If medium is the engine, high is the explosion.
 
 At this level, desire is not just a feature of the character—it’s the main force of the story. The stakes are life, death, love, destruction, transformation. There’s no safe path, no going back. Something is going to break.
 
@@ -590,7 +590,7 @@ Blinding intensity: The character might not care who gets hurt, what gets destro
 
 No Plan B: Even if they lose, they won’t let go. There’s nothing else for them.
 
-Story Effects of High-Potency Desire
+Story Effects of High-Strength Desire
 Everything Escalates: Plot accelerates. Every scene is hotter, more dangerous, less predictable.
 
 Climax Magnet: High desire pulls the story toward the breaking point—showdowns, betrayals, confessions, deaths, revolutions.
@@ -641,7 +641,7 @@ His hunger for power destroys him, his family, and his world. He can’t stop, e
 Tony Montana (Scarface):
 Wants it all—money, power, respect—and will kill, betray, or self-destruct to get it.
 
-When to Use High Potency as a Writer
+When to Use High Strength as a Writer
 For stories about obsession, tragedy, revenge, epic love, world-changing events.
 
 When you want to test what a character (and your world) can survive.
@@ -672,13 +672,13 @@ High desire is dangerous.
 Use it when you want to see what breaks, what survives, and what is revealed when the masks are off.
 Everything gets sharper. Every scene is fire.
 
-Tools for Actively Controlling Potency Levels
+Tools for Actively Controlling Strength Levels
 1. Escalation and De-escalation
-Raise the potency:
+Raise the strength:
 Throw in a catalyst—a new obstacle, a threat, a ticking clock, a betrayal, an unexpected opportunity. Force your character to choose in a way that costs them.
 Example: Pam gets engaged to someone else (The Office), Jim’s low desire turns medium and then high.
 
-Lower the potency:
+Lower the strength:
 Give the character an “out,” or let them settle. Sometimes, the world makes the want seem smaller (distraction, disappointment, comfort, or realization).
 Example: After a big loss, a character might retreat, deny, or decide “maybe it’s not worth it.”
 
@@ -702,7 +702,7 @@ Keep it secret:
 As long as desire is private, it often simmers at low or medium—unless circumstances force it out.
 
 5. Mix Internal and External Pressures
-Sometimes, what raises potency is the collision of inner need and outside circumstance.
+Sometimes, what raises strength is the collision of inner need and outside circumstance.
 Example: A character is fine with low-level longing until someone else wants the same thing—or threatens to take it away.
 
 6. Let Desire Shift Over Time
@@ -710,15 +710,15 @@ Desire is dynamic:
 It should shift. Early scenes can be low, with glances and hints; as things change, it rises, peaking when the risk is greatest.
 
 Show setbacks:
-Failed attempts can actually increase potency—now the character wants it more.
+Failed attempts can actually increase strength—now the character wants it more.
 
 7. Use Symbolic Objects/Actions
-Sometimes objects or rituals in a story “measure” potency.
+Sometimes objects or rituals in a story “measure” strength.
 Example: Letters never sent (low), letters mailed (medium), a public speech (high).
 Small actions = small want. Big gestures = big want.
 
 8. Physical and Emotional Signals
-Low potency: silence, drifting, indirect language, small gestures.
+Low strength: silence, drifting, indirect language, small gestures.
 
 Medium: risk, confession, direct action, visible stress.
 
@@ -748,7 +748,7 @@ Character wants a promotion → rival cheats and wins, so the character risks it
 High → Low:
 Character will do anything for revenge → realizes the cost, lets go, finds peace (or collapses).
 
-Potency is dynamic. You can turn it up or down scene by scene, moment by moment, with what you throw at your character and how you show their reaction. If you ever feel stuck, just ask: “How badly do they want it right now—and what would raise or lower the heat?”
+Strength is dynamic. You can turn it up or down scene by scene, moment by moment, with what you throw at your character and how you show their reaction. If you ever feel stuck, just ask: “How badly do they want it right now—and what would raise or lower the heat?”
 
 
 

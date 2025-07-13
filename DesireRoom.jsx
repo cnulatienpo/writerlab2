@@ -125,11 +125,11 @@ export default function DesireRoom() {
             </ul>
           </AccordionContent>
         </AccordionItem>
-          <AccordionItem value="potency-low">
-            <AccordionTrigger>Potency: Low (The Quiet Want)</AccordionTrigger>
+          <AccordionItem value="strength-low">
+            <AccordionTrigger>Strength: Low (The Quiet Want)</AccordionTrigger>
             <AccordionContent>
-              <p><strong>What Low Potency Desire Is</strong></p>
-              <p>Low-potency desire is the soft ache at the edge of awareness. It lingers in the background—subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis.</p>
+              <p><strong>What Low Strength Desire Is</strong></p>
+              <p>Low-strength desire is the soft ache at the edge of awareness. It lingers in the background—subtle, easily overlooked, maybe even dismissed by the character themselves. It’s a dream that hasn’t turned into a plan, a need that hasn’t reached crisis.</p>
               <p>In this mode, desire doesn’t drive the plot so much as color the emotional landscape. It hints at possibility and adds quiet tension or melancholy to the world.</p>
 
               <p><strong>How It Shows Up in Characters</strong></p>
@@ -142,7 +142,7 @@ export default function DesireRoom() {
                 <li>Small, private acts that feed the want without real risk.</li>
               </ul>
 
-              <p><strong>Story Effects of Low-Potency Desire</strong></p>
+              <p><strong>Story Effects of Low-Strength Desire</strong></p>
               <ul className="list-disc pl-4">
                 <li>Sets a mood of possibility or quiet tension.</li>
                 <li>Builds empathy because the want is so relatable.</li>
@@ -168,7 +168,7 @@ export default function DesireRoom() {
                 <li>The Little Prince missing his rose.</li>
               </ul>
 
-              <p><strong>When to Use Low Potency as a Writer</strong></p>
+              <p><strong>When to Use Low Strength as a Writer</strong></p>
               <ul className="list-disc pl-4">
                 <li>To set up a character’s journey before real risks begin.</li>
                 <li>In slice-of-life or meditative stories where atmosphere matters.</li>
@@ -187,17 +187,17 @@ export default function DesireRoom() {
 
               <p><strong>How Low Desire Can Change</strong></p>
               <ul className="list-disc pl-4">
-                <li>A spark—someone new or a crisis—can raise the potency.</li>
+                <li>A spark—someone new or a crisis—can raise the strength.</li>
                 <li>Sometimes it stays low and becomes a story about acceptance or loss.</li>
                 <li>Sometimes naming the want aloud is the first brave step.</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
-        <AccordionItem value="potency-medium">
-          <AccordionTrigger>Potency: Medium (The Active Want)</AccordionTrigger>
+        <AccordionItem value="strength-medium">
+          <AccordionTrigger>Strength: Medium (The Active Want)</AccordionTrigger>
           <AccordionContent>
-            <p><strong>What Medium Potency Desire Is</strong></p>
-            <p>Medium-potency desire is the tipping point where want turns into action. The character knows what they want (or is close to admitting it), and the story starts to move because of it. This is where longing becomes real choice—where the dream gets tested, risks appear, and something in the world has to give. Medium is all about momentum: not a raging obsession, but definitely more than a passive wish. It’s the moment where the ache inside finally pushes out into the open.</p>
+            <p><strong>What Medium Strength Desire Is</strong></p>
+            <p>Medium-strength desire is the tipping point where want turns into action. The character knows what they want (or is close to admitting it), and the story starts to move because of it. This is where longing becomes real choice—where the dream gets tested, risks appear, and something in the world has to give. Medium is all about momentum: not a raging obsession, but definitely more than a passive wish. It’s the moment where the ache inside finally pushes out into the open.</p>
 
             <p><strong>How It Shows Up in Characters</strong></p>
             <ul className="list-disc pl-4">
@@ -208,7 +208,7 @@ export default function DesireRoom() {
               <li><strong>Mixed Motivation:</strong> Characters may still hedge their bets. They want it, but are afraid to want it too much. They might test boundaries or try and fail before they go all in.</li>
             </ul>
 
-            <p><strong>Story Effects of Medium-Potency Desire</strong></p>
+            <p><strong>Story Effects of Medium-Strength Desire</strong></p>
             <ul className="list-disc pl-4">
               <li><strong>Creates Forward Motion:</strong> The story starts happening because of what the character wants, not just to them. Their desire is now a plot engine.</li>
               <li><strong>Reveals Character:</strong> You learn who they are by what they’re willing to risk or try. This is where strengths and weaknesses show up.</li>
@@ -237,7 +237,7 @@ export default function DesireRoom() {
               <li><em>Joe March (Little Women):</em> She fights for her independence and her writing. She takes bold action, faces backlash, and is forced to choose between love and ambition.</li>
             </ul>
 
-            <p><strong>When to Use Medium Potency as a Writer</strong></p>
+            <p><strong>When to Use Medium Strength as a Writer</strong></p>
             <ul className="list-disc pl-4">
               <li>When you want your story to move—not just reflect or observe.</li>
               <li>When you want character-driven plot: real people, making real choices, dealing with real fallout.</li>
@@ -258,16 +258,16 @@ export default function DesireRoom() {
             <ul className="list-disc pl-4">
               <li>Success or failure raises the stakes—if things go well, desire can ramp up to high. If they get burned, they might dial back, or find a new want.</li>
               <li>Conflict forces clarity: Sometimes the character has to choose between wants, or between want and safety.</li>
-              <li>Crisis or betrayal can push them into high potency (all-in), or drive them back to low (giving up, repressing).</li>
+              <li>Crisis or betrayal can push them into high strength (all-in), or drive them back to low (giving up, repressing).</li>
             </ul>
             <p>Medium desire is the engine room of most stories. It’s what gets things moving, tests your characters, and keeps the reader hooked. If you want real drama—start here.</p>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="potency-high">
-          <AccordionTrigger>Potency: High (The Consuming Need)</AccordionTrigger>
+        <AccordionItem value="strength-high">
+          <AccordionTrigger>Strength: High (The Consuming Need)</AccordionTrigger>
           <AccordionContent>
-            <p><strong>What High Potency Desire Is</strong></p>
-            <p>High-potency desire is want cranked all the way up—an obsession or hunger that burns through fear and reason. The character knows what they want and will risk everything to get it. If medium is the engine, high is the explosion.</p>
+            <p><strong>What High Strength Desire Is</strong></p>
+            <p>High-strength desire is want cranked all the way up—an obsession or hunger that burns through fear and reason. The character knows what they want and will risk everything to get it. If medium is the engine, high is the explosion.</p>
             <p>At this level, desire becomes the driving force of the story. Stakes are life, death, love, destruction, transformation. There’s no safe path, no going back.</p>
 
             <p><strong>How It Shows Up in Characters</strong></p>
@@ -281,7 +281,7 @@ export default function DesireRoom() {
               <li><strong>No Plan B:</strong> Even in defeat, they won’t let go.</li>
             </ul>
 
-            <p><strong>Story Effects of High-Potency Desire</strong></p>
+            <p><strong>Story Effects of High-Strength Desire</strong></p>
             <ul className="list-disc pl-4">
               <li><strong>Everything Escalates:</strong> Plot accelerates and danger spikes.</li>
               <li><strong>Climax Magnet:</strong> Drives the story toward showdowns and betrayal.</li>
@@ -312,7 +312,7 @@ export default function DesireRoom() {
               <li><em>Tony Montana (Scarface):</em> Kills and betrays to have it all.</li>
             </ul>
 
-            <p><strong>When to Use High Potency as a Writer</strong></p>
+            <p><strong>When to Use High Strength as a Writer</strong></p>
             <ul className="list-disc pl-4">
               <li>For stories about obsession, tragedy, revenge, or epic love.</li>
               <li>To test what a character and world can survive.</li>
@@ -338,19 +338,19 @@ export default function DesireRoom() {
             <p>High desire is dangerous. Use it when you want to see what breaks, what survives, and what’s revealed when the masks come off. Everything gets sharper. Every scene is fire.</p>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="manipulate-potency">
-          <AccordionTrigger>How to Manipulate Potency Levels (Writer's Toolbox)</AccordionTrigger>
+        <AccordionItem value="manipulate-strength">
+          <AccordionTrigger>How to Manipulate Strength Levels (Writer's Toolbox)</AccordionTrigger>
           <AccordionContent>
-            <p><strong>Tools for Actively Controlling Potency Levels</strong></p>
+            <p><strong>Tools for Actively Controlling Strength Levels</strong></p>
             <ul className="list-disc pl-4 space-y-1">
               <li><strong>Escalation and De-escalation:</strong> add catalysts or threats to raise desire, or give an "out" to cool it down.</li>
               <li><strong>Change the Stakes:</strong> bigger consequences heighten the want, while smaller stakes make it fade.</li>
               <li><strong>Play With Resistance:</strong> increase opposition to intensify the desire, or remove obstacles to soften it.</li>
-              <li><strong>Expose or Conceal the Want:</strong> make it public to boost potency, keep it secret to let it simmer.</li>
+              <li><strong>Expose or Conceal the Want:</strong> make it public to boost strength, keep it secret to let it simmer.</li>
               <li><strong>Mix Internal and External Pressures:</strong> collide inner need with outside events to turn up the heat.</li>
               <li><strong>Let Desire Shift Over Time:</strong> show how setbacks and new hope raise or lower intensity.</li>
               <li><strong>Use Symbolic Objects/Actions:</strong> small gestures signal mild want; bold actions reveal obsession.</li>
-              <li><strong>Physical and Emotional Signals:</strong> low potency is quiet, medium shows strain, high burns with obsession.</li>
+              <li><strong>Physical and Emotional Signals:</strong> low strength is quiet, medium shows strain, high burns with obsession.</li>
               <li><strong>Other Characters Can Push the Dial:</strong> allies encourage, rivals block, mentors warn—others affect the stakes.</li>
             </ul>
             <p><strong>Questions to Ask Yourself as You Write</strong></p>

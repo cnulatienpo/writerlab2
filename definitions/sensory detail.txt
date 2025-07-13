@@ -469,12 +469,12 @@ The way you move through a story is a big part of how you experience it. Sensory
 Sensory writing shifts you from passive observer to active participant. You slow down, you feel more, you remember more. The story isn’t just happening to the character—it’s happening to you, in real time.
 
 For writers: Don’t be afraid to let the senses slow things down. When you want the reader to live inside the scene—not just witness it—this is your best tool.
-**Potency Levels: Low — The Bare Hint**
+**Strength Levels: Low — The Bare Hint**
 
-**What Low-Potency Sensory Description Is**
-Low-potency sensory description is like background noise—a faint suggestion of the senses that’s present but not intrusive. It’s a hint of atmosphere, a line or two that anchors you in the world without calling much attention to itself. There’s no attempt to overwhelm the reader; the goal is simply to avoid blank space, to keep the scene from floating in a sensory vacuum.
+**What Low-Strength Sensory Description Is**
+Low-strength sensory description is like background noise—a faint suggestion of the senses that’s present but not intrusive. It’s a hint of atmosphere, a line or two that anchors you in the world without calling much attention to itself. There’s no attempt to overwhelm the reader; the goal is simply to avoid blank space, to keep the scene from floating in a sensory vacuum.
 
-Low-potency description is the default for most stories. You get enough to orient yourself: a season, the color of the sky, a note about the sound in the next room. These details set the stage but don’t demand focus. They’re not layered or rich—just enough to keep you from feeling lost.
+Low-strength description is the default for most stories. You get enough to orient yourself: a season, the color of the sky, a note about the sound in the next room. These details set the stage but don’t demand focus. They’re not layered or rich—just enough to keep you from feeling lost.
 
 **How It Shows Up in Writing**
 
@@ -483,7 +483,7 @@ Low-potency description is the default for most stories. You get enough to orien
 * Minimal, functional details: just a quick sketch to anchor the scene—light, sound, temperature, maybe a scent or two.
 * Sparse adjectives: The color of someone’s shirt, the taste of a drink, the scratch of a sweater.
 
-**Story Effects of Low-Potency Sensory Description**
+**Story Effects of Low-Strength Sensory Description**
 Invisible Support: The senses are there, but you might not even notice unless you look. They keep the story from feeling weightless.
 
 Light Touch: There’s no risk of overloading the reader—this is gentle, practical, and moves on fast.
@@ -520,10 +520,10 @@ If the story slows down or the mood deepens, you can layer in more sense detail 
 
 Low sensory description is the safety net—not flashy, but crucial.
 Let it do its job quietly, and don’t force more than the story needs.
-**Potency Levels: Medium — The Felt Moment**
+**Strength Levels: Medium — The Felt Moment**
 
-**What Medium-Potency Sensory Description Is**
-Medium-potency sensory description pulls the reader deeper into the scene. It’s not just a note or an afterthought—it’s an invitation to feel the environment, to be present in the character’s world through tangible sensations. The details are selected and shaped to create mood, suggest emotion, or hint at something beneath the surface.
+**What Medium-Strength Sensory Description Is**
+Medium-strength sensory description pulls the reader deeper into the scene. It’s not just a note or an afterthought—it’s an invitation to feel the environment, to be present in the character’s world through tangible sensations. The details are selected and shaped to create mood, suggest emotion, or hint at something beneath the surface.
 
 At this level, sensory details start to work together. Maybe the scent of rain mixes with the grit of city dust. A character’s breath catches at the bite of cold air, or a touch feels both familiar and electric. The description is more deliberate, layered, and immersive—enough to slow the reader down and make them live in the moment.
 
@@ -534,7 +534,7 @@ At this level, sensory details start to work together. Maybe the scent of rain m
 * Sensory metaphors or comparisons that hint at mood or theme
 * Sensations tied to character emotions: skin prickling with unease, the sweetness of a remembered touch
 
-**Story Effects of Medium-Potency Sensory Description**
+**Story Effects of Medium-Strength Sensory Description**
 Immersion: Readers feel like they’re standing inside the scene, experiencing it firsthand.
 Mood and Tone: The sensory details reinforce how the story feels—tense, hopeful, nostalgic, foreboding.
 Connection: Sensory richness bridges the gap between reader and character, making emotional states visceral.
@@ -565,10 +565,10 @@ Character Focus: Sensations are often filtered through a character’s perceptio
 
 **How Medium Sensory Description Can Build or Retreat**
 It can grow into rich, poetic passages or recede to low-level notes depending on pacing, stakes, or narrative focus. The best medium description feels purposeful—like a breath drawn in and held just long enough to be meaningful.
-**Potency Levels: High — The Vivid Sensory Immersion**
+**Strength Levels: High — The Vivid Sensory Immersion**
 
-**What High-Potency Sensory Description Is**
-High-potency sensory description doesn’t just invite the reader into the scene—it *throws* them into it. Every detail bursts with intensity, every sensation hits with sharp clarity or overwhelming force. The five senses are fully alive and often intertwined, creating a multi-layered, immersive experience that demands full attention. It’s the kind of description that makes you feel the heat on your skin, taste the salt of sweat, hear the roar of chaos, or recoil from a stench so foul it twists your stomach.
+**What High-Strength Sensory Description Is**
+High-strength sensory description doesn’t just invite the reader into the scene—it *throws* them into it. Every detail bursts with intensity, every sensation hits with sharp clarity or overwhelming force. The five senses are fully alive and often intertwined, creating a multi-layered, immersive experience that demands full attention. It’s the kind of description that makes you feel the heat on your skin, taste the salt of sweat, hear the roar of chaos, or recoil from a stench so foul it twists your stomach.
 
 At this level, sensory detail is visceral and urgent. It drives the emotional stakes and amplifies tension, making the physical world as crucial as the plot or character drama. It’s a sensory onslaught that can overwhelm, captivate, or horrify—shaping the reader’s entire experience of the moment.
 
@@ -579,7 +579,7 @@ At this level, sensory detail is visceral and urgent. It drives the emotional st
 * Symbolic or thematic sensory overload: chaos described through a storm’s fury, love through warm scents and soft touches, fear as cold sweat and racing heartbeat
 * Layered textures and contrasts that heighten sensation: rough bark against soft flesh, sweet decay, biting cold and burning heat together
 
-**Story Effects of High-Potency Sensory Description**
+**Story Effects of High-Strength Sensory Description**
 Emotional Impact: Sensory immersion hits the reader’s body as well as their mind, creating deep empathy or shock.
 Heightened Stakes: The scene feels immediate and critical—life-or-death, transformative, or unforgettable.
 Full Presence: Readers can’t look away or skim; they must live the moment with the characters.
@@ -612,7 +612,7 @@ You pour everything into the moment—language becomes richer, more precise, mor
 
 **How High Sensory Description Plays Out**
 It’s a total sensory experience that can overwhelm or transport. High description should be balanced with pacing and narrative clarity—too much can exhaust the reader, but just the right amount can electrify the story. Use it as a powerful tool to deepen emotional resonance and narrative impact.
-**Tools for Actively Controlling Sensory Description Potency**
+**Tools for Actively Controlling Sensory Description Strength**
 
 1. **Adjust Detail Intensity**
 
@@ -668,7 +668,7 @@ It’s a total sensory experience that can overwhelm or transport. High descript
 * Medium → High: Layer in multiple senses, vivid metaphors, and visceral physical reactions.
 * High → Low: Pull back sensory input for moments of clarity, shock, or internal reflection.
 
-Sensory description potency is a dynamic tool. Use it to immerse, to highlight, to unsettle, or to soothe. Adjust with intention, and let the five senses shape the reader’s experience as powerfully as plot or character.
+Sensory description strength is a dynamic tool. Use it to immerse, to highlight, to unsettle, or to soothe. Adjust with intention, and let the five senses shape the reader’s experience as powerfully as plot or character.
 
 
 
