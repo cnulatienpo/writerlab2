@@ -107,25 +107,25 @@
       <span class="abbr">Fo</span>
       <span class="name">Foundation</span>
     </button>
-    <button class="element ch locked">
+    <button class="element ch unlocked" onclick="goTo('desire')">
+      <span class="abbr">De</span>
+      <span class="name">Desire</span>
+    </button>
+    <button class="element di unlocked" onclick="goTo('stakes')">
+      <span class="abbr">St</span>
+      <span class="name">Stakes</span>
+    </button>
+    <button class="element po unlocked" onclick="goTo('conflict')">
+      <span class="abbr">Co</span>
+      <span class="name">Conflict</span>
+    </button>
+    <button class="element cd unlocked" onclick="goTo('decision')">
+      <span class="abbr">De</span>
+      <span class="name">Decision</span>
+    </button>
+    <button class="element ss unlocked" onclick="goTo('change')">
       <span class="abbr">Ch</span>
-      <span class="name">Character</span>
-    </button>
-    <button class="element di locked">
-      <span class="abbr">Di</span>
-      <span class="name">Dialogue</span>
-    </button>
-    <button class="element po locked">
-      <span class="abbr">PO</span>
-      <span class="name">POV</span>
-    </button>
-    <button class="element cd locked">
-      <span class="abbr">CD</span>
-      <span class="name">Character Dynamics</span>
-    </button>
-    <button class="element ss locked">
-      <span class="abbr">SS</span>
-      <span class="name">Scene Starters</span>
+      <span class="name">Change</span>
     </button>
     <button class="element se locked">
       <span class="abbr">SE</span>
@@ -138,7 +138,8 @@
   </div>
   <script>
     function goTo(element) {
-      alert('Navigate to: ' + element);
+      // Navigate to the corresponding HTML page
+      window.location.href = element + '.html';
     }
   </script>
   
