@@ -1,0 +1,11 @@
+function redrawAllLayers() {
+  drawMotifLayer();
+  drawEmotionLayer();
+  drawCharacterLayer();
+  drawPacingLayer();
+  drawStructureLayer();
+  drawThemeLayer();
+}
+
+// Call once on load, and after each analysis result
+redrawAllLayers();
