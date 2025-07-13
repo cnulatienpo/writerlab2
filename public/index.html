@@ -3,23 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WriterLab Home</title>
+  <title>Writer Lab</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
   <style>
-    body { background: #111; color: #f4f4f4; font-family: 'Space Grotesk', sans-serif; padding: 2rem; }
-    h1 { color: #facc15; }
-    a { color: #4ade80; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #111;
+      color: #f4f4f4;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #f4f4f4;
+      font-weight: bold;
+      border: 2px solid #f4f4f4;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav a:hover {
+      background: #f4f4f4;
+      color: #111;
+    }
+    .tagline {
+      text-align: center;
+      margin: 4rem 0 2rem;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      max-width: 960px;
+      margin: 2rem auto;
+    }
+    .tile {
+      background: #1c1c1c;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .tile:hover {
+      border-color: #f4f4f4;
+      background: #222;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to WriterLab!</h1>
-  <p>This is your homepage. Your server is running and serving static files from <code>public/</code>.</p>
-  <ul>
-    <li><a href="/elements.html">Elements</a></li>
-    <li><a href="/dashboard.html">Dashboard</a></li>
-    <li><a href="/login.html">Login</a></li>
-    <li><a href="/signup.html">Sign Up</a></li>
-  </ul>
-  <p>Edit <code>public/index.html</code> to customize this page.</p>
+  <header>
+    <h1>Writer Lab</h1>
+    <p>The creative lab for writers who want to experiment, evolve, and finally say what they mean.</p>
+    <div class="nav">
+      <a href="/login">Log In</a>
+      <a href="/signup">Sign Up</a>
+    </div>
+  </header>
+
+  <div class="tagline">
+    Pick an element to begin. Tools not rules.
+  </div>
+
+  <div class="grid">
+    <div class="tile" onclick="alert('Open: Desire')">Desire</div>
+    <div class="tile" onclick="alert('Open: Conflict')">Conflict</div>
+    <div class="tile" onclick="alert('Open: Change')">Change</div>
+    <div class="tile" onclick="alert('Open: Scene')">Scene</div>
+    <div class="tile" onclick="alert('Open: Climax')">Climax</div>
+    <div class="tile" onclick="alert('Open: Turning Point')">Turning Point</div>
+    <div class="tile" onclick="alert('Open: Reversal')">Reversal</div>
+    <div class="tile" onclick="alert('Open: Decision')">Decision</div>
+    <div class="tile" onclick="alert('Open: Outcome')">Outcome</div>
+    <div class="tile" onclick="alert('Open: Stakes')">Stakes</div>
+    <div class="tile" onclick="alert('Open: Setup / Payoff')">Setup / Payoff</div>
+  </div>
+
+  <footer>
+    &copy; 2025 Writer Lab. Made with rebellion.
+    <a href="/legal.html" style="color:#f4f4f4; margin-left:10px;">Privacy &amp; Terms</a>
+  </footer>
 </body>
 </html>
