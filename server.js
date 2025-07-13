@@ -29,6 +29,7 @@ app.use(session({
 app.use(express.static('public'));
 app.use('/auth', authRoutes);
 app.use(express.static(path.join(__dirname, 'views')));
+app.use('/games', express.static(path.join(__dirname, 'games')));
 
 // Serve writer type profiles
 app.get('/profile/:type', (req, res) => {
