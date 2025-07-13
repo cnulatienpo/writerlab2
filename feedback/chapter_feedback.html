@@ -27,13 +27,13 @@
 
     for (let element in scores) {
       const score = scores[element];
-      const potency = score.potency || "none";
+      const strength = score.strength || "none";
       const label = element.charAt(0).toUpperCase() + element.slice(1);
       const bar = document.createElement("div");
       bar.className = "element-bar";
       bar.innerHTML = `
         <div class="label">${label}</div>
-        <div class="bar" data-potency="${potency}" data-tooltip="Potency: ${potency.toUpperCase()}"></div>
+        <div class="bar" data-strength="${strength}" data-tooltip="Strength: ${strength.toUpperCase()}"></div>
       `;
       resultDiv.appendChild(bar);
     }

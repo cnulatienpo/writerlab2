@@ -34,7 +34,7 @@ function nextVignette() {
 const form = document.getElementById("guess-form");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  const selected = form.querySelector("input[name='potency']:checked");
+  const selected = form.querySelector("input[name='strength']:checked");
   if (selected) {
     submitGuess(selected.value);
   }
