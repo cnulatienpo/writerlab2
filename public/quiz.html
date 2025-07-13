@@ -128,6 +128,8 @@ function parseKey(text){
     }
     function showResult(type){
       const slug=type.split(/[\s/]/)[0].toLowerCase();
+      // Save writer type to localStorage for Ray Ray personalization
+      localStorage.setItem('writerType', slug);
       window.location.href=`/profile/${slug}`;
     }
   };
