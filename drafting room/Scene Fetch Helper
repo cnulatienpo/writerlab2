@@ -1,0 +1,16 @@
+function getAllScenes() {
+  const data = localStorage.getItem('writingProject');
+  if (!data) return [];
+  try {
+    const obj = JSON.parse(data);
+    return obj.scenes || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function getSceneByTitle(title) {
+  const scenes = getAllScenes();
+  // Case-insensitive match
+  return scenes.find(scene => scene.title.toLowerCase() === title.toLowerCase());
+}
