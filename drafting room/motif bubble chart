@@ -1,0 +1,34 @@
+function drawMotifLayer(data) {
+  const c = document.getElementById('motif-layer');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+
+  if (!data || !data.motifMap || data.motifMap.length === 0) {
+    ctx.fillStyle = '#b2d7ff';
+    ctx.fillRect(0,0,c.width,c.height);
+    ctx.fillStyle = '#17496b';
+    ctx.font = "28px sans-serif";
+    ctx.fillText("Motif Map", 20, 50);
+    return;
+  }
+  // Center the bubbles horizontally
+  let totalWidth = data.motifMap.length * 90;
+  let startX = (c.width - totalWidth) / 2 + 45;
+  data.motifMap.forEach((m, i) => {
+    let x = startX + i * 90;
+    let y = c.height / 2;
+    let r = 15 + m.count * 6; // size = freq
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = "#b2d7ff";
+    ctx.fill();
+    ctx.strokeStyle = "#17496b";
+    ctx.stroke();
+    ctx.fillStyle = "#17496b";
+    ctx.font = "14px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(m.word, x, y + 5);
+    ctx.font = "12px sans-serif";
+    ctx.fillText(m.count + "×", x, y + r + 16);
+  });
+}
