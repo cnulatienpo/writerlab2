@@ -1,0 +1,8 @@
+function redrawAllLayers(data) {
+  drawMotifLayer(data);
+  drawEmotionLayer(data);
+  drawCharacterLayer();
+  drawPacingLayer();
+  drawStructureLayer();
+  drawThemeLayer();
+}
