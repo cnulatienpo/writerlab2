@@ -639,7 +639,6 @@ When to Use High-Strength Decision as a Writer
 
 
 </pre>
-<div id="decision-quiz"></div>
 <div id="writer-type-content">Type-specific tips coming soon.</div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -649,19 +648,6 @@ When to Use High-Strength Decision as a Writer
     if (typeContent) {
       contentEl.textContent = typeContent;
     }
-    fetch('/games/rate.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('decision-quiz').innerHTML = html;
-        const dataScript = document.createElement('script');
-        dataScript.src = '/games/rate_data.js';
-        dataScript.defer = true;
-        document.body.appendChild(dataScript);
-        const logicScript = document.createElement('script');
-        logicScript.src = '/games/rate.js';
-        logicScript.defer = true;
-        document.body.appendChild(logicScript);
-      });
   });
 </script>
 <button id="next-page-btn" onclick="window.location.href='change.html'">Next</button>

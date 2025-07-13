@@ -604,7 +604,6 @@ A character changes everything about themselves → realizes the cost is too hig
 Strength is dynamic. You can turn it up or down scene by scene, moment by moment, with what you throw at your character and how you show their reaction. If you ever feel stuck, just ask: “What’s different now—and what would raise or lower the heat?”
 
 </pre>
-<div id="change-quiz"></div>
 <div id="writer-type-content">Type-specific tips coming soon.</div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -614,19 +613,6 @@ Strength is dynamic. You can turn it up or down scene by scene, moment by moment
     if (typeContent) {
       contentEl.textContent = typeContent;
     }
-    fetch('/games/rate.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('change-quiz').innerHTML = html;
-        const dataScript = document.createElement('script');
-        dataScript.src = '/games/rate_data.js';
-        dataScript.defer = true;
-        document.body.appendChild(dataScript);
-        const logicScript = document.createElement('script');
-        logicScript.src = '/games/rate.js';
-        logicScript.defer = true;
-        document.body.appendChild(logicScript);
-      });
   });
 </script>
 <button id="next-page-btn" onclick="window.location.href='desire.html'">Next</button>

@@ -752,8 +752,6 @@ Stakes are never static. Every scene is a chance to turn the heat up or down—b
 
 </pre>
 
-<div id="stakes-quiz"></div>
-
 <div id="writer-type-content">Type-specific tips coming soon.</div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -763,19 +761,6 @@ Stakes are never static. Every scene is a chance to turn the heat up or down—b
     if (typeContent) {
       contentEl.textContent = typeContent;
     }
-    fetch('/games/rate.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('stakes-quiz').innerHTML = html;
-        const dataScript = document.createElement('script');
-        dataScript.src = '/games/rate_data.js';
-        dataScript.defer = true;
-        document.body.appendChild(dataScript);
-        const logicScript = document.createElement('script');
-        logicScript.src = '/games/rate.js';
-        logicScript.defer = true;
-        document.body.appendChild(logicScript);
-      });
   });
 </script>
 <button id="next-page-btn" onclick="window.location.href='conflict.html'">Next</button>
