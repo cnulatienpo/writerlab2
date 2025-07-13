@@ -1,0 +1,49 @@
+// Toggle Ray Ray open/minimized
+function toggleRayRay() {
+  const container = document.getElementById('rayray-container');
+  container.classList.toggle('open');
+}
+
+// Your getAllScenes(), getSceneById(), and addFeedbackToTray() functions should already exist from previous steps.
+
+function sendRayRay() {
+  const input = document.getElementById('rayray-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  // Display user message
+  const messages = document.getElementById('rayray-messages');
+  const userMsg = document.createElement('div');
+  userMsg.style.color = '#85e1ff';
+  userMsg.textContent = "You: " + msg;
+  messages.appendChild(userMsg);
+
+  // Try to match a scene title in the message
+  const scenes = getAllScenes();
+  let foundScene = null;
+  for (let scene of scenes) {
+    if (
+      msg.toLowerCase().includes(scene.title.toLowerCase())
+    ) {
+      foundScene = scene;
+      break;
+    }
+  }
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.style.color = '#ffe877';
+    botMsg.style.marginBottom = '8px';
+    if (foundScene) {
+      botMsg.textContent = `Ray Ray: Here's my feedback on "${foundScene.title}": [Preview: ${foundScene.content.substring(0, 60)}...]`;
+      messages.appendChild(botMsg);
+
+      addFeedbackToTray(foundScene.title, `[Fake Feedback] Looks good. (Replace this with real analysis.)`);
+    } else {
+      botMsg.textContent = "Ray Ray: Not sure what scene you mean. Try selecting a scene from the sidebar!";
+      messages.appendChild(botMsg);
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }, 700);
+  input.value = "";
+}
