@@ -14,7 +14,7 @@ function loadVignette() {
 
 function submitGuess(guess) {
   const correct = currentVignette.answer.toLowerCase();
-  const explanation = currentVignette.options.find(opt => opt.label === correct)?.explanation || "";
+  const explanation = currentVignette.explanation || "";
 
   const resultText = guess === correct ? "✅ Correct!" : `❌ Nope — it was ${correct.toUpperCase()}`;
   document.querySelector(".result-message").textContent = resultText;
