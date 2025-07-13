@@ -744,6 +744,71 @@ Please provide feedback on this text considering:
       if (analysisData) {
         redrawAllLayers(analysisData);
       }
+    } else if (data.error) {
+      // Server returned an error (e.g., API connectivity issue)
+      // Trigger demo mode with analysis data
+      if (analysisData) {
+        let demoFeedback = `I've analyzed your text and here's what I found:
+
+**📊 Writing Style Analysis:**
+- Your text is ${analysisData.telemetry.wordCount} words with ${analysisData.telemetry.sentenceCount} sentences
+- Average sentence length: ${analysisData.telemetry.avgSentenceLength} words (${analysisData.telemetry.avgSentenceLength > 15 ? 'complex, literary style' : 'clear and accessible'})
+- Dialogue: ${analysisData.telemetry.dialoguePercent}% of your text
+- Reading level: ${analysisData.telemetry.readingLevel} (${analysisData.telemetry.readingLevel > 70 ? 'very accessible' : 'moderate complexity'})
+- Passive voice: ${analysisData.telemetry.passiveVoicePercent}% ${analysisData.telemetry.passiveVoicePercent > 20 ? '(consider reducing for more dynamic prose)' : '(good balance)'}
+- Adverbs: ${analysisData.telemetry.adverbCount} ${analysisData.telemetry.adverbCount > 5 ? '(try reducing for stronger verbs)' : '(good restraint)'}
+
+**🎯 Key Themes & Motifs:**
+${analysisData.motifMap.map(m => `- "${m.word}" appears ${m.count} times`).join('\n')}
+
+**😊 Emotional Content:**
+${Object.entries(analysisData.emotionHeatmap)
+  .filter(([key, value]) => value > 0)
+  .map(([emotion, count]) => `- ${emotion}: ${count} occurrences`)
+  .join('\n') || '- Neutral emotional tone detected'}
+
+**👥 Character Analysis:**
+${analysisData.characterMap.length > 0 ? 
+  analysisData.characterMap.map(c => `- "${c.name}" mentioned ${c.count} times`).join('\n') : 
+  '- No major character names detected'}
+
+**✍️ Writing Feedback:**
+Your writing shows ${analysisData.telemetry.avgSentenceLength > 15 ? 'sophisticated, complex' : 'clear and direct'} sentence structure. The ${analysisData.telemetry.dialoguePercent > 20 ? 'dialogue-heavy approach creates dynamic character interaction' : 'narrative-focused style builds atmospheric tension'}.
+
+**💡 Recommendations:**
+- ${analysisData.telemetry.passiveVoicePercent > 20 ? 'Consider reducing passive voice for more engaging prose' : 'Good use of active voice keeps the narrative dynamic'}
+- ${analysisData.telemetry.avgSentenceLength > 20 ? 'Try varying sentence lengths for better flow' : 'Sentence length works well for readability'}
+- ${Object.values(analysisData.emotionHeatmap).some(v => v > 0) ? 'Strong emotional content detected - good for reader engagement' : 'Consider adding more emotional stakes'}
+
+**🎨 Story Elements:**
+- Atmospheric tension: ${analysisData.motifMap.some(m => ['dark', 'shadow', 'mystery', 'fear'].includes(m.word)) ? 'Strong' : 'Moderate'}
+- Character development: ${analysisData.characterMap.length > 0 ? 'Clear character focus' : 'Setting/atmosphere focused'}
+- Pacing: ${analysisData.telemetry.avgSentenceLength > 18 ? 'Slow, contemplative' : 'Balanced and engaging'}
+
+[Demo Mode: Full AI analysis available when API is connected]`;
+        
+        botMsg.textContent = "Ray Ray: " + demoFeedback;
+        
+        // Add feedback to tray
+        const sceneTitle = currentSceneIndex !== null ? 
+          (projects[currentProject].scenes[currentSceneIndex].title || `Scene ${currentSceneIndex + 1}`) : 
+          'Text Analysis';
+        addFeedbackToTray(sceneTitle, demoFeedback);
+        
+        // Update visualization with analysis data
+        redrawAllLayers(analysisData);
+      } else {
+        // If no analysis data, still try to get text and analyze
+        const textForAnalysis = getSelectedOrCurrentText();
+        if (textForAnalysis) {
+          const quickAnalysis = runAllDataAnalysis(textForAnalysis);
+          const simpleFeedback = `I've analyzed your text (${quickAnalysis.telemetry.wordCount} words, ${quickAnalysis.telemetry.sentenceCount} sentences). The writing shows ${quickAnalysis.telemetry.avgSentenceLength > 15 ? 'complex structure' : 'clear flow'} with ${quickAnalysis.telemetry.dialoguePercent}% dialogue. Key themes include: ${quickAnalysis.motifMap.map(m => m.word).join(', ')}. [Demo mode - API connection needed for full analysis]`;
+          botMsg.textContent = "Ray Ray: " + simpleFeedback;
+          addFeedbackToTray("Quick Analysis", simpleFeedback);
+        } else {
+          botMsg.textContent = "Ray Ray: I'm having trouble understanding. Could you rephrase that?";
+        }
+      }
     } else {
       botMsg.textContent = "Ray Ray: I'm having trouble understanding. Could you rephrase that?";
     }
@@ -803,7 +868,16 @@ ${analysisData.characterMap.length > 0 ?
       // Update visualization with analysis data
       redrawAllLayers(analysisData);
     } else {
-      botMsg.textContent = "Ray Ray: Sorry, I'm having connection issues. Please try again.";
+      // If no analysis data, still try to get text and analyze
+      const textForAnalysis = getSelectedOrCurrentText();
+      if (textForAnalysis) {
+        const quickAnalysis = runAllDataAnalysis(textForAnalysis);
+        const simpleFeedback = `I've analyzed your text (${quickAnalysis.telemetry.wordCount} words, ${quickAnalysis.telemetry.sentenceCount} sentences). The writing shows ${quickAnalysis.telemetry.avgSentenceLength > 15 ? 'complex structure' : 'clear flow'} with ${quickAnalysis.telemetry.dialoguePercent}% dialogue. Key themes include: ${quickAnalysis.motifMap.map(m => m.word).join(', ')}. [Demo mode - API connection needed for full analysis]`;
+        botMsg.textContent = "Ray Ray: " + simpleFeedback;
+        addFeedbackToTray("Quick Analysis", simpleFeedback);
+      } else {
+        botMsg.textContent = "Ray Ray: I'm having trouble understanding. Could you rephrase that?";
+      }
     }
     
     messages.appendChild(botMsg);
