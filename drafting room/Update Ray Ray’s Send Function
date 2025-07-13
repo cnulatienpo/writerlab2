@@ -1,0 +1,46 @@
+function sendRayRay() {
+  const input = document.getElementById('rayray-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  // Display user message
+  const messages = document.getElementById('rayray-messages');
+  const userMsg = document.createElement('div');
+  userMsg.style.color = '#85e1ff';
+  userMsg.textContent = "You: " + msg;
+  messages.appendChild(userMsg);
+
+  // Try to extract a scene title in quotes: Give me feedback on "Scene 3"
+  let sceneTitleMatch = msg.match(/"(.*?)"/);
+  let foundScene = null;
+  if (sceneTitleMatch && sceneTitleMatch[1]) {
+    foundScene = getSceneByTitle(sceneTitleMatch[1]);
+  } else {
+    // Fallback: try to match any known title in the message
+    const scenes = getAllScenes();
+    for (let scene of scenes) {
+      if (msg.toLowerCase().includes(scene.title.toLowerCase())) {
+        foundScene = scene;
+        break;
+      }
+    }
+  }
+
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.style.color = '#ffe877';
+    botMsg.style.marginBottom = '8px';
+    if (foundScene) {
+      // This is where you'd eventually add real analysis
+      botMsg.textContent = `Ray Ray: Here's my feedback on "${foundScene.title}": [${foundScene.content.substring(0, 60)}...]`;
+      messages.appendChild(botMsg);
+
+      addFeedbackToTray(foundScene.title, `[Fake Feedback] Looks good. (Replace with real analysis.)`);
+    } else {
+      botMsg.textContent = "Ray Ray: Not sure what scene you mean. Try selecting a scene from the sidebar or using exact title in quotes!";
+      messages.appendChild(botMsg);
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }, 700);
+  input.value = "";
+}
