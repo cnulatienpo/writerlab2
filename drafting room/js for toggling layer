@@ -1,0 +1,5 @@
+function toggleLayer(layerId) {
+  const el = document.getElementById(layerId);
+  if (!el) return;
+  el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+}
