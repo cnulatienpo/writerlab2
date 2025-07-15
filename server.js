@@ -47,6 +47,7 @@ app.get('/profile/:type', (req, res) => {
       `background:#f4f4f4;color:#111;}#content{white-space:pre-wrap;}</style></head>` +
       `<body><div id="content">${data.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>` +
       `<button id="start">Start Game</button>` +
+      `<script src="/quiz-embed.js"></script>` +
       `<script>document.getElementById('start').onclick=()=>{location.href='/elements.html';}</script>` +
       `</body></html>`
     );
